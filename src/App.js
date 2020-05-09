@@ -10,10 +10,10 @@ class App extends Component {
       style: "",
       hh: "0",
       vh: "0",
-      br: "0",
-      sr: "0",
-      cp: "",
-      bc: "",
+      br: "15",
+      sr: "5",
+      cp: "#80bfff",
+      bc: "#0080ff",
       checked: false,
     };
     this.onChange = this.onChange.bind(this);
@@ -22,42 +22,68 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  onChange(e) {
-    this.setState({
+  async onChange(e) {
+    await this.setState({
       [e.target.name]: [e.target.value],
     });
-    this.boxStyle(
+   await  this.boxStyle(
+       this.state.style,
+        this.state.hh,
+       this.state.vh,
+       this.state.br,
+       this.state.sr,
+       this.state.cp
+    );
+  await this.bc(this.state.bc);
+  }
+
+  async handleChange() {
+    await this.setState({
+      checked: !this.state.checked,
+    });    
+    await  this.boxStyle(
       this.state.style,
-      this.state.hh,
+       this.state.hh,
       this.state.vh,
       this.state.br,
       this.state.sr,
       this.state.cp
-    );
-    this.bc(this.state.bc);
-  }
+   );
 
-  handleChange() {
-    this.setState({
-      checked: !this.state.checked,
-    });
   }
 
   bc(bg) {
     let b = document.querySelector(".box");
     b.style.backgroundColor = bg;
   }
-  boxStyle(style, hh, vh, br, sr, clr) {
+   boxStyle(style, hh, vh, br, sr, clr) {
     //console.log(hh, vh, br, sr, clr, op);
-    let ele = document.querySelector(".box");
+    let ele =  document.querySelector(".box");
     style = this.state.checked ? "inset" : "";
     //let ele=document.createElement('div')
     //ele.classList.add('box')
-    ele.style.boxShadow = `${style} ${hh}px ${vh}px ${br}px ${sr}px ${clr} `;
+    ele.style.boxShadow =  `${style} ${hh}px ${vh}px ${br}px ${sr}px ${clr} `;
+    
     //ele.style.backgroundColor = bc;
     console.log(`${style} ${hh}px ${vh}px ${br}px ${sr}px ${clr}`);
-    document.body.appendChild(ele);
+   document.body.appendChild(ele);
   }
+
+
+   componentDidMount(){
+   this.boxStyle(
+      this.state.style,
+       this.state.hh,
+      this.state.vh,
+      this.state.br,
+      this.state.sr,
+      this.state.cp
+   );
+   this.bc(this.state.bc);
+   }
+
+
+
 
   render() {
     return (
@@ -126,8 +152,13 @@ class App extends Component {
           checked={this.state.checked}
           onChange={this.handleChange}
           value={this.state.style}
+        
         ></input>
-        <label htmlFor="style">Inset</label>
+        <label  htmlFor="style">Inset</label>
+
+
+
+
         <div className="box"></div>
         <div>
           box-shadow:&nbsp;
