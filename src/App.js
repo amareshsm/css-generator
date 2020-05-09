@@ -8,17 +8,17 @@ class App extends Component {
     super(porps);
     this.state = {
       style: "",
-      hh: "0",
-      vh: "0",
-      br: "15",
-      sr: "5",
-      cp: "#80bfff",
-      bc: "#0080ff",
+      horizontalHeight: "0",
+      verticalHeight: "0",
+      blurRadius: "15",
+      spreadRadius: "5",
+      shadowColor: "#80bfff",
+      boxColour: "#0080ff",
       checked: false,
     };
     this.onChange = this.onChange.bind(this);
     this.boxStyle = this.boxStyle.bind(this);
-    this.bc = this.bc.bind(this);
+    this.boxColour = this.boxColour.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -26,123 +26,127 @@ class App extends Component {
     await this.setState({
       [e.target.name]: [e.target.value],
     });
-   await  this.boxStyle(
-       this.state.style,
-        this.state.hh,
-       this.state.vh,
-       this.state.br,
-       this.state.sr,
-       this.state.cp
+    await this.boxStyle(
+      this.state.style,
+      this.state.horizontalHeight,
+      this.state.verticalHeight,
+      this.state.blurRadius,
+      this.state.spreadRadius,
+      this.state.shadowColor
     );
-  await this.bc(this.state.bc);
+    await this.boxColour(this.state.boxColour);
   }
 
   async handleChange() {
     await this.setState({
       checked: !this.state.checked,
-    });    
-    await  this.boxStyle(
+    });
+    await this.boxStyle(
       this.state.style,
-       this.state.hh,
-      this.state.vh,
-      this.state.br,
-      this.state.sr,
-      this.state.cp
-   );
-
+      this.state.horizontalHeight,
+      this.state.verticalHeight,
+      this.state.blurRadius,
+      this.state.spreadRadius,
+      this.state.shadowColor
+    );
   }
 
-  bc(bg) {
+  boxColour(bg) {
     let b = document.querySelector(".box");
     b.style.backgroundColor = bg;
   }
-   boxStyle(style, hh, vh, br, sr, clr) {
-    //console.log(hh, vh, br, sr, clr, op);
-    let ele =  document.querySelector(".box");
+  boxStyle(
+    style,
+    horizontalHeight,
+    verticalHeight,
+    blurRadius,
+    spreadRadius,
+    clr
+  ) {
+    //console.log(horizontalHeight, verticalHeight, blurRadius, spreadRadius, clr, op);
+    let ele = document.querySelector(".box");
     style = this.state.checked ? "inset" : "";
     //let ele=document.createElement('div')
     //ele.classList.add('box')
-    ele.style.boxShadow =  `${style} ${hh}px ${vh}px ${br}px ${sr}px ${clr} `;
-    
-    //ele.style.backgroundColor = bc;
-    console.log(`${style} ${hh}px ${vh}px ${br}px ${sr}px ${clr}`);
-   document.body.appendChild(ele);
+    ele.style.boxShadow = `${style} ${horizontalHeight}px ${verticalHeight}px ${blurRadius}px ${spreadRadius}px ${clr} `;
+
+    //ele.style.backgroundColor = boxColour;
+    console.log(
+      `${style} ${horizontalHeight}px ${verticalHeight}px ${blurRadius}px ${spreadRadius}px ${clr}`
+    );
+    document.body.appendChild(ele);
   }
 
-
-   componentDidMount(){
-   this.boxStyle(
+  componentDidMount() {
+    this.boxStyle(
       this.state.style,
-       this.state.hh,
-      this.state.vh,
-      this.state.br,
-      this.state.sr,
-      this.state.cp
-   );
-   this.bc(this.state.bc);
-   }
-
-
-
+      this.state.horizontalHeight,
+      this.state.verticalHeight,
+      this.state.blurRadius,
+      this.state.spreadRadius,
+      this.state.shadowColor
+    );
+    this.boxColour(this.state.boxColour);
+  }
 
   render() {
     return (
       <div className="App">
-        <label htmlFor="hh">Horizontal Height</label>
+        <label htmlFor="horizontalHeight">Horizontal Height</label>
         <input
           type="range"
           min="-100"
           max="100"
-          value={this.state.hh}
+          value={this.state.horizontalHeight}
           onChange={this.onChange}
-          name="hh"
+          name="horizontalHeight"
         />
-        <label>{this.state.hh}</label>
+        <label>{this.state.horizontalHeight}</label>
 
-        <label htmlFor="vh">Vertical Height</label>
+        <label htmlFor="verticalHeight">Vertical Height</label>
         <input
           type="range"
           min="-100"
           max="100"
-          value={this.state.vh}
+          value={this.state.verticalHeight}
           onChange={this.onChange}
-          name="vh"
+          name="verticalHeight"
         />
 
-        <label htmlFor="br">Blur Radius</label>
+        <label htmlFor="blurRadius">Blur Radius</label>
         <input
           type="range"
           min="0"
           max="150"
-          value={this.state.br}
+          value={this.state.blurRadius}
           onChange={this.onChange}
-          name="br"
+          name="blurRadius"
         />
 
-        <label htmlFor="sr">Spread Radius</label>
+        <label htmlFor="spreadRadius">Spread Radius</label>
         <input
           type="range"
           min="-100"
           max="100"
-          value={this.state.sr}
+          value={this.state.spreadRadius}
           onChange={this.onChange}
-          name="sr"
+          name="spreadRadius"
         />
         <p></p>
-        <label htmlFor="cp">shadow color</label>
+        <label htmlFor="shadowColor">shadow color</label>
         <input
           type="color"
-          name="cp"
+          name="shadowColor"
           onChange={this.onChange}
-          value={this.state.cp}
+          value={this.state.shadowColor}
         />
         <p></p>
-        <label htmlFor="bc">box color</label>
+        <label htmlFor="boxColour">box color</label>
         <input
           type="color"
-          name="bc"
+          name="boxColour"
           onChange={this.onChange}
-          value={this.state.bc}
+          value={this.state.boxColour}
         />
         <p></p>
 
@@ -152,20 +156,17 @@ class App extends Component {
           checked={this.state.checked}
           onChange={this.handleChange}
           value={this.state.style}
-        
         ></input>
-        <label  htmlFor="style">Inset</label>
-
-
-
+        <label htmlFor="style">Inset</label>
 
         <div className="box"></div>
         <div>
           box-shadow:&nbsp;
           {this.state.checked ? "inset" : ""}
           &nbsp;
-          {this.state.hh}px {this.state.vh}px {this.state.br}px {this.state.sr}
-          px {this.state.cp}
+          {this.state.horizontalHeight}px {this.state.verticalHeight}px{" "}
+          {this.state.blurRadius}px {this.state.spreadRadius}
+          px {this.state.shadowColor}
         </div>
       </div>
     );
