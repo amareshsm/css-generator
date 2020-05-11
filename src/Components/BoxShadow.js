@@ -67,7 +67,7 @@ class boxShadow extends Component {
     //let ele=document.createElement('div')
     //ele.classList.add('box')
     ele.style.boxShadow = `${style} ${horizontalHeight}px ${verticalHeight}px ${blurRadius}px ${spreadRadius}px ${clr} `;
-   // ele.setAttribute('style', `box-shadow: ${style} ${horizontalHeight}px ${verticalHeight}px ${blurRadius}px ${spreadRadius}px ${clr} `);
+    // ele.setAttribute('style', `box-shadow: ${style} ${horizontalHeight}px ${verticalHeight}px ${blurRadius}px ${spreadRadius}px ${clr} `);
     //ele.style.backgroundColor = boxColour;
     console.log(
       `${style} ${horizontalHeight}px ${verticalHeight}px ${blurRadius}px ${spreadRadius}px ${clr}`
@@ -99,8 +99,8 @@ class boxShadow extends Component {
           onChange={this.onChange}
           name="horizontalHeight"
         />
-
-    <input
+        &nbsp;
+        <input
           type="number"
           min="-100"
           max="100"
@@ -108,8 +108,7 @@ class boxShadow extends Component {
           onChange={this.onChange}
           name="horizontalHeight"
         />
-        <label>{this.state.horizontalHeight}</label>
-
+        <br />
         <label htmlFor="verticalHeight">Vertical Height</label>
         <input
           type="range"
@@ -119,7 +118,16 @@ class boxShadow extends Component {
           onChange={this.onChange}
           name="verticalHeight"
         />
-
+        &nbsp;
+        <input
+          type="number"
+          min="-100"
+          max="100"
+          value={this.state.verticalHeight}
+          onChange={this.onChange}
+          name="verticalHeight"
+        />
+        <br />
         <label htmlFor="blurRadius">Blur Radius</label>
         <input
           type="range"
@@ -129,7 +137,16 @@ class boxShadow extends Component {
           onChange={this.onChange}
           name="blurRadius"
         />
-
+        &nbsp;
+        <input
+          type="number"
+          min="-100"
+          max="100"
+          value={this.state.blurRadius}
+          onChange={this.onChange}
+          name="blurRadius"
+        />
+        <br />
         <label htmlFor="spreadRadius">Spread Radius</label>
         <input
           type="range"
@@ -139,7 +156,16 @@ class boxShadow extends Component {
           onChange={this.onChange}
           name="spreadRadius"
         />
-        <p></p>
+        &nbsp;
+        <input
+          type="number"
+          min="-100"
+          max="100"
+          value={this.state.spreadRadius}
+          onChange={this.onChange}
+          name="spreadRadius"
+        />
+        <br />
         <label htmlFor="shadowColor">shadow color</label>
         <input
           type="color"
@@ -147,7 +173,14 @@ class boxShadow extends Component {
           onChange={this.onChange}
           value={this.state.shadowColor}
         />
-        <p></p>
+        &nbsp;
+        <input
+          type="text"
+          value={this.state.shadowColor}
+          onChange={this.onChange}
+          name="shadowColor"
+        />
+        <br />
         <label htmlFor="boxColour">box color</label>
         <input
           type="color"
@@ -155,8 +188,14 @@ class boxShadow extends Component {
           onChange={this.onChange}
           value={this.state.boxColour}
         />
-        <p></p>
-
+        &nbsp;
+        <input
+          type="text"
+          value={this.state.boxColour}
+          onChange={this.onChange}
+          name="boxColor"
+        />
+        <br />
         <input
           type="checkbox"
           name="style"
@@ -165,15 +204,30 @@ class boxShadow extends Component {
           value={this.state.style}
         ></input>
         <label htmlFor="style">Inset</label>
-
         <div className="box"></div>
+        <div>
+          -webkit-box-shadow:&nbsp;
+          {this.state.checked ? "inset" : ""}
+          &nbsp;
+          {this.state.horizontalHeight}px {this.state.verticalHeight}px{" "}
+          {this.state.blurRadius}px {this.state.spreadRadius}
+          px {this.state.shadowColor};
+        </div>
+        <div>
+          -moz-box-shadow:&nbsp;
+          {this.state.checked ? "inset" : ""}
+          &nbsp;
+          {this.state.horizontalHeight}px {this.state.verticalHeight}px{" "}
+          {this.state.blurRadius}px {this.state.spreadRadius}
+          px {this.state.shadowColor};
+        </div>
         <div>
           box-shadow:&nbsp;
           {this.state.checked ? "inset" : ""}
           &nbsp;
           {this.state.horizontalHeight}px {this.state.verticalHeight}px{" "}
           {this.state.blurRadius}px {this.state.spreadRadius}
-          px {this.state.shadowColor}
+          px {this.state.shadowColor};
         </div>
       </div>
     );

@@ -5,149 +5,203 @@ class BorderRadius extends Component {
   constructor(porps) {
     super(porps);
     this.state = {
-      style: "",
-      horizontalHeight: "0",
-      verticalHeight: "0",
-      blurRadius: "15",
-      spreadRadius: "5",
-      shadowColor: "#80bfff",
+      //style: "",
+      topLeftRadius: "0",
+      topRightRadius: "0",
+      bottomLeftRadius: "0",
+      bottomRightRadius: "0",
       boxColour: "#0080ff",
-      checked: false,
+      border_Width: "10",
+      borderStyle: "solid",
+      borderColour: "#ff0000",
     };
     this.onChange = this.onChange.bind(this);
-    this.boxStyle = this.boxStyle.bind(this);
+    this.borderRadiusStyle = this.borderRadiusStyle.bind(this);
     this.boxColour = this.boxColour.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.borderColour = this.borderColour.bind(this);
+    this.borderWidthStyle = this.borderWidthStyle.bind(this);
   }
 
   async onChange(e) {
     await this.setState({
       [e.target.name]: [e.target.value],
     });
-    await this.boxStyle(
-      this.state.style,
-      this.state.horizontalHeight,
-      this.state.verticalHeight,
-      this.state.blurRadius,
-      this.state.spreadRadius,
-      this.state.shadowColor
+    await this.borderWidthStyle(
+      this.state.border_Width,
+      this.state.borderStyle,
+      this.state.borderColour
     );
-    await this.boxColour(this.state.boxColour);
-  }
+    await this.borderRadiusStyle(
+      //this.state.style,
+      this.state.topLeftRadius,
+      this.state.topRightRadius,
+      this.state.bottomLeftRadius,
+      this.state.bottomRightRadius
+      //this.state.shadowColor
+    );
 
-  async handleChange() {
-    await this.setState({
-      checked: !this.state.checked,
-    });
-    await this.boxStyle(
-      this.state.style,
-      this.state.horizontalHeight,
-      this.state.verticalHeight,
-      this.state.blurRadius,
-      this.state.spreadRadius,
-      this.state.shadowColor
-    );
+    await this.boxColour(this.state.boxColour);
+    await this.borderColour(this.state.borderColour);
   }
 
   boxColour(bg) {
     let b = document.querySelector(".box");
     b.style.backgroundColor = bg;
   }
-  boxStyle(
-    style,
-    horizontalHeight,
-    verticalHeight,
-    blurRadius,
-    spreadRadius,
-    clr
+  borderColour(border) {
+    let b = document.querySelector(".box");
+    b.style.borderColour = border;
+  }
+  borderRadiusStyle(
+    //style,
+    topLeftRadius,
+    topRightRadius,
+    bottomLeftRadius,
+    bottomRightRadius
+    //clr
   ) {
-    //console.log(horizontalHeight, verticalHeight, blurRadius, spreadRadius, clr, op);
+    //console.log(topLeftRadius, topRightRadius, bottomLeftRadius, bottomRightRadius, clr, op);
     let ele = document.querySelector(".box");
-    style = this.state.checked ? "inset" : "";
+    //style = this.state.checked ? "inset" : "";
     //let ele=document.createElement('div')
     //ele.classList.add('box')
-    ele.style.boxShadow = `${style} ${horizontalHeight}px ${verticalHeight}px ${blurRadius}px ${spreadRadius}px ${clr} `;
+    ele.style.borderRadius = ` ${topLeftRadius}px ${topRightRadius}px ${bottomLeftRadius}px ${bottomRightRadius}px `;
 
     //ele.style.backgroundColor = boxColour;
     console.log(
-      `${style} ${horizontalHeight}px ${verticalHeight}px ${blurRadius}px ${spreadRadius}px ${clr}`
+      ` ${topLeftRadius}px ${topRightRadius}px ${bottomLeftRadius}px ${bottomRightRadius}px `
     );
     document.body.appendChild(ele);
   }
-
+  borderWidthStyle(border_Width, borderStyle, borderColour) {
+    console.log(border_Width, borderStyle, borderColour);
+    let e = document.querySelector(".box");
+    e.style.border = `${border_Width}px ${borderStyle} ${borderColour}`;
+  }
   componentDidMount() {
-    this.boxStyle(
-      this.state.style,
-      this.state.horizontalHeight,
-      this.state.verticalHeight,
-      this.state.blurRadius,
-      this.state.spreadRadius,
-      this.state.shadowColor
+    this.borderRadiusStyle(
+      //this.state.style,
+      this.state.topLeftRadius,
+      this.state.topRightRadius,
+      this.state.bottomLeftRadius,
+      this.state.bottomRightRadius
+      //this.state.shadowColor
     );
     this.boxColour(this.state.boxColour);
+    this.borderWidthStyle(
+      this.state.border_Width,
+      this.state.borderStyle,
+      this.state.borderColour
+    );
   }
 
   render() {
     return (
       <div className="App">
-        <label htmlFor="horizontalHeight">Horizontal Height</label>
-        <input
-          type="range"
-          min="-100"
-          max="100"
-          value={this.state.horizontalHeight}
-          onChange={this.onChange}
-          name="horizontalHeight"
-        />
-
-    <input
-          type="number"
-          min="-100"
-          max="100"
-          value={this.state.horizontalHeight}
-          onChange={this.onChange}
-          name="horizontalHeight"
-        />
-        <label>{this.state.horizontalHeight}</label>
-
-        <label htmlFor="verticalHeight">Vertical Height</label>
-        <input
-          type="range"
-          min="-100"
-          max="100"
-          value={this.state.verticalHeight}
-          onChange={this.onChange}
-          name="verticalHeight"
-        />
-
-        <label htmlFor="blurRadius">Blur Radius</label>
+        <label htmlFor="topLeftRadius">Top Left Radius</label>
         <input
           type="range"
           min="0"
-          max="150"
-          value={this.state.blurRadius}
+          max="200"
+          value={this.state.topLeftRadius}
           onChange={this.onChange}
-          name="blurRadius"
+          name="topLeftRadius"
         />
-
-        <label htmlFor="spreadRadius">Spread Radius</label>
+        &nbsp;
+        <input
+          type="number"
+          min="0"
+          max="200"
+          value={this.state.topLeftRadius}
+          onChange={this.onChange}
+          name="topLeftRadius"
+        />
+        <br />
+        <label htmlFor="topRightRadius">Top Right Radius</label>
         <input
           type="range"
-          min="-100"
-          max="100"
-          value={this.state.spreadRadius}
+          min="0"
+          max="200"
+          value={this.state.topRightRadius}
           onChange={this.onChange}
-          name="spreadRadius"
+          name="topRightRadius"
         />
+        &nbsp;
+        <input
+          type="number"
+          min="0"
+          max="200"
+          value={this.state.topRightRadius}
+          onChange={this.onChange}
+          name="topRightRadius"
+        />
+        <br />
+        <label htmlFor="bottomLeftRadius">Bottom Left Radius</label>
+        <input
+          type="range"
+          min="0"
+          max="200"
+          value={this.state.bottomLeftRadius}
+          onChange={this.onChange}
+          name="bottomLeftRadius"
+        />
+        &nbsp;
+        <input
+          type="number"
+          min="0"
+          max="200"
+          value={this.state.bottomLeftRadius}
+          onChange={this.onChange}
+          name="bottomLeftRadius"
+        />
+        <br />
+        <label htmlFor="bottomRightRadius">Bottom Right Radius</label>
+        <input
+          type="range"
+          min="0"
+          max="200"
+          value={this.state.bottomRightRadius}
+          onChange={this.onChange}
+          name="bottomRightRadius"
+        />
+        &nbsp;
+        <input
+          type="number"
+          min="0"
+          max="200"
+          value={this.state.bottomRightRadius}
+          onChange={this.onChange}
+          name="bottomRightRadius"
+        />
+        <br />
+        <label htmlFor="border_Width">Border Width</label>
+        <input
+          type="range"
+          min="0"
+          max="200"
+          value={this.state.border_Width}
+          onChange={this.onChange}
+          name="border_Width"
+        />
+        &nbsp;
+        <input
+          type="number"
+          min="0"
+          max="200"
+          value={this.state.border_Width}
+          onChange={this.onChange}
+          name="border_Width"
+        />
+        <br />
         <p></p>
-        <label htmlFor="shadowColor">shadow color</label>
+        {/*<label htmlFor="shadowColor">shadow color</label>
         <input
           type="color"
           name="shadowColor"
           onChange={this.onChange}
           value={this.state.shadowColor}
         />
-        <p></p>
+        <p></p>*/}
         <label htmlFor="boxColour">box color</label>
         <input
           type="color"
@@ -156,24 +210,45 @@ class BorderRadius extends Component {
           value={this.state.boxColour}
         />
         <p></p>
-
+        <label htmlFor="borderColour">Border color</label>
         <input
+          type="color"
+          name="borderColour"
+          onChange={this.onChange}
+          value={this.state.borderColour}
+        />
+        <p></p>
+        {/*<input
           type="checkbox"
           name="style"
           checked={this.state.checked}
           onChange={this.handleChange}
           value={this.state.style}
         ></input>
-        <label htmlFor="style">Inset</label>
-
+        <label htmlFor="style">Inset</label>*/}
         <div className="box"></div>
         <div>
-          box-shadow:&nbsp;
-          {this.state.checked ? "inset" : ""}
-          &nbsp;
-          {this.state.horizontalHeight}px {this.state.verticalHeight}px{" "}
-          {this.state.blurRadius}px {this.state.spreadRadius}
-          px {this.state.shadowColor}
+          box-Radius:&nbsp;
+          {this.state.topLeftRadius}px {this.state.topRightRadius}px{" "}
+          {this.state.bottomLeftRadius}px {this.state.bottomRightRadius}
+          px;
+        </div>
+        <div>
+          -webkit-box-Radius:&nbsp;
+          {this.state.topLeftRadius}px {this.state.topRightRadius}px{" "}
+          {this.state.bottomLeftRadius}px {this.state.bottomRightRadius}
+          px;
+        </div>
+        <div>
+          -moz-box-Radius:&nbsp;
+          {this.state.topLeftRadius}px {this.state.topRightRadius}px{" "}
+          {this.state.bottomLeftRadius}px {this.state.bottomRightRadius}
+          px;
+        </div>
+        <div>
+          border:&nbsp;
+          {this.state.border_Width}px {this.state.borderStyle}{" "}
+          {this.state.borderColour};
         </div>
       </div>
     );
