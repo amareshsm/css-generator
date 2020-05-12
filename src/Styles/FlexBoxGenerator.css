@@ -1,0 +1,48 @@
+h1{
+    text-align:center;
+  }
+
+  input{
+    height:24px;
+     width:260px;
+  margin:2px;  
+  }
+  button{
+    width:200px;
+    margin:2px;
+  }
+  .boxes{
+    padding:5px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap:wrap;
+  }
+  .myDiv{
+    padding:2px;
+    margin:4px;  
+    flex:  0  0 auto;
+    height:50px;
+    width:50px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:1px;
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+  }
+  .myDiv:nth-child(odd) {
+    background:orange;
+  }
+  
+  .myDiv:nth-child(even) {
+    background: lightgreen;
+  
+  }
