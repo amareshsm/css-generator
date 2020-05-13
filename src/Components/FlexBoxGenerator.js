@@ -5,87 +5,49 @@ class FlexBoxGenerator extends Component {
   constructor(porps) {
     super(porps);
     this.state = {
-      no_of_boxes: "0",
+      no_of_boxes: "5",
       box_foreground: "#ff0000",
       box_background: "#000000",
       box_height: "",
     };
     this.onChange = this.onChange.bind(this);
-    this.borderRadiusStyle = this.borderRadiusStyle.bind(this);
-    this.boxColour = this.boxColour.bind(this);
     this.Generate_Box = this.Generate_Box.bind(this);
+    this.Add_Click_Event = this.Add_Click_Event.bind(this);
+
   }
 
-  Generate_Box(a) {
-    let button = document.getElementById("button"); //adha btn
-    button.addEventListener("click", myFunction); //btn ku click event add panrom
-    let n;
-    a = this.state.no_of_boxes;
-    let oldvalue = 0; //temp var to store old value
-    let i;
-    console.log(a);
-    function myFunction() {
-      n = parseInt(oldvalue) + parseInt(a);
-      for (i = 1; i <= n; i++) {
-        var boxes = document.createElement("div");
-        boxes.classList.add("myDiv");
-        document.getElementById("boxes").appendChild(boxes);
-        boxes.innerHTML = i;
-      }
+  Add_Click_Event() {
+    let button = document.getElementById("button"); 
+    button.addEventListener("click", this.Generate_Box); 
+   
+  }
 
-      oldvalue = document.getElementById("boxes").lastElementChild.innerHTML;
-      console.log(oldvalue);
-    }
+  Generate_Box() {
+    console.log()
+    let n;
+    n = document.getElementById("boxes").childElementCount+parseInt(this.state.no_of_boxes);
+    for (let i=document.getElementById("boxes").childElementCount+1; i <= n; i++) {
+      let boxes = document.createElement("div");
+      boxes.classList.add("myDiv");
+      document.getElementById("boxes").appendChild(boxes);
+      boxes.innerHTML = i;
+    } 
+
   }
 
   async onChange(e) {
     await this.setState({
       [e.target.name]: [e.target.value],
     });
-    await this.borderRadiusStyle(
-      //this.state.style,
-      this.state.topLeftRadius,
-      this.state.topRightRadius,
-      this.state.bottomLeftRadius,
-      this.state.bottomRightRadius
-      //this.state.shadowColor
-    );
 
-    await this.boxColour(this.state.boxColour);
-    await this.Generate_Box(this.state.no_of_boxes);
   }
 
-  boxColour(bg) {
-    let b = document.querySelector(".box");
-    b.style.backgroundColor = bg;
-  }
 
-  borderRadiusStyle(
-    //style,
-    topLeftRadius,
-    topRightRadius,
-    bottomLeftRadius,
-    bottomRightRadius
-    //clr
-  ) {
-    let ele = document.querySelector(".box");
-    ele.style.borderRadius = ` ${topLeftRadius}px ${topRightRadius}px ${bottomLeftRadius}px ${bottomRightRadius}px `;
-    console.log(
-      ` ${topLeftRadius}px ${topRightRadius}px ${bottomLeftRadius}px ${bottomRightRadius}px `
-    );
-    document.body.appendChild(ele);
-  }
+ 
 
-  componentDidMount() {
-    this.borderRadiusStyle(
-      this.state.topLeftRadius,
-      this.state.topRightRadius,
-      this.state.bottomLeftRadius,
-      this.state.bottomRightRadius
-    );
-    this.boxColour(this.state.boxColour);
-
-    this.Generate_Box(this.state.no_of_boxes);
+  componentDidMount() { 
+    this.Add_Click_Event()
+    this. Generate_Box()
   }
 
   render() {
@@ -96,146 +58,7 @@ class FlexBoxGenerator extends Component {
           type="number"
           value={this.state.no_of_boxes}
           onChange={this.onChange}
-          name="no_of_boxes"
-        />
-        <label htmlFor="topLeftRadius">Top Left Radius</label>
-        <input
-          type="range"
-          min="0"
-          max="200"
-          value={this.state.topLeftRadius}
-          onChange={this.onChange}
-          name="topLeftRadius"
-        />
-        <input
-          type="number"
-          min="0"
-          max="200"
-          value={this.state.topLeftRadius}
-          onChange={this.onChange}
-          name="topLeftRadius"
-        />
-        <br />
-        <label htmlFor="topRightRadius">Top Right Radius</label>
-        <input
-          type="range"
-          min="0"
-          max="200"
-          value={this.state.topRightRadius}
-          onChange={this.onChange}
-          name="topRightRadius"
-        />
-        &nbsp;
-        <input
-          type="number"
-          min="0"
-          max="200"
-          value={this.state.topRightRadius}
-          onChange={this.onChange}
-          name="topRightRadius"
-        />
-        <br />
-        <label htmlFor="bottomLeftRadius">Bottom Left Radius</label>
-        <input
-          type="range"
-          min="0"
-          max="200"
-          value={this.state.bottomLeftRadius}
-          onChange={this.onChange}
-          name="bottomLeftRadius"
-        />
-        &nbsp;
-        <input
-          type="number"
-          min="0"
-          max="200"
-          value={this.state.bottomLeftRadius}
-          onChange={this.onChange}
-          name="bottomLeftRadius"
-        />
-        <br />
-        <label htmlFor="bottomRightRadius">Bottom Right Radius</label>
-        <input
-          type="range"
-          min="0"
-          max="200"
-          value={this.state.bottomRightRadius}
-          onChange={this.onChange}
-          name="bottomRightRadius"
-        />
-        &nbsp;
-        <input
-          type="number"
-          min="0"
-          max="200"
-          value={this.state.bottomRightRadius}
-          onChange={this.onChange}
-          name="bottomRightRadius"
-        />
-        <br />
-        <label htmlFor="border_Width">Border Width</label>
-        <input
-          type="range"
-          min="0"
-          max="200"
-          value={this.state.border_Width}
-          onChange={this.onChange}
-          name="border_Width"
-        />
-        &nbsp;
-        <input
-          type="number"
-          min="0"
-          max="200"
-          value={this.state.border_Width}
-          onChange={this.onChange}
-          name="border_Width"
-        />
-        <br />
-        <p></p>
-        <label htmlFor="boxColour">box color</label>
-        <input
-          type="color"
-          name="boxColour"
-          onChange={this.onChange}
-          value={this.state.boxColour}
-        />
-        <p></p>
-        <label htmlFor="borderColour">Border color</label>
-        <input
-          type="color"
-          name="borderColour"
-          onChange={this.onChange}
-          value={this.state.borderColour}
-        />
-        <p></p>
-        {/*<input
-          type="checkbox"
-          name="style"
-          checked={this.state.checked}
-          onChange={this.handleChange}
-          value={this.state.style}
-        ></input>
-        <label htmlFor="style">Inset</label>*/}
-        <div className="box"></div>
-        <div>
-          box-Radius:&nbsp;
-          {this.state.topLeftRadius}px {this.state.topRightRadius}px{" "}
-          {this.state.bottomLeftRadius}px {this.state.bottomRightRadius}
-          px;
-        </div>
-        <div>
-          -webkit-box-Radius:&nbsp;
-          {this.state.topLeftRadius}px {this.state.topRightRadius}px{" "}
-          {this.state.bottomLeftRadius}px {this.state.bottomRightRadius}
-          px;
-        </div>
-        <div>
-          -moz-box-Radius:&nbsp;
-          {this.state.topLeftRadius}px {this.state.topRightRadius}px{" "}
-          {this.state.bottomLeftRadius}px {this.state.bottomRightRadius}
-          px;
-        </div>
+          name="no_of_boxes"   />
         <div>
           <button id="button">Generate</button>
         </div>
