@@ -5,41 +5,38 @@ class FlexBoxGenerator extends Component {
   constructor(porps) {
     super(porps);
     this.state = {
-      no_of_boxes:"",
-      box_foreground:"#ff0000",
-      box_background:"#000000",
-      box_height:"",
-
+      no_of_boxes: "0",
+      box_foreground: "#ff0000",
+      box_background: "#000000",
+      box_height: "",
     };
     this.onChange = this.onChange.bind(this);
     this.borderRadiusStyle = this.borderRadiusStyle.bind(this);
     this.boxColour = this.boxColour.bind(this);
     this.Generate_Box = this.Generate_Box.bind(this);
-
-  
   }
 
-
- Generate_Box(){
-    let button =document.getElementById("button"); //adha btn 
-    button.addEventListener("click",myFunction);//btn ku click event add panrom
+  Generate_Box(a) {
+    let button = document.getElementById("button"); //adha btn
+    button.addEventListener("click", myFunction); //btn ku click event add panrom
     let n;
-    let oldvalue=0; //temp var to store old value 
-    let i=1;
-    console.log(this.state.no_of_boxes);
-    function myFunction(){
-        n=parseInt(oldvalue)+parseInt(this.state.no_of_boxes);
-        for(;i<=n;i++){
-            var boxes = document.createElement('div');
-            boxes.classList.add('myDiv');
-            document.getElementById('boxes').appendChild(boxes);
-            boxes.innerHTML=i;
-        }
-        oldvalue=document.getElementById('boxes').lastElementChild.innerHTML;
-        console.log(oldvalue);
+    a = this.state.no_of_boxes;
+    let oldvalue = 0; //temp var to store old value
+    let i;
+    console.log(a);
+    function myFunction() {
+      n = parseInt(oldvalue) + parseInt(a);
+      for (i = 1; i <= n; i++) {
+        var boxes = document.createElement("div");
+        boxes.classList.add("myDiv");
+        document.getElementById("boxes").appendChild(boxes);
+        boxes.innerHTML = i;
+      }
+
+      oldvalue = document.getElementById("boxes").lastElementChild.innerHTML;
+      console.log(oldvalue);
     }
   }
-
 
   async onChange(e) {
     await this.setState({
@@ -55,6 +52,7 @@ class FlexBoxGenerator extends Component {
     );
 
     await this.boxColour(this.state.boxColour);
+    await this.Generate_Box(this.state.no_of_boxes);
   }
 
   boxColour(bg) {
@@ -87,8 +85,7 @@ class FlexBoxGenerator extends Component {
     );
     this.boxColour(this.state.boxColour);
 
-    this.Generate_Box()
-
+    this.Generate_Box(this.state.no_of_boxes);
   }
 
   render() {
@@ -97,13 +94,10 @@ class FlexBoxGenerator extends Component {
         <label htmlFor="topLeftRadius">NO OF BOXES</label>
         <input
           type="number"
- 
           value={this.state.no_of_boxes}
           onChange={this.onChange}
           name="no_of_boxes"
         />
-
-
         <label htmlFor="topLeftRadius">Top Left Radius</label>
         <input
           type="range"
@@ -199,7 +193,6 @@ class FlexBoxGenerator extends Component {
         />
         <br />
         <p></p>
-
         <label htmlFor="boxColour">box color</label>
         <input
           type="color"
@@ -243,15 +236,12 @@ class FlexBoxGenerator extends Component {
           {this.state.bottomLeftRadius}px {this.state.bottomRightRadius}
           px;
         </div>
-
-
-
         <div>
-    <button id="button">Generate</button>
-</div>
-<div className="container">
-<div className="boxes" id="boxes"></div>
-</div>
+          <button id="button">Generate</button>
+        </div>
+        <div className="container">
+          <div className="boxes" id="boxes"></div>
+        </div>
       </div>
     );
   }
