@@ -1,0 +1,9 @@
+.box {
+  height: 50px;
+  width: 150px;
+  border-radius: 3px;
+  border-style: solid;
+  border-color: red;
+  background-color: brown;
+  outline: 5px solid black;
+}

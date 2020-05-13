@@ -4,6 +4,7 @@ import BoxShadow from "./Components/BoxShadow";
 import BorderRadius from "./Components/BorderRadius.js";
 import TextShadow from "./Components/TextShadow";
 import FlexBoxGenerator from "./Components/FlexBoxGenerator";
+import Margin from "./Components/Margin";
 
 import { Switch, BrowserRouter, Route, Link } from "react-router-dom";
 
@@ -19,7 +20,8 @@ class App extends Component {
           <a href="/TextShadow">TextShadow</a>
           <br></br>
           <a href="/FlexBoxGenerator">Flex Box Generator</a>
-
+          <br></br>
+          <a href="/Margin">Margin and Padding</a>
 
           <Switch>
             {/* <Route path="/" component={Home} exact />*/}
@@ -27,7 +29,7 @@ class App extends Component {
             <Route path="/BorderRadius" component={BorderRadius} />
             <Route path="/TextShadow" component={TextShadow} />
             <Route path="/FlexBoxGenerator" component={FlexBoxGenerator} />
-
+            <Route path="/Margin" component={Margin} />
           </Switch>
         </BrowserRouter>
       </>
