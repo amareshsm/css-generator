@@ -5,14 +5,16 @@ class Margin extends Component {
   constructor(porps) {
     super(porps);
     this.state = {
-      marginTop: "",
-      marginRight: "",
-      marginBottom: "",
-      marginLeft: "",
-      paddingTop: "",
-      paddingRight: "",
-      paddingBottom: "",
-      paddingLeft: "",
+      marginTop: "5",
+      marginRight: "5",
+      marginBottom: "5",
+      marginLeft: "5",
+      paddingTop: "5",
+      paddingRight: "5",
+      paddingBottom: "5",
+      paddingLeft: "5",
+      boxColour:"#ff80c0"
+      
     };
     this.onChange = this.onChange.bind(this);
     this.marginStyle = this.marginStyle.bind(this);
@@ -40,16 +42,16 @@ class Margin extends Component {
   }
 
   boxColour(bg) {
-    let b = document.querySelector(".box");
+    let b = document.querySelector(".box-margin");
     b.style.backgroundColor = bg;
   }
   marginStyle(marginTop, marginRight, marginBottom, marginLeft) {
-    let ele = document.querySelector(".box");
+    let ele = document.querySelector(".box-margin");
     ele.style.margin = `${marginTop}px ${marginRight}px ${marginBottom}px ${marginLeft}px `;
     document.body.appendChild(ele);
   }
   paddingStyle(paddingTop, paddingRight, paddingBottom, paddingLeft) {
-    let ele = document.querySelector(".box");
+    let ele = document.querySelector(".box-margin");
     ele.style.padding = `${paddingTop}px ${paddingRight}px ${paddingBottom}px ${paddingLeft}px `;
     document.body.appendChild(ele);
   }
@@ -241,17 +243,9 @@ class Margin extends Component {
           name="boxColor"
         />
         <br />
-        {/*<div>
-          padding : &nbsp; {paddingTop}px {paddingRight}px {paddingBottom}px{" "}
-          {paddingLeft}px
-        </div>
+
         <br></br>
-        <div>
-          margin : &nbsp; {marginTop}px {marginRight}px {marginBottom}px{" "}
-          {marginLeft}px
-        </div>*/}
-        <br></br>
-        <div className="box"> Hellooo </div>
+        <div className="box-margin"> Hellooo </div>
       </div>
     );
   }
