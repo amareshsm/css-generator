@@ -13,8 +13,7 @@ class Margin extends Component {
       paddingRight: "5",
       paddingBottom: "5",
       paddingLeft: "5",
-      boxColour:"#ff80c0"
-      
+      boxColour: "#ff80c0",
     };
     this.onChange = this.onChange.bind(this);
     this.marginStyle = this.marginStyle.bind(this);
@@ -243,7 +242,13 @@ class Margin extends Component {
           name="boxColor"
         />
         <br />
-
+        <div>
+          margin: &nbsp; {this.state.marginTop}px {this.state.marginRight}px{" "}
+          {this.state.marginBottom}px {this.state.marginLeft}px;
+          <br></br>
+          padding: &nbsp; {this.state.paddingTop}px {this.state.paddingRight}px{" "}
+          {this.state.paddingBottom}px {this.state.paddingLeft}px;
+        </div>
         <br></br>
         <div className="box-margin"> Hellooo </div>
       </div>

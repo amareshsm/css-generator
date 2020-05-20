@@ -12,23 +12,26 @@ class BorderRadius extends Component {
       bottomRightRadius: "0",
       boxColour: "#0080ff",
       border_Width: "10",
-      borderStyle: "solid",
-      borderColour: "#ff0000",
+      value: "solid",
+      borderColour: "#ff8080",
     };
     this.onChange = this.onChange.bind(this);
     this.borderRadiusStyle = this.borderRadiusStyle.bind(this);
     this.boxColour = this.boxColour.bind(this);
     this.borderColour = this.borderColour.bind(this);
     this.borderWidthStyle = this.borderWidthStyle.bind(this);
+    //this.handleChange = this.handleChange.bind(this);
   }
 
   async onChange(e) {
     await this.setState({
       [e.target.name]: [e.target.value],
+      value: e.target.value,
     });
+    //await this.handleChange();
     await this.borderWidthStyle(
       this.state.border_Width,
-      this.state.borderStyle,
+      this.state.value,
       this.state.borderColour
     );
     await this.borderRadiusStyle(
@@ -42,8 +45,14 @@ class BorderRadius extends Component {
 
     await this.boxColour(this.state.boxColour);
     await this.borderColour(this.state.borderColour);
+    //await this.handleChange();
   }
 
+  /*handleChange(event) {
+    this.setState({
+      value: event.target.value,
+    });
+  }*/
   boxColour(bg) {
     let b = document.querySelector(".box");
     b.style.backgroundColor = bg;
@@ -58,41 +67,33 @@ class BorderRadius extends Component {
     topRightRadius,
     bottomLeftRadius,
     bottomRightRadius
-    //clr
   ) {
-    //console.log(topLeftRadius, topRightRadius, bottomLeftRadius, bottomRightRadius, clr, op);
     let ele = document.querySelector(".box");
-    //style = this.state.checked ? "inset" : "";
-    //let ele=document.createElement('div')
-    //ele.classList.add('box')
     ele.style.borderRadius = ` ${topLeftRadius}px ${topRightRadius}px ${bottomLeftRadius}px ${bottomRightRadius}px `;
-
-    //ele.style.backgroundColor = boxColour;
     console.log(
       ` ${topLeftRadius}px ${topRightRadius}px ${bottomLeftRadius}px ${bottomRightRadius}px `
     );
     document.body.appendChild(ele);
   }
-  borderWidthStyle(border_Width, borderStyle, borderColour) {
-    console.log(border_Width, borderStyle, borderColour);
+  borderWidthStyle(border_Width, value, borderColour) {
+    console.log(border_Width, value, borderColour);
     let e = document.querySelector(".box");
-    e.style.border = `${border_Width}px ${borderStyle} ${borderColour}`;
+    e.style.border = `${border_Width}px ${value} ${borderColour}`;
   }
   componentDidMount() {
     this.borderRadiusStyle(
-      //this.state.style,
       this.state.topLeftRadius,
       this.state.topRightRadius,
       this.state.bottomLeftRadius,
       this.state.bottomRightRadius
-      //this.state.shadowColor
     );
     this.boxColour(this.state.boxColour);
     this.borderWidthStyle(
       this.state.border_Width,
-      this.state.borderStyle,
+      this.state.value,
       this.state.borderColour
     );
+    //this.handleChange();
   }
 
   render() {
@@ -193,15 +194,19 @@ class BorderRadius extends Component {
           name="border_Width"
         />
         <br />
+        <label htmlFor="value">Border Style</label>
+        <select value={this.state.value} name="value" onChange={this.onChange}>
+          <option selected value="solid">
+            solid
+          </option>
+          <option value="dotted">dotted</option>
+          <option value="dashed">dashed</option>
+          <option value="hidden">hidden</option>
+          <option value="ridge">ridge</option>
+          <option value="inset">inset</option>
+          <option value="outset">outset</option>
+        </select>
         <p></p>
-        {/*<label htmlFor="shadowColor">shadow color</label>
-        <input
-          type="color"
-          name="shadowColor"
-          onChange={this.onChange}
-          value={this.state.shadowColor}
-        />
-        <p></p>*/}
         <label htmlFor="boxColour">box color</label>
         <input
           type="color"
@@ -218,14 +223,6 @@ class BorderRadius extends Component {
           value={this.state.borderColour}
         />
         <p></p>
-        {/*<input
-          type="checkbox"
-          name="style"
-          checked={this.state.checked}
-          onChange={this.handleChange}
-          value={this.state.style}
-        ></input>
-        <label htmlFor="style">Inset</label>*/}
         <div className="box"></div>
         <div>
           box-Radius:&nbsp;
@@ -247,7 +244,7 @@ class BorderRadius extends Component {
         </div>
         <div>
           border:&nbsp;
-          {this.state.border_Width}px {this.state.borderStyle}{" "}
+          {this.state.border_Width}px {this.state.value}{" "}
           {this.state.borderColour};
         </div>
       </div>
