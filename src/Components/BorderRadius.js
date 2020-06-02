@@ -48,11 +48,6 @@ class BorderRadius extends Component {
     //await this.handleChange();
   }
 
-  /*handleChange(event) {
-    this.setState({
-      value: event.target.value,
-    });
-  }*/
   boxColour(bg) {
     let b = document.querySelector(".box");
     b.style.backgroundColor = bg;
