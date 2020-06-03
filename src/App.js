@@ -7,6 +7,7 @@ import FlexBoxGenerator from "./Components/FlexBoxGenerator";
 import Margin from "./Components/Margin";
 import LineHeight from "./Components/LineHeight";
 import FontStyle from "./Components/FontStyle";
+import LetterSpacing from "./Components/LetterSpacing";
 import {
   Button,
   Navbar,
@@ -49,6 +50,9 @@ class App extends Component {
                 <NavDropdown.Item href="/FontStyle">
                   Font Style
                 </NavDropdown.Item>
+                <NavDropdown.Item href="/LetterSpacing">
+                  Letter Spacing
+                </NavDropdown.Item>
 
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action/3.4">
@@ -77,6 +81,7 @@ class App extends Component {
             <Route path="/Margin" component={Margin} />
             <Route path="/LineHeight" component={LineHeight} />
             <Route path="/FontStyle" component={FontStyle} />
+            <Route path="/LetterSpacing" component={LetterSpacing} />
           </Switch>
         </BrowserRouter>
       </>
