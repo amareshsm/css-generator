@@ -8,6 +8,8 @@ import Margin from "./Components/Margin";
 import LineHeight from "./Components/LineHeight";
 import FontStyle from "./Components/FontStyle";
 import LetterSpacing from "./Components/LetterSpacing";
+import TextTransform from "./Components/TextTransform";
+import TextDecoration from "./Components/TextDecoration";
 import {
   Button,
   Navbar,
@@ -53,6 +55,12 @@ class App extends Component {
                 <NavDropdown.Item href="/LetterSpacing">
                   Letter Spacing
                 </NavDropdown.Item>
+                <NavDropdown.Item href="/TextTransform">
+                  Text Transform
+                </NavDropdown.Item>
+                <NavDropdown.Item href="/TextDecoration">
+                  Text Decoration
+                </NavDropdown.Item>
 
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action/3.4">
@@ -82,6 +90,8 @@ class App extends Component {
             <Route path="/LineHeight" component={LineHeight} />
             <Route path="/FontStyle" component={FontStyle} />
             <Route path="/LetterSpacing" component={LetterSpacing} />
+            <Route path="/TextTransform" component={TextTransform} />
+            <Route path="/TextDecoration" component={TextDecoration} />
           </Switch>
         </BrowserRouter>
       </>

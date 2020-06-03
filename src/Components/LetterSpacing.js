@@ -46,8 +46,9 @@ class LetterSpacing extends Component {
         <label htmlFor="letter_space">Letter Spacing</label>
         <input
           type="range"
-          min="1"
+          min="0"
           max="250"
+          step="0.1"
           value={this.state.letter_space}
           onChange={this.onChange}
           name="letter_space"
@@ -55,8 +56,9 @@ class LetterSpacing extends Component {
         &nbsp;
         <input
           type="number"
-          min="1"
+          min="0"
           max="250"
+          step="0.1"
           value={this.state.letter_space}
           onChange={this.onChange}
           name="letter_space"
@@ -66,6 +68,8 @@ class LetterSpacing extends Component {
         <select value={this.state.unit} name="unit" onChange={this.onSelect}>
           <option value="px">px </option>
           <option value="em">em</option>
+          <option value="%">percent</option>
+          <option value="normal">normal</option>
         </select>
         <p></p>
         <div className="line">
