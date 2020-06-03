@@ -43,7 +43,7 @@ class App extends Component {
                   Margin and Padding
                 </NavDropdown.Item>
                 <NavDropdown.Item href="/LineHeight">
-                  Line Spacing
+                  Line Height
                 </NavDropdown.Item>
 
                 <NavDropdown.Divider />
