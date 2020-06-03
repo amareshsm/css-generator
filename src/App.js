@@ -6,6 +6,7 @@ import TextShadow from "./Components/TextShadow";
 import FlexBoxGenerator from "./Components/FlexBoxGenerator";
 import Margin from "./Components/Margin";
 import LineHeight from "./Components/LineHeight";
+import FontStyle from "./Components/FontStyle";
 import {
   Button,
   Navbar,
@@ -43,7 +44,10 @@ class App extends Component {
                   Margin and Padding
                 </NavDropdown.Item>
                 <NavDropdown.Item href="/LineHeight">
-                  Line Spacing
+                  Line Height
+                </NavDropdown.Item>
+                <NavDropdown.Item href="/FontStyle">
+                  Font Style
                 </NavDropdown.Item>
 
                 <NavDropdown.Divider />
@@ -72,6 +76,7 @@ class App extends Component {
             <Route path="/FlexBoxGenerator" component={FlexBoxGenerator} />
             <Route path="/Margin" component={Margin} />
             <Route path="/LineHeight" component={LineHeight} />
+            <Route path="/FontStyle" component={FontStyle} />
           </Switch>
         </BrowserRouter>
       </>
