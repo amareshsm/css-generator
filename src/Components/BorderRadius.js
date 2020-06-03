@@ -191,9 +191,7 @@ class BorderRadius extends Component {
         <br />
         <label htmlFor="value">Border Style</label>
         <select value={this.state.value} name="value" onChange={this.onChange}>
-          <option selected value="solid">
-            solid
-          </option>
+          <option selected value="solid">solid</option>
           <option value="dotted">dotted</option>
           <option value="dashed">dashed</option>
           <option value="hidden">hidden</option>
