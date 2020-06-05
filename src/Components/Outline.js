@@ -30,7 +30,7 @@ class Outline extends Component {
   }
 
   OutlineStyle() {
-    let e = document.querySelector(".font");
+    let e = document.querySelector(".outline");
     e.style.outline = `${this.state.Outline_width} ${this.state.Outline_style} ${this.state.Outline_colour}`;
     console.log(this.state.Outline);
     document.body.appendChild(e);
@@ -89,7 +89,7 @@ class Outline extends Component {
           name="Outline_colour"
         />
         <br />
-        <div className="font">
+        <div className="outline">
           {/*<p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget
             consequat dui, et luctus quam. Aliquam magna libero, sodales non

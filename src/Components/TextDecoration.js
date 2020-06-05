@@ -7,7 +7,7 @@ class TextDecoration extends Component {
     this.state = {
       text_Decoration_line: "none",
       text_Decoration_style: "solid",
-      text_Decoration_colour: "black",
+      text_Decoration_colour: "#7275c0",
     };
     this.onChange = this.onChange.bind(this);
     this.textDecorationStyle = this.textDecorationStyle.bind(this);
@@ -30,7 +30,7 @@ class TextDecoration extends Component {
   }
 
   textDecorationStyle() {
-    let e = document.querySelector(".font");
+    let e = document.querySelector(".font-decor");
     e.style.textDecoration = `${this.state.text_Decoration_line} ${this.state.text_Decoration_style} ${this.state.text_Decoration_colour}`;
     console.log(this.state.text_Decoration);
     document.body.appendChild(e);
@@ -85,7 +85,7 @@ class TextDecoration extends Component {
           name="text_Decoration_colour"
         />
         <br />
-        <div className="font">
+        <div className="font-decor">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget
             consequat dui, et luctus quam. Aliquam magna libero, sodales non
