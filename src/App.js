@@ -11,6 +11,7 @@ import LetterSpacing from "./Components/LetterSpacing";
 import TextTransform from "./Components/TextTransform";
 import TextDecoration from "./Components/TextDecoration";
 import Outline from "./Components/Outline";
+import TextAlign from "./Components/TextAlign";
 import {
   Button,
   Navbar,
@@ -63,7 +64,9 @@ class App extends Component {
                   Text Decoration
                 </NavDropdown.Item>
                 <NavDropdown.Item href="/Outline">Outline</NavDropdown.Item>
-
+                <NavDropdown.Item href="/TextAlign">
+                  Text Align
+                </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action/3.4">
                   Separated link
@@ -94,6 +97,7 @@ class App extends Component {
             <Route path="/LetterSpacing" component={LetterSpacing} />
             <Route path="/TextTransform" component={TextTransform} />
             <Route path="/TextDecoration" component={TextDecoration} />
+            <Route path="/TextAlign" component={TextAlign} />
             <Route path="/Outline" component={Outline} />
           </Switch>
         </BrowserRouter>

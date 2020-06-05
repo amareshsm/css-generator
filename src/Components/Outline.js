@@ -5,9 +5,9 @@ class Outline extends Component {
   constructor(porps) {
     super(porps);
     this.state = {
-      Outline_width: "none",
-      Outline_style: "none",
-      Outline_colour: "black",
+      Outline_width: "10",
+      Outline_style: "solid",
+      Outline_colour: "#c42727",
     };
     this.onChange = this.onChange.bind(this);
     this.OutlineStyle = this.OutlineStyle.bind(this);
@@ -31,7 +31,7 @@ class Outline extends Component {
 
   OutlineStyle() {
     let e = document.querySelector(".outline");
-    e.style.outline = `${this.state.Outline_width} ${this.state.Outline_style} ${this.state.Outline_colour}`;
+    e.style.outline = `${this.state.Outline_width}px ${this.state.Outline_style} ${this.state.Outline_colour}`;
     console.log(this.state.Outline);
     document.body.appendChild(e);
   }
@@ -44,7 +44,7 @@ class Outline extends Component {
     return (
       <div className="App">
         <label htmlFor="value">Outline_width</label>
-        <select
+        {/*} <select
           value={this.state.Outline_width}
           name="Outline_width"
           onChange={this.onSelect}
@@ -53,7 +53,25 @@ class Outline extends Component {
           <option value="thin">Thin</option>
           <option value="thick">Thick</option>
           <option value="none">None</option>
-        </select>
+    </select>*/}
+        &nbsp;
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value={this.state.Outline_width}
+          onChange={this.onChange}
+          name="Outline_width"
+        />
+        &nbsp;
+        <input
+          type="number"
+          min="0"
+          max="100"
+          value={this.state.Outline_width}
+          onChange={this.onChange}
+          name="Outline_width"
+        />
         &nbsp;
         <p></p>
         <label htmlFor="value">Outline_style</label>
@@ -101,7 +119,7 @@ class Outline extends Component {
         </div>
         <div>
           {" "}
-          outline = {this.state.Outline_width} {this.state.Outline_style}{" "}
+          outline = {this.state.Outline_width}px {this.state.Outline_style}{" "}
           {this.state.Outline_colour} ;
         </div>
         <p></p>
