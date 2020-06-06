@@ -8,6 +8,7 @@ class Outline extends Component {
       Outline_width: "10",
       Outline_style: "solid",
       Outline_colour: "#c42727",
+      outline_offset: "5",
     };
     this.onChange = this.onChange.bind(this);
     this.OutlineStyle = this.OutlineStyle.bind(this);
@@ -24,7 +25,6 @@ class Outline extends Component {
   async onSelect(e) {
     await this.setState({
       Outline_width: [e.target.value],
-      //Outline_style: [e.target.value],
     });
     await this.OutlineStyle();
   }
@@ -32,6 +32,7 @@ class Outline extends Component {
   OutlineStyle() {
     let e = document.querySelector(".outline");
     e.style.outline = `${this.state.Outline_width}px ${this.state.Outline_style} ${this.state.Outline_colour}`;
+    e.style.outlineOffset = `${parseInt(this.state.outline_offset)}px`;
     console.log(this.state.Outline);
     document.body.appendChild(e);
   }
@@ -44,16 +45,6 @@ class Outline extends Component {
     return (
       <div className="App">
         <label htmlFor="value">Outline_width</label>
-        {/*} <select
-          value={this.state.Outline_width}
-          name="Outline_width"
-          onChange={this.onSelect}
-        >
-          <option value="medium">Medium </option>
-          <option value="thin">Thin</option>
-          <option value="thick">Thick</option>
-          <option value="none">None</option>
-    </select>*/}
         &nbsp;
         <input
           type="range"
@@ -107,21 +98,32 @@ class Outline extends Component {
           name="Outline_colour"
         />
         <br />
-        <div className="outline">
-          {/*<p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget
-            consequat dui, et luctus quam. Aliquam magna libero, sodales non
-            eros nec, vestibulum sollicitudin leo. Quisque sed erat lorem.
-            Aliquam interdum ante purus, a blandit nunc placerat et. Proin
-            tristique ante tincidunt lacus dictum imperdiet. Quisque libero mi,
-            molestie et suscipit eget, convallis a ipsum.
-          </p>*/}
-        </div>
+        <label htmlFor="outline_offset">Outline Offset</label>
+        <input
+          type="range"
+          min="1"
+          max="250"
+          value={this.state.outline_offset}
+          onChange={this.onChange}
+          name="outline_offset"
+        />
+        &nbsp;
+        <input
+          type="number"
+          min="1"
+          max="250"
+          value={this.state.outline_offset}
+          onChange={this.onChange}
+          name="outline_offset"
+        />
+        <br />
+        <div className="outline"></div>
         <div>
           {" "}
           outline = {this.state.Outline_width}px {this.state.Outline_style}{" "}
           {this.state.Outline_colour} ;
         </div>
+        <div> outlineOffset= {this.state.outline_offset}px;</div>
         <p></p>
       </div>
     );
