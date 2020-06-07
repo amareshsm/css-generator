@@ -12,6 +12,7 @@ import TextTransform from "./Components/TextTransform";
 import TextDecoration from "./Components/TextDecoration";
 import Outline from "./Components/Outline";
 import TextAlign from "./Components/TextAlign";
+import ListStyle from "./Components/ListStyle";
 import {
   Button,
   Navbar,
@@ -67,6 +68,7 @@ class App extends Component {
                 <NavDropdown.Item href="/TextAlign">
                   Text Align
                 </NavDropdown.Item>
+                <NavDropdown.Item href="/ListStyle">ListStyle</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action/3.4">
                   Separated link
@@ -99,6 +101,7 @@ class App extends Component {
             <Route path="/TextDecoration" component={TextDecoration} />
             <Route path="/TextAlign" component={TextAlign} />
             <Route path="/Outline" component={Outline} />
+            <Route path="/ListStyle" component={ListStyle} />
           </Switch>
         </BrowserRouter>
       </>
