@@ -41,7 +41,7 @@ class ListStyle extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App list-style">
         <label htmlFor="value">list_Style_type</label>
         <select
           value={this.state.list_Style_type}
