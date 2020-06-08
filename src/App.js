@@ -15,6 +15,7 @@ import Outline from "./Components/Outline";
 import TextAlign from "./Components/TextAlign";
 import ListStyle from "./Components/ListStyle";
 import WritingMode from "./Components/WritingMode";
+import WordBreak from "./Components/WordBreak";
 import { Switch, BrowserRouter, Route, Link } from "react-router-dom";
 import $ from "jquery";
 window.jQuery = $;
@@ -106,6 +107,7 @@ class App extends Component {
             <Route path="/Outline" component={Outline} />
             <Route path="/ListStyle" component={ListStyle} />
             <Route path="/WritingMode" component={WritingMode} />
+            <Route path="/WordBreak" component={WordBreak} />
           </Switch>
         </BrowserRouter>
       </>
