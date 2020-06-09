@@ -72,13 +72,49 @@ class App extends Component {
                   <a href="#!">CSS </a>
                   <ul className="nav-dropdown">
                     <li>
-                      <a href="#!">Web Design</a>
+                      <a href="BoxShadow">BoxShadow</a>
                     </li>
                     <li>
-                      <a href="#!">Web Development</a>
+                      <a href="BorderRadius">BorderRadius</a>
                     </li>
                     <li>
-                      <a href="#!">Graphic Design</a>
+                      <a href="TextShadow">TextShadow</a>
+                    </li>
+                    <li>
+                      <a href="FlexBoxGenerator">FlexBoxGenerator</a>
+                    </li>
+                    <li>
+                      <a href="Margin">Margin and Padding</a>
+                    </li>
+                    <li>
+                      <a href="LineHeight">LineHeight</a>
+                    </li>
+                    <li>
+                      <a href="FontStyle">FontStyle</a>
+                    </li>
+                    <li>
+                      <a href="LetterSpacing">LetterSpacing</a>
+                    </li>
+                    <li>
+                      <a href="TextTransform">TextTransform</a>
+                    </li>
+                    <li>
+                      <a href="TextDecoration">TextDecoration</a>
+                    </li>
+                    <li>
+                      <a href="TextAlign">TextAlign</a>
+                    </li>
+                    <li>
+                      <a href="Outline">Outline</a>
+                    </li>
+                    <li>
+                      <a href="ListStyle">ListStyle</a>
+                    </li>
+                    <li>
+                      <a href="WritingMode">WritingMode</a>
+                    </li>
+                    <li>
+                      <a href="WordBreak">WordBreak</a>
                     </li>
                   </ul>
                 </li>
