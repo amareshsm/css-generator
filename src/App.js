@@ -17,6 +17,7 @@ import ListStyle from "./Components/ListStyle";
 import WritingMode from "./Components/WritingMode";
 import WordBreak from "./Components/WordBreak";
 import TextOverflow from "./Components/TextOverflow";
+import Overflow from "./Components/Overflow";
 import { Switch, BrowserRouter, Route, Link } from "react-router-dom";
 import $ from "jquery";
 window.jQuery = $;
@@ -74,6 +75,9 @@ class App extends Component {
                   <ul className="nav-dropdown">
                     <li>
                       <a href="TextOverflow">TextOverflow</a>
+                    </li>
+                    <li>
+                      <a href="Overflow">Overflow</a>
                     </li>
                     <li>
                       <a href="BoxShadow">BoxShadow</a>
@@ -149,6 +153,7 @@ class App extends Component {
             <Route path="/WritingMode" component={WritingMode} />
             <Route path="/WordBreak" component={WordBreak} />
             <Route path="/TextOverflow" component={TextOverflow} />
+            <Route path="/Overflow" component={Overflow} />
           </Switch>
         </BrowserRouter>
       </>
