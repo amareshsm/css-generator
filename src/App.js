@@ -15,6 +15,7 @@ import Outline from "./Components/Outline";
 import TextAlign from "./Components/TextAlign";
 import ListStyle from "./Components/ListStyle";
 import WritingMode from "./Components/WritingMode";
+import WordWrap from "./Components/WordWrap";
 import WordBreak from "./Components/WordBreak";
 import TextOverflow from "./Components/TextOverflow";
 import Overflow from "./Components/Overflow";
@@ -75,6 +76,9 @@ class App extends Component {
                   <ul className="nav-dropdown">
                     <li>
                       <a href="TextOverflow">TextOverflow</a>
+                    </li>
+                    <li>
+                      <a href="WordWrap">WordWrap</a>
                     </li>
                     <li>
                       <a href="Overflow">Overflow</a>
@@ -154,6 +158,7 @@ class App extends Component {
             <Route path="/WordBreak" component={WordBreak} />
             <Route path="/TextOverflow" component={TextOverflow} />
             <Route path="/Overflow" component={Overflow} />
+            <Route path="/WordWrap" component={WordWrap} />
           </Switch>
         </BrowserRouter>
       </>
