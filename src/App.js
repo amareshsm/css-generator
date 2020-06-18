@@ -20,59 +20,76 @@ import WordBreak from "./Components/WordBreak";
 import TextOverflow from "./Components/TextOverflow";
 import Overflow from "./Components/Overflow";
 import { Switch, BrowserRouter, Route, Link } from "react-router-dom";
-import $ from "jquery";
-window.jQuery = $;
-window.$ = $;
-global.jQuery = $;
+
 
 class App extends Component {
   componentDidMount() {
-    $(function () {
-      // DOM ready
-      // If a link has a dropdown, add sub menu toggle.
-      $("nav ul li a:not(:only-child)").click(function (e) {
-        $(this).siblings(".nav-dropdown").toggle();
-        // Close one dropdown when selecting another
-        $(".nav-dropdown").not($(this).siblings()).hide();
-        e.stopPropagation();
-      });
-      // Clicking away from dropdown will remove the dropdown class
-      $("html").click(function () {
-        $(".nav-dropdown").hide();
-      });
-      // Toggle open and close nav styles on click
-      $("#nav-toggle").click(function () {
-        $("nav ul").slideToggle();
-      });
-      // Hamburger to X toggle
-      $("#nav-toggle").on("click", function () {
-        this.classList.toggle("active");
-      });
-    }); // end DOM ready
+// Mobile
+var menulist = document.getElementById("menu-list");
+var sublist = document.getElementById('sub-menu');
+
+document.querySelector('.mobile-menu-open').addEventListener('click',openMenu);
+
+function openMenu(){
+  showAndHide(menulist);
+}
+document.getElementById('dropdown').onclick = function(){
+  showAndHide(sublist);
+}
+
+function showAndHide(obj){
+  if(window.innerWidth > 799) return;
+  if(obj.classList.contains('shown')){
+    obj.classList.add('hidden');
+    obj.classList.remove('shown');
+    return;
   }
+  obj.classList.remove('hidden');
+  obj.classList.add('shown');
+}
+
+
+
+//Resize the window - change desktop or mobile version
+document.body.onresize = function(){
+  if(window.innerWidth > 799){
+    menulist.classList.remove('hidden');
+    menulist.classList.remove('shown');
+    sublist.classList.remove('hidden');
+    sublist.classList.remove('shown');
+  }
+}
+  }
+
+
+
+
   render() {
     return (
       <>
-        <section className="navigation">
-          <div className="nav-container">
-            <div className="brand">
-              <a href="#!">Logo</a>
-            </div>
-            <nav>
-              <div className="nav-mobile">
-                <a id="nav-toggle" href="#!">
-                  <span />
-                </a>
-              </div>
-              <ul className="nav-list">
-                <li>
-                  <a href="#!">Home</a>
-                </li>
-                <li>
-                  <a href="#!">About</a>
-                </li>
-                <li>
-                  <a href="#!">CSS </a>
+    
+<div class="navbar-wrapper">
+  <span class="mobile-menu-open" id="menu-open">
+    <hr /><hr /><hr />
+  </span>
+  <ul class="navbar-menu-list" id="menu-list">
+
+    <li><span>  <a href="/">Home</a></span></li>
+    <li><span>CSS </span></li>
+    <li id="dropdown">
+      <span>DROP DOWN</span>
+      <ul class="sub-menu" id="sub-menu">
+        <li>sub menu 1</li>
+        <li>sub menu 2</li>
+        <li>sub menu 3</li>
+      </ul>
+    </li>
+    <li><span>Contact</span></li>
+  </ul>
+</div>
+
+
+
                   <ul className="nav-dropdown">
                     <li>
                       <a href="TextOverflow">TextOverflow</a>
@@ -129,14 +146,7 @@ class App extends Component {
                       <a href="WordBreak">WordBreak</a>
                     </li>
                   </ul>
-                </li>
-                <li>
-                  <a href="#!">Contact</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </section>
+
 
         <BrowserRouter>
           <Switch>
