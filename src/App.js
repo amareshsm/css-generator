@@ -18,6 +18,7 @@ import WritingMode from "./Components/WritingMode";
 import WordWrap from "./Components/WordWrap";
 import WordBreak from "./Components/WordBreak";
 import TextOverflow from "./Components/TextOverflow";
+import CssFloat from "./Components/CssFloat";
 import Overflow from "./Components/Overflow";
 import { Switch, BrowserRouter, Route, Link } from "react-router-dom";
 import $ from "jquery";
@@ -74,6 +75,9 @@ class App extends Component {
                 <li>
                   <a href="#!">CSS </a>
                   <ul className="nav-dropdown">
+                    <li>
+                      <a href="CssFloat">CssFloat</a>
+                    </li>
                     <li>
                       <a href="TextOverflow">TextOverflow</a>
                     </li>
@@ -146,6 +150,7 @@ class App extends Component {
             <Route path="/TextShadow" component={TextShadow} />
             <Route path="/FlexBoxGenerator" component={FlexBoxGenerator} />
             <Route path="/Margin" component={Margin} />
+            <Route path="/CssFloat" component={CssFloat} />
             <Route path="/LineHeight" component={LineHeight} />
             <Route path="/FontStyle" component={FontStyle} />
             <Route path="/LetterSpacing" component={LetterSpacing} />

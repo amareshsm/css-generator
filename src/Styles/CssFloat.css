@@ -1,0 +1,10 @@
+.CssFloat {
+  height: 150px;
+  width: 150px;
+  margin: 5px;
+  background-color: cadetblue;
+}
+.Float {
+  display: flex;
+  flex-wrap: wrap;
+}
