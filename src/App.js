@@ -21,6 +21,7 @@ import TextOverflow from "./Components/TextOverflow";
 import CssFloat from "./Components/CssFloat";
 import Overflow from "./Components/Overflow";
 import FontSize from "./Components/FontSize";
+import AlignContent from "./Components/AlignContent";
 import { Switch, BrowserRouter, Route, Link } from "react-router-dom";
 
 class App extends Component {
@@ -96,6 +97,9 @@ class App extends Component {
         </div>
 
         <ul className="nav-dropdown">
+          <li>
+            <a href="AlignContent">AlignContent</a>
+          </li>
           <li>
             <a href="FontSize">FontSize</a>
           </li>
@@ -181,6 +185,7 @@ class App extends Component {
             <Route path="/Overflow" component={Overflow} />
             <Route path="/WordWrap" component={WordWrap} />
             <Route path="/FontSize" component={FontSize} />
+            <Route path="/AlignContent" component={AlignContent} />
           </Switch>
         </BrowserRouter>
       </>
