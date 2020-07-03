@@ -22,6 +22,8 @@ import CssFloat from "./Components/CssFloat";
 import Overflow from "./Components/Overflow";
 import FontSize from "./Components/FontSize";
 import AlignContent from "./Components/AlignContent";
+import AllProperty from "./Components/AllProperty";
+
 import { Switch, BrowserRouter, Route, Link } from "react-router-dom";
 
 class App extends Component {
@@ -101,64 +103,67 @@ class App extends Component {
             <a href="AlignContent">AlignContent</a>
           </li>
           <li>
-            <a href="FontSize">FontSize</a>
-          </li>
-          <li>
-            <a href="CssFloat">CssFloat</a>
-          </li>
-          <li>
-            <a href="TextOverflow">TextOverflow</a>
-          </li>
-          <li>
-            <a href="WordWrap">WordWrap</a>
-          </li>
-          <li>
-            <a href="Overflow">Overflow</a>
-          </li>
-          <li>
-            <a href="BoxShadow">BoxShadow</a>
+            <a href="AllProperty">AllProperty</a>
           </li>
           <li>
             <a href="BorderRadius">BorderRadius</a>
           </li>
           <li>
-            <a href="TextShadow">TextShadow</a>
+            <a href="BoxShadow">BoxShadow</a>
           </li>
           <li>
-            <a href="FlexBoxGenerator">FlexBoxGenerator</a>
+            <a href="CssFloat">CssFloat</a>
           </li>
           <li>
-            <a href="Margin">Margin and Padding</a>
-          </li>
-          <li>
-            <a href="LineHeight">LineHeight</a>
+            <a href="FontSize">FontSize</a>
           </li>
           <li>
             <a href="FontStyle">FontStyle</a>
           </li>
           <li>
+            <a href="FlexBoxGenerator">FlexBoxGenerator</a>
+          </li>
+          <li>
             <a href="LetterSpacing">LetterSpacing</a>
           </li>
           <li>
-            <a href="TextTransform">TextTransform</a>
-          </li>
-          <li>
-            <a href="TextDecoration">TextDecoration</a>
-          </li>
-          <li>
-            <a href="TextAlign">TextAlign</a>
-          </li>
-          <li>
-            <a href="Outline">Outline</a>
+            <a href="LineHeight">LineHeight</a>
           </li>
           <li>
             <a href="ListStyle">ListStyle</a>
           </li>
           <li>
-            <a href="WritingMode">WritingMode</a>
+            <a href="Margin">Margin and Padding</a>
+          </li>
+          <li>
+            <a href="Outline">Outline</a>
+          </li>
+          <li>
+            <a href="Overflow">Overflow</a>
+          </li>
+          <li>
+            <a href="TextAlign">TextAlign</a>
+          </li>
+          <li>
+            <a href="TextDecoration">TextDecoration</a>
+          </li>
+          <li>
+            <a href="TextOverflow">TextOverflow</a>
+          </li>
+          <li>
+            <a href="TextShadow">TextShadow</a>
+          </li>
+          <li>
+            <a href="TextTransform">TextTransform</a>
           </li>
           <li>
             <a href="WordBreak">WordBreak</a>
+          </li>
+          <li>
+            <a href="WordWrap">WordWrap</a>
+          </li>
+          <li>
+            <a href="WritingMode">WritingMode</a>
           </li>
         </ul>
 
@@ -185,6 +190,7 @@ class App extends Component {
             <Route path="/Overflow" component={Overflow} />
             <Route path="/WordWrap" component={WordWrap} />
             <Route path="/FontSize" component={FontSize} />
+            <Route path="/AllProperty" component={AllProperty} />
             <Route path="/AlignContent" component={AlignContent} />
           </Switch>
         </BrowserRouter>

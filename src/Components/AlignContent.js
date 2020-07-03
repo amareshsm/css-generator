@@ -59,7 +59,7 @@ class AlignContent extends Component {
           <div id="one"></div>
           <div id="three"></div>
         </div>
-        <div> font-size = {this.state.Align_Content} ;</div>
+        <div> align-content = {this.state.Align_Content} ;</div>
         <div> -ms-flex-line-pack = {this.state.Align_Content} ;</div>
         <p></p>
       </div>
