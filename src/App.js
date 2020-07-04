@@ -23,6 +23,7 @@ import Overflow from "./Components/Overflow";
 import FontSize from "./Components/FontSize";
 import AlignContent from "./Components/AlignContent";
 import AllProperty from "./Components/AllProperty";
+import BoxSizing from "./Components/BoxSizing";
 
 import { Switch, BrowserRouter, Route, Link } from "react-router-dom";
 
@@ -109,6 +110,9 @@ class App extends Component {
             <a href="BorderRadius">BorderRadius</a>
           </li>
           <li>
+            <a href="BoxSizing">Box Sizing</a>
+          </li>
+          <li>
             <a href="BoxShadow">BoxShadow</a>
           </li>
           <li>
@@ -190,6 +194,7 @@ class App extends Component {
             <Route path="/Overflow" component={Overflow} />
             <Route path="/WordWrap" component={WordWrap} />
             <Route path="/FontSize" component={FontSize} />
+            <Route path="/BoxSizing" component={BoxSizing} />
             <Route path="/AllProperty" component={AllProperty} />
             <Route path="/AlignContent" component={AlignContent} />
           </Switch>

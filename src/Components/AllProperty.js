@@ -40,7 +40,7 @@ class AllProperty extends Component {
   render() {
     return (
       <div className="App">
-        <label htmlFor="value">Word Wrap</label>&nbsp;
+        <label htmlFor="value">All</label>&nbsp;
         <select
           value={this.state.All_Property}
           name="All_Property"
@@ -62,7 +62,7 @@ class AllProperty extends Component {
             molestie et suscipit eget, convallis a ipsum.
           </p>
         </div>
-        <div> word-wrap = {this.state.All_Property} ;</div>
+        <div> all = {this.state.All_Property} ;</div>
         <p></p>
       </div>
     );
