@@ -11,6 +11,7 @@ import FontStyle from "./Components/FontStyle";
 import LetterSpacing from "./Components/LetterSpacing";
 import TextTransform from "./Components/TextTransform";
 import TextDecoration from "./Components/TextDecoration";
+import Cursor from "./Components/Cursor";
 import Outline from "./Components/Outline";
 import TextAlign from "./Components/TextAlign";
 import ListStyle from "./Components/ListStyle";
@@ -119,6 +120,9 @@ class App extends Component {
             <a href="CssFloat">CssFloat</a>
           </li>
           <li>
+            <a href="Cursor">Cursor</a>
+          </li>
+          <li>
             <a href="FontSize">FontSize</a>
           </li>
           <li>
@@ -195,6 +199,7 @@ class App extends Component {
             <Route path="/WordWrap" component={WordWrap} />
             <Route path="/FontSize" component={FontSize} />
             <Route path="/BoxSizing" component={BoxSizing} />
+            <Route path="/Cursor" component={Cursor} />
             <Route path="/AllProperty" component={AllProperty} />
             <Route path="/AlignContent" component={AlignContent} />
           </Switch>

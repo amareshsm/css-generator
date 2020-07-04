@@ -1,0 +1,7 @@
+.Cursor {
+  height: 200px;
+  width: 200px;
+  margin: 50px;
+  border-radius: 3px;
+  background-color: blueviolet;
+}
