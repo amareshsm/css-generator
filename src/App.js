@@ -25,7 +25,7 @@ import FontSize from "./Components/FontSize";
 import AlignContent from "./Components/AlignContent";
 import AllProperty from "./Components/AllProperty";
 import BoxSizing from "./Components/BoxSizing";
-
+import PointerEvents from "./Components/PointerEvents";
 import { Switch, BrowserRouter, Route, Link } from "react-router-dom";
 
 class App extends Component {
@@ -150,6 +150,9 @@ class App extends Component {
             <a href="Overflow">Overflow</a>
           </li>
           <li>
+            <a href="PointerEvents">PointerEvents</a>
+          </li>
+          <li>
             <a href="TextAlign">TextAlign</a>
           </li>
           <li>
@@ -200,6 +203,7 @@ class App extends Component {
             <Route path="/FontSize" component={FontSize} />
             <Route path="/BoxSizing" component={BoxSizing} />
             <Route path="/Cursor" component={Cursor} />
+            <Route path="/PointerEvents" component={PointerEvents} />
             <Route path="/AllProperty" component={AllProperty} />
             <Route path="/AlignContent" component={AlignContent} />
           </Switch>
