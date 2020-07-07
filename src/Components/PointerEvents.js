@@ -27,7 +27,7 @@ class PointerEvents extends Component {
   }
 
   PointerEventStyle() {
-    let e = document.querySelector(".font");
+    let e = document.querySelector(".PointerEvents");
     e.style.pointerEvents = `${this.state.Pointer_Event}`;
     console.log(this.state.Pointer_Event);
     document.body.appendChild(e);
@@ -52,7 +52,7 @@ class PointerEvents extends Component {
           <option value="inherit">inherit</option>
         </select>
         <p></p>
-        <div className="font">
+        <div className="PointerEvents">
           <p>
             Welcome to <a href="PointerEvents">Pointer Events</a>
           </p>
