@@ -28,6 +28,7 @@ import AllProperty from "./Components/AllProperty";
 import BoxSizing from "./Components/BoxSizing";
 import PointerEvents from "./Components/PointerEvents";
 import CaptionSide from "./Components/CaptionSide";
+import ColumnCount from "./Components/ColumnCount";
 import { Switch, BrowserRouter, Route, Link } from "react-router-dom";
 
 class App extends Component {
@@ -124,7 +125,9 @@ class App extends Component {
           <li>
             <a href="CaptionSide">CaptionSide</a>
           </li>
-
+          <li>
+            <a href="ColumnCount">Column Count</a>
+          </li>
           <li>
             <a href="CssFloat">CssFloat</a>
           </li>
@@ -215,6 +218,7 @@ class App extends Component {
             <Route path="/CaptionSide" component={CaptionSide} />
             <Route path="/PointerEvents" component={PointerEvents} />
             <Route path="/AllProperty" component={AllProperty} />
+            <Route path="/ColumnCount" component={ColumnCount} />
             <Route path="/AlignContent" component={AlignContent} />
             <Route path="/BorderCollapse" component={BorderCollapse} />
           </Switch>
