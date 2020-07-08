@@ -21,6 +21,7 @@ import WordBreak from "./Components/WordBreak";
 import TextOverflow from "./Components/TextOverflow";
 import CssFloat from "./Components/CssFloat";
 import Overflow from "./Components/Overflow";
+import BorderCollapse from "./Components/BorderCollapse";
 import FontSize from "./Components/FontSize";
 import AlignContent from "./Components/AlignContent";
 import AllProperty from "./Components/AllProperty";
@@ -109,6 +110,9 @@ class App extends Component {
             <a href="AllProperty">AllProperty</a>
           </li>
           <li>
+            <a href="BorderCollapse">Border Collapse</a>
+          </li>
+          <li>
             <a href="BorderRadius">BorderRadius</a>
           </li>
           <li>
@@ -120,6 +124,7 @@ class App extends Component {
           <li>
             <a href="CaptionSide">CaptionSide</a>
           </li>
+
           <li>
             <a href="CssFloat">CssFloat</a>
           </li>
@@ -211,6 +216,7 @@ class App extends Component {
             <Route path="/PointerEvents" component={PointerEvents} />
             <Route path="/AllProperty" component={AllProperty} />
             <Route path="/AlignContent" component={AlignContent} />
+            <Route path="/BorderCollapse" component={BorderCollapse} />
           </Switch>
         </BrowserRouter>
       </>
