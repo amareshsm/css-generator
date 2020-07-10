@@ -29,6 +29,9 @@ import BoxSizing from "./Components/BoxSizing";
 import PointerEvents from "./Components/PointerEvents";
 import CaptionSide from "./Components/CaptionSide";
 import ColumnCount from "./Components/ColumnCount";
+import Border from "./Components/Border";
+import BorderBottom from "./Components/BorderBottom";
+
 import { Switch, BrowserRouter, Route, Link } from "react-router-dom";
 
 class App extends Component {
@@ -109,6 +112,12 @@ class App extends Component {
           </li>
           <li>
             <a href="AllProperty">AllProperty</a>
+          </li>
+          <li>
+            <a href="Border">Border</a>
+          </li>
+          <li>
+            <a href="BorderBottom">Border Bottom</a>
           </li>
           <li>
             <a href="BorderCollapse">Border Collapse</a>
@@ -198,6 +207,7 @@ class App extends Component {
             <Route path="/TextShadow" component={TextShadow} />
             <Route path="/FlexBoxGenerator" component={FlexBoxGenerator} />
             <Route path="/Margin" component={Margin} />
+            <Route path="/Border" component={Border} />
             <Route path="/CssFloat" component={CssFloat} />
             <Route path="/LineHeight" component={LineHeight} />
             <Route path="/FontStyle" component={FontStyle} />
@@ -221,6 +231,7 @@ class App extends Component {
             <Route path="/ColumnCount" component={ColumnCount} />
             <Route path="/AlignContent" component={AlignContent} />
             <Route path="/BorderCollapse" component={BorderCollapse} />
+            <Route path="/BorderBottom" component={BorderBottom} />
           </Switch>
         </BrowserRouter>
       </>
