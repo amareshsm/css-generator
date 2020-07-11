@@ -33,6 +33,7 @@ import Border from "./Components/Border";
 import BorderBottom from "./Components/BorderBottom";
 import BackgroundClip from "./Components/BackgroundClip";
 import ColumnRule from "./Components/ColumnRule";
+import WordSpacing from "./Components/WordSpacing";
 
 import { Switch, BrowserRouter, Route, Link } from "react-router-dom";
 
@@ -200,6 +201,9 @@ class App extends Component {
             <a href="WordBreak">WordBreak</a>
           </li>
           <li>
+            <a href="WordSpacing">WordSpacing</a>
+          </li>
+          <li>
             <a href="WordWrap">WordWrap</a>
           </li>
           <li>
@@ -242,6 +246,7 @@ class App extends Component {
             <Route path="/BorderBottom" component={BorderBottom} />
             <Route path="/BackgroundClip" component={BackgroundClip} />
             <Route path="/ColumnRule" component={ColumnRule} />
+            <Route path="/WordSpacing" component={WordSpacing} />
           </Switch>
         </BrowserRouter>
       </>
