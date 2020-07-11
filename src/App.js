@@ -32,6 +32,7 @@ import ColumnCount from "./Components/ColumnCount";
 import Border from "./Components/Border";
 import BorderBottom from "./Components/BorderBottom";
 import BackgroundClip from "./Components/BackgroundClip";
+import ColumnRule from "./Components/ColumnRule";
 
 import { Switch, BrowserRouter, Route, Link } from "react-router-dom";
 
@@ -142,6 +143,9 @@ class App extends Component {
             <a href="ColumnCount">Column Count</a>
           </li>
           <li>
+            <a href="ColumnRule">Column Rule</a>
+          </li>
+          <li>
             <a href="CssFloat">CssFloat</a>
           </li>
           <li>
@@ -237,6 +241,7 @@ class App extends Component {
             <Route path="/BorderCollapse" component={BorderCollapse} />
             <Route path="/BorderBottom" component={BorderBottom} />
             <Route path="/BackgroundClip" component={BackgroundClip} />
+            <Route path="/ColumnRule" component={ColumnRule} />
           </Switch>
         </BrowserRouter>
       </>

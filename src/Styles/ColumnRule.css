@@ -1,0 +1,6 @@
+.ColumnRule {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  column-count: 3;
+  column-gap: 40px;
+}
