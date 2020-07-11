@@ -31,6 +31,7 @@ import CaptionSide from "./Components/CaptionSide";
 import ColumnCount from "./Components/ColumnCount";
 import Border from "./Components/Border";
 import BorderBottom from "./Components/BorderBottom";
+import BackgroundClip from "./Components/BackgroundClip";
 
 import { Switch, BrowserRouter, Route, Link } from "react-router-dom";
 
@@ -112,6 +113,9 @@ class App extends Component {
           </li>
           <li>
             <a href="AllProperty">AllProperty</a>
+          </li>
+          <li>
+            <a href="BackgroundClip">BackgroundClip</a>
           </li>
           <li>
             <a href="Border">Border</a>
@@ -232,6 +236,7 @@ class App extends Component {
             <Route path="/AlignContent" component={AlignContent} />
             <Route path="/BorderCollapse" component={BorderCollapse} />
             <Route path="/BorderBottom" component={BorderBottom} />
+            <Route path="/BackgroundClip" component={BackgroundClip} />
           </Switch>
         </BrowserRouter>
       </>
