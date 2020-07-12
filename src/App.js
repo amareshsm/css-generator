@@ -35,6 +35,7 @@ import BackgroundClip from "./Components/BackgroundClip";
 import ColumnRule from "./Components/ColumnRule";
 import WordSpacing from "./Components/WordSpacing";
 import WhiteSpace from "./Components/WhiteSpace";
+import Width from "./Components/Width";
 
 import { Switch, BrowserRouter, Route, Link } from "react-router-dom";
 
@@ -202,6 +203,9 @@ class App extends Component {
             <a href="WhiteSpace">WhiteSpace</a>
           </li>
           <li>
+            <a href="Width">Width</a>
+          </li>
+          <li>
             <a href="WordBreak">WordBreak</a>
           </li>
           <li>
@@ -252,6 +256,7 @@ class App extends Component {
             <Route path="/ColumnRule" component={ColumnRule} />
             <Route path="/WordSpacing" component={WordSpacing} />
             <Route path="/WhiteSpace" component={WhiteSpace} />
+            <Route path="/Width" component={Width} />
           </Switch>
         </BrowserRouter>
       </>
