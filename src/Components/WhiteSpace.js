@@ -65,7 +65,7 @@ class WhiteSpace extends Component {
             nisi.
           </p>
         </div>
-        <div> word-wrap = {this.state.White_Space} ;</div>
+        <div> white-space = {this.state.White_Space} ;</div>
         <p></p>
       </div>
     );
