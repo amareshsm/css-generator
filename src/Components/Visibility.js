@@ -40,7 +40,7 @@ class Visibility extends Component {
   render() {
     return (
       <div className="App">
-        <label htmlFor="value">Word Wrap</label>&nbsp;
+        <label htmlFor="value">Visibility</label>&nbsp;
         <select
           value={this.state.Visibility}
           name="Visibility"

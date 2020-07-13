@@ -61,10 +61,13 @@ class UserSelect extends Component {
             scelerisque varius morbi enim nunc faucibus.
           </p>
         </div>
-        <div> user-select = {this.state.User_Select} ;</div>
-        <div> -webkit-user-select = {this.state.User_Select} ;</div>
-        <div> -moz-user-select = {this.state.User_Select} ;</div>
-        <div> -ms-user-select = {this.state.User_Select} ;</div>
+        <div>
+          {" "}
+          user-select = {this.state.User_Select} ; <br />
+          -webkit-user-select = {this.state.User_Select} ; <br />
+          -moz-user-select = {this.state.User_Select} ; <br />
+          -ms-user-select = {this.state.User_Select} ;
+        </div>
         <p></p>
       </div>
     );
