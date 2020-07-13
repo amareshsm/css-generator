@@ -36,6 +36,7 @@ import ColumnRule from "./Components/ColumnRule";
 import WordSpacing from "./Components/WordSpacing";
 import WhiteSpace from "./Components/WhiteSpace";
 import Width from "./Components/Width";
+import Visibility from "./Components/Visibility";
 
 import { Switch, BrowserRouter, Route, Link } from "react-router-dom";
 
@@ -200,6 +201,9 @@ class App extends Component {
             <a href="TextTransform">TextTransform</a>
           </li>
           <li>
+            <a href="Visibility">Visibility</a>
+          </li>
+          <li>
             <a href="WhiteSpace">WhiteSpace</a>
           </li>
           <li>
@@ -257,6 +261,7 @@ class App extends Component {
             <Route path="/WordSpacing" component={WordSpacing} />
             <Route path="/WhiteSpace" component={WhiteSpace} />
             <Route path="/Width" component={Width} />
+            <Route path="/Visibility" component={Visibility} />
           </Switch>
         </BrowserRouter>
       </>
