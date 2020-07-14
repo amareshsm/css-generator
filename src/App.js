@@ -39,6 +39,7 @@ import Width from "./Components/Width";
 import Visibility from "./Components/Visibility";
 import UserSelect from "./Components/UserSelect";
 import Top from "./Components/Top";
+import TextIndent from "./Components/TextIndent";
 
 import { Switch, BrowserRouter, Route, Link } from "react-router-dom";
 
@@ -194,6 +195,9 @@ class App extends Component {
             <a href="TextDecoration">TextDecoration</a>
           </li>
           <li>
+            <a href="TextIndent">Text Indent</a>
+          </li>
+          <li>
             <a href="TextOverflow">TextOverflow</a>
           </li>
           <li>
@@ -272,6 +276,7 @@ class App extends Component {
             <Route path="/Visibility" component={Visibility} />
             <Route path="/UserSelect" component={UserSelect} />
             <Route path="/Top" component={Top} />
+            <Route path="/TextIndent" component={TextIndent} />
           </Switch>
         </BrowserRouter>
       </>
