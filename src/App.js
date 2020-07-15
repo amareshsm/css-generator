@@ -40,6 +40,7 @@ import Visibility from "./Components/Visibility";
 import UserSelect from "./Components/UserSelect";
 import Top from "./Components/Top";
 import TextIndent from "./Components/TextIndent";
+import BackfaceVisibility from "./Components/BackfaceVisibility";
 
 import { Switch, BrowserRouter, Route, Link } from "react-router-dom";
 
@@ -121,6 +122,9 @@ class App extends Component {
           </li>
           <li>
             <a href="AllProperty">AllProperty</a>
+          </li>
+          <li>
+            <a href="BackfaceVisibility">BackfaceVisibility</a>
           </li>
           <li>
             <a href="BackgroundClip">BackgroundClip</a>
@@ -277,6 +281,7 @@ class App extends Component {
             <Route path="/UserSelect" component={UserSelect} />
             <Route path="/Top" component={Top} />
             <Route path="/TextIndent" component={TextIndent} />
+            <Route path="/BackfaceVisibility" component={BackfaceVisibility} />
           </Switch>
         </BrowserRouter>
       </>
