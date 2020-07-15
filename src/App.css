@@ -3,15 +3,22 @@
     box-sizing: border-box;
 }
 span a{
-    color:#fff;
+    color:black;
+    font-size: 16.5px;
+    font-family: Sailec-Medium,Helvetica,sans-serif;
     text-decoration: none;
+}
+span a:hover{
+  color:#3973e6;
+  text-decoration: none;
 }
 
 .navbar-wrapper{
     width: 100%;
-    background: #1d1e22;
-    position: relative;
-    min-height: 70px;
+    background:#f5f5f5;
+    position: fixed;
+    top:0; 
+    border-bottom: 0.2px solid #e3e3e3;
   }
   .navbar-menu-list{
     width: 100%;
@@ -21,13 +28,22 @@ span a{
     padding: 0 20px;
   }
   .navbar-menu-list > li{
-    padding: 25px 20px;
+    padding: 18px 20px;
     display: unset;
-    color: white;
+    font-family: Sailec-Medium,Helvetica,sans-serif;
+    font-size: 16.5px;
+    color: black;
     cursor: pointer;
     position: relative;
   }
-  .navbar-menu-list > li:nth-child(3) span:after{
+
+.navbar-menu-list > li:hover{
+  color:#3973e6;
+
+}
+
+
+  .navbar-menu-list > li:nth-child(3) span:first-child:after{
     content: '';
     display: inline-block;
     margin-left: .2em;
@@ -37,15 +53,18 @@ span a{
     border-bottom: 0;
     border-left: .3em solid transparent;
   }
-  .navbar-menu-list > li:nth-child(3):hover .sub-menu{ display: block;}
+  .navbar-menu-list > li:nth-child(3):hover .sub-menu{
+     display: block;  
+  }
+ 
   .navbar-menu-list > li:first-child{ padding-right: 50px; }
   .sub-menu{
     position: absolute;
     background: #fff;
-    box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
+    box-shadow: 0 0 15px 1px rgba(83, 83, 83, 0.2);
     color: #1d1e22;
     border-radius: 3px;
-    top: calc(100% - 15px);
+    top: calc(100% - 5px);
     padding: 0;
     left: 0;
     display: none;
@@ -62,20 +81,30 @@ span a{
     transform: translateX(-50%);
   }
 
-
+.sub-menu > li:first-child:hover::before{
+  content: '';
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  border: 9px solid transparent;
+  border-bottom: 9px solid  #efefef;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);  
+}
 
 
   .sub-menu > li{
     display: block;
     padding: 15px 30px; 
-    margin: 3px;
     width: max-content;
   }
   .sub-menu > li:hover{ 
-      background:#efefef;
-      border-radius: 4.5px;
-
+      background:#efefef;     
+      color:#3973e6;
 }
+
+
   .sub-menu > li:active{ background: blue; color: #fff; }
   .mobile-menu-open{
     width: 30px;

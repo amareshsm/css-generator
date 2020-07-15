@@ -87,25 +87,24 @@ class App extends Component {
   render() {
     return (
       <>
-        <div class="navbar-wrapper">
-          <span class="mobile-menu-open" id="menu-open">
+        <div className="navbar-wrapper">
+          <span className="mobile-menu-open" id="menu-open">
             <hr />
             <hr />
             <hr />
           </span>
-          <ul class="navbar-menu-list" id="menu-list">
+          <ul className="navbar-menu-list" id="menu-list">
             <li>
               <span>
-                {" "}
                 <a href="/">Home</a>
               </span>
             </li>
             <li>
-              <span>CSS </span>
+              <span>CSS Properties </span>
             </li>
             <li id="dropdown">
-              <span>DROP DOWN</span>
-              <ul class="sub-menu" id="sub-menu">
+              <span>Drop Down</span>
+              <ul className="sub-menu" id="sub-menu">
                 <li>sub menu 1</li>
                 <li>sub menu 2</li>
                 <li>sub menu 3</li>
@@ -116,8 +115,7 @@ class App extends Component {
             </li>
           </ul>
         </div>
-
-        <ul className="nav-dropdown">
+        <ul className="nav-dropdown" style={{marginTop:'70px'}}>
           <li>
             <a href="AlignContent">AlignContent</a>
           </li>
