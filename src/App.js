@@ -41,6 +41,7 @@ import UserSelect from "./Components/UserSelect";
 import Top from "./Components/Top";
 import TextIndent from "./Components/TextIndent";
 import BackfaceVisibility from "./Components/BackfaceVisibility";
+import Height from "./Components/Height";
 
 import { Switch, BrowserRouter, Route, Link } from "react-router-dom";
 
@@ -169,6 +170,9 @@ class App extends Component {
             <a href="FontStyle">FontStyle</a>
           </li>
           <li>
+            <a href="Height">Height</a>
+          </li>
+          <li>
             <a href="FlexBoxGenerator">FlexBoxGenerator</a>
           </li>
           <li>
@@ -282,6 +286,7 @@ class App extends Component {
             <Route path="/Top" component={Top} />
             <Route path="/TextIndent" component={TextIndent} />
             <Route path="/BackfaceVisibility" component={BackfaceVisibility} />
+            <Route path="/Height" component={Height} />
           </Switch>
         </BrowserRouter>
       </>
