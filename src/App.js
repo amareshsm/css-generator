@@ -43,6 +43,7 @@ import TextIndent from "./Components/TextIndent";
 import BackfaceVisibility from "./Components/BackfaceVisibility";
 import Height from "./Components/Height";
 import ColumnGap from "./Components/ColumnGap";
+import EmptyCells from "./Components/EmptyCells";
 
 import { Switch, BrowserRouter, Route, Link } from "react-router-dom";
 
@@ -159,11 +160,15 @@ class App extends Component {
           <li>
             <a href="ColumnRule">Column Rule</a>
           </li>
+
           <li>
             <a href="CssFloat">CssFloat</a>
           </li>
           <li>
             <a href="Cursor">Cursor</a>
+          </li>
+          <li>
+            <a href="EmptyCells">Empty Cells</a>
           </li>
           <li>
             <a href="FontSize">FontSize</a>
@@ -290,6 +295,7 @@ class App extends Component {
             <Route path="/BackfaceVisibility" component={BackfaceVisibility} />
             <Route path="/Height" component={Height} />
             <Route path="/ColumnGap" component={ColumnGap} />
+            <Route path="/EmptyCells" component={EmptyCells} />
           </Switch>
         </BrowserRouter>
       </>
