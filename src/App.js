@@ -42,6 +42,7 @@ import Top from "./Components/Top";
 import TextIndent from "./Components/TextIndent";
 import BackfaceVisibility from "./Components/BackfaceVisibility";
 import Height from "./Components/Height";
+import ColumnGap from "./Components/ColumnGap";
 
 import { Switch, BrowserRouter, Route, Link } from "react-router-dom";
 
@@ -115,7 +116,7 @@ class App extends Component {
             </li>
           </ul>
         </div>
-        <ul className="nav-dropdown" style={{marginTop:'70px'}}>
+        <ul className="nav-dropdown" style={{ marginTop: "70px" }}>
           <li>
             <a href="AlignContent">AlignContent</a>
           </li>
@@ -151,6 +152,9 @@ class App extends Component {
           </li>
           <li>
             <a href="ColumnCount">Column Count</a>
+          </li>
+          <li>
+            <a href="ColumnGap">Column Gap</a>
           </li>
           <li>
             <a href="ColumnRule">Column Rule</a>
@@ -285,6 +289,7 @@ class App extends Component {
             <Route path="/TextIndent" component={TextIndent} />
             <Route path="/BackfaceVisibility" component={BackfaceVisibility} />
             <Route path="/Height" component={Height} />
+            <Route path="/ColumnGap" component={ColumnGap} />
           </Switch>
         </BrowserRouter>
       </>
