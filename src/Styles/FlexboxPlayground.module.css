@@ -1,0 +1,18 @@
+.flexbox_container{
+    height: auto;
+    width: 100%;
+    background-color: lightblue;
+}
+.flexbox_element{
+   display:flex;
+   height: 300px;
+}
+
+.flexbox_child{
+    flex:1;
+    height: 40px;
+    background-color: lightgreen;
+    justify-content: center;
+    align-items: center;
+    display:flex;
+}

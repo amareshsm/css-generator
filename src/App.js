@@ -44,7 +44,7 @@ import BackfaceVisibility from "./Components/BackfaceVisibility";
 import Height from "./Components/Height";
 import ColumnGap from "./Components/ColumnGap";
 import EmptyCells from "./Components/EmptyCells";
-
+import FlexboxPlayground from './Components/FlexboxPlayground'
 import { Switch, BrowserRouter, Route, Link } from "react-router-dom";
 
 class App extends Component {
@@ -248,7 +248,11 @@ class App extends Component {
           <li>
             <a href="WritingMode">WritingMode</a>
           </li>
+          <li>
+            <a href="/flexboxplayground">Flexbox Playground </a>
+          </li>
         </ul>
+      
 
         <BrowserRouter>
           <Switch>
@@ -296,6 +300,7 @@ class App extends Component {
             <Route path="/Height" component={Height} />
             <Route path="/ColumnGap" component={ColumnGap} />
             <Route path="/EmptyCells" component={EmptyCells} />
+            <Route path="/FlexboxPlayground" component={FlexboxPlayground}/>
           </Switch>
         </BrowserRouter>
       </>
