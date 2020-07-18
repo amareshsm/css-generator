@@ -44,7 +44,8 @@ import BackfaceVisibility from "./Components/BackfaceVisibility";
 import Height from "./Components/Height";
 import ColumnGap from "./Components/ColumnGap";
 import EmptyCells from "./Components/EmptyCells";
-import FlexboxPlayground from './Components/FlexboxPlayground'
+import FontVariant from "./Components/FontVariant";
+import FlexboxPlayground from "./Components/FlexboxPlayground";
 import { Switch, BrowserRouter, Route, Link } from "react-router-dom";
 
 class App extends Component {
@@ -177,6 +178,9 @@ class App extends Component {
             <a href="FontStyle">FontStyle</a>
           </li>
           <li>
+            <a href="FontVariant">Font Variant</a>
+          </li>
+          <li>
             <a href="Height">Height</a>
           </li>
           <li>
@@ -252,7 +256,6 @@ class App extends Component {
             <a href="/flexboxplayground">Flexbox Playground </a>
           </li>
         </ul>
-      
 
         <BrowserRouter>
           <Switch>
@@ -295,12 +298,13 @@ class App extends Component {
             <Route path="/Visibility" component={Visibility} />
             <Route path="/UserSelect" component={UserSelect} />
             <Route path="/Top" component={Top} />
+            <Route path="/FontVariant" component={FontVariant} />
             <Route path="/TextIndent" component={TextIndent} />
             <Route path="/BackfaceVisibility" component={BackfaceVisibility} />
             <Route path="/Height" component={Height} />
             <Route path="/ColumnGap" component={ColumnGap} />
             <Route path="/EmptyCells" component={EmptyCells} />
-            <Route path="/FlexboxPlayground" component={FlexboxPlayground}/>
+            <Route path="/FlexboxPlayground" component={FlexboxPlayground} />
           </Switch>
         </BrowserRouter>
       </>
