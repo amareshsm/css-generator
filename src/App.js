@@ -47,6 +47,7 @@ import EmptyCells from './Components/EmptyCells';
 import FontVariant from './Components/FontVariant';
 import FlexboxPlayground from './Components/FlexboxPlayground';
 import MaxHeight from './Components/MaxHeight';
+import MaxWidth from './Components/MaxWidth';
 import { Switch, BrowserRouter, Route } from 'react-router-dom';
 
 class App extends Component {
@@ -203,6 +204,9 @@ class App extends Component {
             <a href="MaxHeight">Max Height</a>
           </li>
           <li>
+            <a href="MaxWidth">Max Width</a>
+          </li>
+          <li>
             <a href="Outline">Outline</a>
           </li>
           <li>
@@ -307,6 +311,7 @@ class App extends Component {
             <Route path="/EmptyCells" component={EmptyCells} />
             <Route path="/FlexboxPlayground" component={FlexboxPlayground} />
             <Route path="/MaxHeight" component={MaxHeight} />
+            <Route path="/MaxWidth" component={MaxWidth} />
           </Switch>
         </BrowserRouter>
       </>
