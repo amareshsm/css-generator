@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import ReactDOM from "react-dom";
+
 import BoxShadow from "./Components/BoxShadow";
 import BorderRadius from "./Components/BorderRadius.js";
 import TextShadow from "./Components/TextShadow";
@@ -46,25 +46,22 @@ import ColumnGap from "./Components/ColumnGap";
 import EmptyCells from "./Components/EmptyCells";
 import FontVariant from "./Components/FontVariant";
 import FlexboxPlayground from "./Components/FlexboxPlayground";
-import { Switch, BrowserRouter, Route, Link } from "react-router-dom";
+import { Switch, BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
   componentDidMount() {
     // Mobile
     var menulist = document.getElementById("menu-list");
     var sublist = document.getElementById("sub-menu");
-
     document
       .querySelector(".mobile-menu-open")
       .addEventListener("click", openMenu);
-
     function openMenu() {
       showAndHide(menulist);
     }
     document.getElementById("dropdown").onclick = function () {
       showAndHide(sublist);
     };
-
     function showAndHide(obj) {
       if (window.innerWidth > 799) return;
       if (obj.classList.contains("shown")) {
@@ -75,7 +72,6 @@ class App extends Component {
       obj.classList.remove("hidden");
       obj.classList.add("shown");
     }
-
     //Resize the window - change desktop or mobile version
     document.body.onresize = function () {
       if (window.innerWidth > 799) {
