@@ -105,14 +105,19 @@ class App extends Component {
             <li>
               <span>CSS Properties </span>
             </li>
-            <li id="dropdown">
+            <li id="dropdown" className="dropdown-li">
               <span>Drop Down</span>
               <ul className="sub-menu" id="sub-menu">
                 <li>sub menu 1</li>
                 <li>sub menu 2</li>
                 <li>sub menu 3</li>
+                <li>sub menu 4</li>
+                <li>sub menu 5</li>
+                <li>sub menu 6</li>
+                <li>sub menu 7</li>
               </ul>
             </li>
+
             <li>
               <span>Contact</span>
             </li>

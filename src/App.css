@@ -43,7 +43,7 @@ span a:hover{
 }
 
 
-  .navbar-menu-list > li:nth-child(3) span:first-child:after{
+  .navbar-menu-list > .dropdown-li span:first-child:after{
     content: '';
     display: inline-block;
     margin-left: .2em;
@@ -53,7 +53,7 @@ span a:hover{
     border-bottom: 0;
     border-left: .3em solid transparent;
   }
-  .navbar-menu-list > li:nth-child(3):hover .sub-menu{
+  .navbar-menu-list > .dropdown-li:hover .sub-menu{
      display: block;  
   }
  
@@ -131,7 +131,7 @@ span a:hover{
       padding: 20px 10px;
     }
     .navbar-menu-list > li:last-child{ padding-bottom: 30px; }
-    .navbar-menu-list > li:nth-child(3):hover .sub-menu{ display: none; }
+    .navbar-menu-list > .dropdown-li:hover .sub-menu{ display: none; }
     .sub-menu{
       position: initial;
       width: 100%;
