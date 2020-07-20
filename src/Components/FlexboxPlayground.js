@@ -12,7 +12,6 @@ class Flexboxplayground extends Component {
             justifyContent: 'flex-start',
             alignContent: 'flex-start',
             alignItems: 'flex-start'
-
         }
     }
 
@@ -62,6 +61,8 @@ class Flexboxplayground extends Component {
 
 
     render() {
+        const {height,width,display,flexDirection,flexWrap,
+            justifyContent,alignItems,alignContent,elements} = this.state
         return (
           <>
             <div>
@@ -70,7 +71,7 @@ class Flexboxplayground extends Component {
                 type="range"
                 min="0"
                 max="100"
-                value={this.state.height}
+                value={height}
                 onChange={this.onChange}
                 name="height"
               />
@@ -79,7 +80,7 @@ class Flexboxplayground extends Component {
                 type="number"
                 min="0"
                 max="100"
-                value={this.state.height}
+                value={height}
                 onChange={this.onChange}
                 name="height"
               />
@@ -89,7 +90,7 @@ class Flexboxplayground extends Component {
                 type="range"
                 min="0"
                 max="100"
-                value={this.state.width}
+                value={width}
                 onChange={this.onChange}
                 name="width"
               />
@@ -98,14 +99,14 @@ class Flexboxplayground extends Component {
                 type="number"
                 min="0"
                 max="100"
-                value={this.state.width}
+                value={width}
                 onChange={this.onChange}
                 name="width"
               />
               <br />
               <label htmlFor="value">display</label>
               <select
-                value={this.state.display}
+                value={display}
                 name="display"
                 onChange={this.onChange}
               >
@@ -114,7 +115,7 @@ class Flexboxplayground extends Component {
               </select>
               <label htmlFor="value">flex-direction</label>
               <select
-                value={this.state.flexDirection}
+                value={flexDirection}
                 name="flexDirection"
                 onChange={this.onChange}
               >
@@ -125,7 +126,7 @@ class Flexboxplayground extends Component {
               </select>
               <label htmlFor="value">flex-wrap</label>
               <select
-                value={this.state.flexWrap}
+                value={flexWrap}
                 name="flexWrap"
                 onChange={this.onChange}
               >
@@ -135,7 +136,7 @@ class Flexboxplayground extends Component {
               </select>
               <label htmlFor="value">justify-content</label>
               <select
-                value={this.state.justifyContent}
+                value={justifyContent}
                 name="justifyContent"
                 onChange={this.onChange}
               >
@@ -147,7 +148,7 @@ class Flexboxplayground extends Component {
               </select>
               <label htmlFor="value">align-items</label>
               <select
-                value={this.state.alignItems}
+                value={alignItems}
                 name="alignItems"
                 onChange={this.onChange}
               >
@@ -159,7 +160,7 @@ class Flexboxplayground extends Component {
               </select>
               <label htmlFor="value">align-content</label>
               <select
-                value={this.state.alignContent}
+                value={alignContent}
                 name="alignContent"
                 onChange={this.onChange}
               >
@@ -172,7 +173,7 @@ class Flexboxplayground extends Component {
             </div>
             <div className={styles.flexbox_container}>
               <div className={styles.flexbox_element}>
-                {this.state.elements.map((ele, index) => (
+                {elements.map((ele, index) => (
                   <div className={styles.flexbox_child} key={index}>
                     <span>{ele}</span>
                   </div>
