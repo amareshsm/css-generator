@@ -21,37 +21,42 @@ class boxShadow extends Component {
   }
 
   async onChange(e) {
+    const { style, horizontalHeight, verticalHeight, blurRadius, spreadRadius,
+      shadowColor, boxColour } = this.state
+
     await this.setState({
       [e.target.name]: [e.target.value],
     });
     await this.boxStyle(
-      this.state.style,
-      this.state.horizontalHeight,
-      this.state.verticalHeight,
-      this.state.blurRadius,
-      this.state.spreadRadius,
-      this.state.shadowColor
+      style,
+      horizontalHeight,
+      verticalHeight,
+      blurRadius,
+      spreadRadius,
+      shadowColor
     );
-    await this.boxColour(this.state.boxColour);
+    await this.boxColour(boxColour);
   }
 
   async handleChange() {
+    const { checked, style, horizontalHeight, verticalHeight, blurRadius, spreadRadius, shadowColor } = this.state
     await this.setState({
-      checked: !this.state.checked,
+      checked: !checked,
     });
     await this.boxStyle(
-      this.state.style,
-      this.state.horizontalHeight,
-      this.state.verticalHeight,
-      this.state.blurRadius,
-      this.state.spreadRadius,
-      this.state.shadowColor
+      style,
+      horizontalHeight,
+      verticalHeight,
+      blurRadius,
+      spreadRadius,
+      shadowColor
     );
   }
 
   boxColour(bg) {
+    const { backgroundColor } = this.state
     let b = document.querySelector(".box");
-    b.style.backgroundColor = bg;
+    backgroundColor = bg;
   }
   boxStyle(
     style,
@@ -61,9 +66,10 @@ class boxShadow extends Component {
     spreadRadius,
     clr
   ) {
+    const { checked } = this.state
     //console.log(horizontalHeight, verticalHeight, blurRadius, spreadRadius, clr, op);
     let ele = document.querySelector(".box");
-    style = this.state.checked ? "inset" : "";
+    style = checked ? "inset" : "";
     //let ele=document.createElement('div')
     //ele.classList.add('box')
     ele.style.boxShadow = `${style} ${horizontalHeight}px ${verticalHeight}px ${blurRadius}px ${spreadRadius}px ${clr} `;
@@ -76,18 +82,22 @@ class boxShadow extends Component {
   }
 
   componentDidMount() {
+    const { style, horizontalHeight, verticalHeight, blurRadius, spreadRadius, shadowColor, boxColour } = this.state
     this.boxStyle(
-      this.state.style,
-      this.state.horizontalHeight,
-      this.state.verticalHeight,
-      this.state.blurRadius,
-      this.state.spreadRadius,
-      this.state.shadowColor
+      style,
+      horizontalHeight,
+      verticalHeight,
+      blurRadius,
+      spreadRadius,
+      shadowColor
     );
-    this.boxColour(this.state.boxColour);
+    this.boxColour(boxColour);
   }
 
   render() {
+    const { horizontalHeight, blurRadius, boxColour, verticalHeight, spreadRadius, shadowColor,
+      checked, style } = this.state
+
     return (
       <div className="App">
         <label htmlFor="horizontalHeight">Horizontal Height</label>
@@ -95,7 +105,7 @@ class boxShadow extends Component {
           type="range"
           min="-100"
           max="100"
-          value={this.state.horizontalHeight}
+          value={horizontalHeight}
           onChange={this.onChange}
           name="horizontalHeight"
         />
@@ -104,7 +114,7 @@ class boxShadow extends Component {
           type="number"
           min="-100"
           max="100"
-          value={this.state.horizontalHeight}
+          value={horizontalHeight}
           onChange={this.onChange}
           name="horizontalHeight"
         />
@@ -114,7 +124,7 @@ class boxShadow extends Component {
           type="range"
           min="-100"
           max="100"
-          value={this.state.verticalHeight}
+          value={verticalHeight}
           onChange={this.onChange}
           name="verticalHeight"
         />
@@ -123,7 +133,7 @@ class boxShadow extends Component {
           type="number"
           min="-100"
           max="100"
-          value={this.state.verticalHeight}
+          value={verticalHeight}
           onChange={this.onChange}
           name="verticalHeight"
         />
@@ -133,7 +143,7 @@ class boxShadow extends Component {
           type="range"
           min="0"
           max="150"
-          value={this.state.blurRadius}
+          value={blurRadius}
           onChange={this.onChange}
           name="blurRadius"
         />
@@ -142,7 +152,7 @@ class boxShadow extends Component {
           type="number"
           min="-100"
           max="100"
-          value={this.state.blurRadius}
+          value={blurRadius}
           onChange={this.onChange}
           name="blurRadius"
         />
@@ -152,7 +162,7 @@ class boxShadow extends Component {
           type="range"
           min="-100"
           max="100"
-          value={this.state.spreadRadius}
+          value={spreadRadius}
           onChange={this.onChange}
           name="spreadRadius"
         />
@@ -161,7 +171,7 @@ class boxShadow extends Component {
           type="number"
           min="-100"
           max="100"
-          value={this.state.spreadRadius}
+          value={spreadRadius}
           onChange={this.onChange}
           name="spreadRadius"
         />
@@ -171,12 +181,12 @@ class boxShadow extends Component {
           type="color"
           name="shadowColor"
           onChange={this.onChange}
-          value={this.state.shadowColor}
+          value={shadowColor}
         />
         &nbsp;
         <input
           type="text"
-          value={this.state.shadowColor}
+          value={shadowColor}
           onChange={this.onChange}
           name="shadowColor"
         />
@@ -186,12 +196,12 @@ class boxShadow extends Component {
           type="color"
           name="boxColour"
           onChange={this.onChange}
-          value={this.state.boxColour}
+          value={boxColour}
         />
         &nbsp;
         <input
           type="text"
-          value={this.state.boxColour}
+          value={boxColour}
           onChange={this.onChange}
           name="boxColor"
         />
@@ -199,35 +209,35 @@ class boxShadow extends Component {
         <input
           type="checkbox"
           name="style"
-          checked={this.state.checked}
+          checked={checked}
           onChange={this.handleChange}
-          value={this.state.style}
+          value={style}
         ></input>
         <label htmlFor="style">Inset</label>
         <div className="box"></div>
         <div>
           -webkit-box-shadow:&nbsp;
-          {this.state.checked ? "inset" : ""}
+          {checked ? "inset" : ""}
           &nbsp;
-          {this.state.horizontalHeight}px {this.state.verticalHeight}px{" "}
-          {this.state.blurRadius}px {this.state.spreadRadius}
-          px {this.state.shadowColor};
+          {horizontalHeight}px {verticalHeight}px{" "}
+          {blurRadius}px {spreadRadius}
+          px {shadowColor};
         </div>
         <div>
           -moz-box-shadow:&nbsp;
-          {this.state.checked ? "inset" : ""}
+          {checked ? "inset" : ""}
           &nbsp;
-          {this.state.horizontalHeight}px {this.state.verticalHeight}px{" "}
-          {this.state.blurRadius}px {this.state.spreadRadius}
-          px {this.state.shadowColor};
+          {horizontalHeight}px {verticalHeight}px{" "}
+          {blurRadius}px {spreadRadius}
+          px {shadowColor};
         </div>
         <div>
           box-shadow:&nbsp;
-          {this.state.checked ? "inset" : ""}
+          {checked ? "inset" : ""}
           &nbsp;
-          {this.state.horizontalHeight}px {this.state.verticalHeight}px{" "}
-          {this.state.blurRadius}px {this.state.spreadRadius}
-          px {this.state.shadowColor};
+          {horizontalHeight}px {verticalHeight}px{" "}
+          {blurRadius}px {spreadRadius}
+          px {shadowColor};
         </div>
       </div>
     );

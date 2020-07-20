@@ -11,6 +11,11 @@ class WritingMode extends Component {
     this.WritingModeStyle = this.WritingModeStyle.bind(this);
     this.onSelect = this.onSelect.bind(this);
   }
+  
+  componentDidMount() {
+    this.WritingModeStyle();
+  }
+
 
   async onChange(e) {
     await this.setState({
@@ -33,10 +38,7 @@ class WritingMode extends Component {
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.WritingModeStyle();
-  }
-
+ 
   render() {
     return (
       <div className="App">
