@@ -15,6 +15,10 @@ class Border extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.BorderStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -30,17 +34,18 @@ class Border extends Component {
   }
 
   BorderStyle() {
+    const {Border_colour,Border_offset,Border_style,Border_width} = this.state
+    
     let e = document.querySelector(".Border");
-    e.style.border = `${this.state.Border_width}px ${this.state.Border_style} ${this.state.Border_colour}`;
-    console.log(this.state.Border);
+    e.style.border = `${Border_width}px ${Border_style} ${Border_colour}`;
+    console.log(Border);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.BorderStyle();
-  }
+
 
   render() {
+    const {Border_colour,Border_offset,Border_style,Border_width} = this.state
     return (
       <div className="App">
         <label htmlFor="value">Border_width</label>
@@ -49,7 +54,7 @@ class Border extends Component {
           type="range"
           min="0"
           max="100"
-          value={this.state.Border_width}
+          value={Border_width}
           onChange={this.onChange}
           name="Border_width"
         />
@@ -58,7 +63,7 @@ class Border extends Component {
           type="number"
           min="0"
           max="100"
-          value={this.state.Border_width}
+          value={Border_width}
           onChange={this.onChange}
           name="Border_width"
         />
@@ -66,7 +71,7 @@ class Border extends Component {
         <p></p>
         <label htmlFor="value">Border_style</label>
         <select
-          value={this.state.Border_style}
+          value={Border_style}
           name="Border_style"
           onChange={this.onChange}
         >
@@ -89,12 +94,12 @@ class Border extends Component {
           type="color"
           name="Border_colour"
           onChange={this.onChange}
-          value={this.state.Border_colour}
+          value={Border_colour}
         />
         &nbsp;
         <input
           type="text"
-          value={this.state.Border_colour}
+          value={Border_colour}
           onChange={this.onChange}
           name="Border_colour"
         />
@@ -109,8 +114,8 @@ class Border extends Component {
         </div>
         <div>
           {" "}
-          border = {this.state.Border_width}px {this.state.Border_style}{" "}
-          {this.state.Border_colour} ;
+          border = {Border_width}px {Border_style}{" "}
+          {Border_colour} ;
         </div>
         <p></p>
       </div>

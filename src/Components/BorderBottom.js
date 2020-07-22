@@ -15,6 +15,10 @@ class BorderBottom extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.BorderBottomStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -30,17 +34,17 @@ class BorderBottom extends Component {
   }
 
   BorderBottomStyle() {
+    const { BorderBottom_colour, BorderBottom_offset, BorderBottom_style, BorderBottom_width } = this.state
     let e = document.querySelector(".BorderBottom");
-    e.style.borderBottom = `${this.state.BorderBottom_width}px ${this.state.BorderBottom_style} ${this.state.BorderBottom_colour}`;
-    console.log(this.state.BorderBottom);
+    e.style.borderBottom = `${BorderBottom_width}px ${BorderBottom_style} ${BorderBottom_colour}`;
+    console.log(BorderBottom);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.BorderBottomStyle();
-  }
+
 
   render() {
+    const { BorderBottom_colour, BorderBottom_offset, BorderBottom_style, BorderBottom_width } = this.state
     return (
       <div className="App">
         <label htmlFor="value">BorderBottom_width</label>
@@ -49,7 +53,7 @@ class BorderBottom extends Component {
           type="range"
           min="0"
           max="100"
-          value={this.state.BorderBottom_width}
+          value={BorderBottom_width}
           onChange={this.onChange}
           name="BorderBottom_width"
         />
@@ -58,7 +62,7 @@ class BorderBottom extends Component {
           type="number"
           min="0"
           max="100"
-          value={this.state.BorderBottom_width}
+          value={BorderBottom_width}
           onChange={this.onChange}
           name="BorderBottom_width"
         />
@@ -66,7 +70,7 @@ class BorderBottom extends Component {
         <p></p>
         <label htmlFor="value">BorderBottom_style</label>
         <select
-          value={this.state.BorderBottom_style}
+          value={BorderBottom_style}
           name="BorderBottom_style"
           onChange={this.onChange}
         >
@@ -89,12 +93,12 @@ class BorderBottom extends Component {
           type="color"
           name="BorderBottom_colour"
           onChange={this.onChange}
-          value={this.state.BorderBottom_colour}
+          value={BorderBottom_colour}
         />
         &nbsp;
         <input
           type="text"
-          value={this.state.BorderBottom_colour}
+          value={BorderBottom_colour}
           onChange={this.onChange}
           name="BorderBottom_colour"
         />
@@ -104,8 +108,8 @@ class BorderBottom extends Component {
         </div>
         <div>
           {" "}
-          border-bottom = {this.state.BorderBottom_width}px{" "}
-          {this.state.BorderBottom_style} {this.state.BorderBottom_colour} ;
+          border-bottom = {BorderBottom_width}px{" "}
+          {BorderBottom_style} {BorderBottom_colour} ;
         </div>
         <p></p>
       </div>
