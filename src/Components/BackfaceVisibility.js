@@ -12,6 +12,10 @@ class BackfaceVisibility extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.BackfaceVisibilityStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -27,22 +31,21 @@ class BackfaceVisibility extends Component {
   }
 
   BackfaceVisibilityStyle() {
+    const {Backface_Visibility} = this.state
     let e = document.querySelector(".BackfaceVisibility");
-    e.style.backfaceVisibility = `${this.state.Backface_Visibility}`;
-    console.log(this.state.Backface_Visibility);
+    e.style.backfaceVisibility = `${Backface_Visibility}`;
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.BackfaceVisibilityStyle();
-  }
+
 
   render() {
+    const {Backface_Visibility} = this.state
     return (
       <div className="App">
         <label htmlFor="value">Backface Visibility</label>&nbsp;
         <select
-          value={this.state.Backface_Visibility}
+          value={Backface_Visibility}
           name="Backface_Visibility"
           onChange={this.onSelect}
         >
@@ -54,11 +57,11 @@ class BackfaceVisibility extends Component {
         <p></p>
         <div className="BackfaceVisibility">Welcome</div>
         <div>
-          <p>backface-visibility = {this.state.Backface_Visibility} ;</p>
+          <p>backface-visibility = {Backface_Visibility} ;</p>
           <p>
-            -webkit-backface-visibility = {this.state.Backface_Visibility} ;
+            -webkit-backface-visibility = {Backface_Visibility} ;
           </p>
-          <p>-moz-backface-visibility = {this.state.Backface_Visibility} ;</p>
+          <p>-moz-backface-visibility = {Backface_Visibility} ;</p>
         </div>
         <p></p>
       </div>
