@@ -11,11 +11,10 @@ class WritingMode extends Component {
     this.WritingModeStyle = this.WritingModeStyle.bind(this);
     this.onSelect = this.onSelect.bind(this);
   }
-  
+
   componentDidMount() {
     this.WritingModeStyle();
   }
-
 
   async onChange(e) {
     await this.setState({
@@ -32,19 +31,20 @@ class WritingMode extends Component {
   }
 
   WritingModeStyle() {
+    const { Writing_Mode } = this.state;
     let e = document.querySelector(".WritingMode");
-    e.style.writingMode = `${this.state.Writing_Mode}`;
-    console.log(this.state.Writing_Mode);
+    e.style.writingMode = `${Writing_Mode}`;
+    console.log(Writing_Mode);
     document.body.appendChild(e);
   }
 
- 
   render() {
+    const { Writing_Mode } = this.state;
     return (
       <div className="App">
         <label htmlFor="value">Writing_Mode</label>
         <select
-          value={this.state.Writing_Mode}
+          value={Writing_Mode}
           name="Writing_Mode"
           onChange={this.onSelect}
         >
@@ -65,9 +65,9 @@ class WritingMode extends Component {
             molestie et suscipit eget, convallis a ipsum.
           </p>
         </div>
-        <div> writing-mode = {this.state.Writing_Mode} ;</div>
-        <div> -ms-writing-mode = {this.state.Writing_Mode} ;</div>
-        <div> -webkit-writing-mode = {this.state.Writing_Mode} ;</div>
+        <div> writing-mode = {Writing_Mode} ;</div>
+        <div> -ms-writing-mode = {Writing_Mode} ;</div>
+        <div> -webkit-writing-mode = {Writing_Mode} ;</div>
         <p></p>
       </div>
     );

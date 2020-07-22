@@ -19,10 +19,37 @@ class boxShadow extends Component {
     this.boxColour = this.boxColour.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
+  componentDidMount() {
+    const {
+      style,
+      horizontalHeight,
+      verticalHeight,
+      blurRadius,
+      spreadRadius,
+      shadowColor,
+      boxColour,
+    } = this.state;
+    this.boxStyle(
+      style,
+      horizontalHeight,
+      verticalHeight,
+      blurRadius,
+      spreadRadius,
+      shadowColor
+    );
+    this.boxColour(boxColour);
+  }
 
   async onChange(e) {
-    const { style, horizontalHeight, verticalHeight, blurRadius, spreadRadius,
-      shadowColor, boxColour } = this.state
+    const {
+      style,
+      horizontalHeight,
+      verticalHeight,
+      blurRadius,
+      spreadRadius,
+      shadowColor,
+      boxColour,
+    } = this.state;
 
     await this.setState({
       [e.target.name]: [e.target.value],
@@ -39,7 +66,15 @@ class boxShadow extends Component {
   }
 
   async handleChange() {
-    const { checked, style, horizontalHeight, verticalHeight, blurRadius, spreadRadius, shadowColor } = this.state
+    const {
+      checked,
+      style,
+      horizontalHeight,
+      verticalHeight,
+      blurRadius,
+      spreadRadius,
+      shadowColor,
+    } = this.state;
     await this.setState({
       checked: !checked,
     });
@@ -54,9 +89,8 @@ class boxShadow extends Component {
   }
 
   boxColour(bg) {
-    const { backgroundColor } = this.state
     let b = document.querySelector(".box");
-    backgroundColor = bg;
+    b.style.backgroundColor = bg;
   }
   boxStyle(
     style,
@@ -66,7 +100,7 @@ class boxShadow extends Component {
     spreadRadius,
     clr
   ) {
-    const { checked } = this.state
+    const { checked } = this.state;
     //console.log(horizontalHeight, verticalHeight, blurRadius, spreadRadius, clr, op);
     let ele = document.querySelector(".box");
     style = checked ? "inset" : "";
@@ -81,22 +115,17 @@ class boxShadow extends Component {
     document.body.appendChild(ele);
   }
 
-  componentDidMount() {
-    const { style, horizontalHeight, verticalHeight, blurRadius, spreadRadius, shadowColor, boxColour } = this.state
-    this.boxStyle(
-      style,
-      horizontalHeight,
-      verticalHeight,
-      blurRadius,
-      spreadRadius,
-      shadowColor
-    );
-    this.boxColour(boxColour);
-  }
-
   render() {
-    const { horizontalHeight, blurRadius, boxColour, verticalHeight, spreadRadius, shadowColor,
-      checked, style } = this.state
+    const {
+      horizontalHeight,
+      blurRadius,
+      boxColour,
+      verticalHeight,
+      spreadRadius,
+      shadowColor,
+      checked,
+      style,
+    } = this.state;
 
     return (
       <div className="App">
@@ -219,24 +248,21 @@ class boxShadow extends Component {
           -webkit-box-shadow:&nbsp;
           {checked ? "inset" : ""}
           &nbsp;
-          {horizontalHeight}px {verticalHeight}px{" "}
-          {blurRadius}px {spreadRadius}
+          {horizontalHeight}px {verticalHeight}px {blurRadius}px {spreadRadius}
           px {shadowColor};
         </div>
         <div>
           -moz-box-shadow:&nbsp;
           {checked ? "inset" : ""}
           &nbsp;
-          {horizontalHeight}px {verticalHeight}px{" "}
-          {blurRadius}px {spreadRadius}
+          {horizontalHeight}px {verticalHeight}px {blurRadius}px {spreadRadius}
           px {shadowColor};
         </div>
         <div>
           box-shadow:&nbsp;
           {checked ? "inset" : ""}
           &nbsp;
-          {horizontalHeight}px {verticalHeight}px{" "}
-          {blurRadius}px {spreadRadius}
+          {horizontalHeight}px {verticalHeight}px {blurRadius}px {spreadRadius}
           px {shadowColor};
         </div>
       </div>
