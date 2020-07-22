@@ -13,6 +13,10 @@ class WordSpacing extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.WordSpacingStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -28,19 +32,15 @@ class WordSpacing extends Component {
   }
 
   WordSpacingStyle() {
+    const { Word_space, unit } = this.state;
     let e = document.querySelector(".Word");
-    e.style.wordSpacing = `${parseInt(this.state.Word_space)}${
-      this.state.unit
-    }`;
-    console.log(this.state.Word_space, this.state.unit);
+    e.style.wordSpacing = `${parseInt(Word_space)}${unit}`;
+    console.log(Word_space, unit);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.WordSpacingStyle();
-  }
-
   render() {
+    const { Word_space, unit } = this.state;
     return (
       <div className="App">
         <label htmlFor="Word_space">Word Spacing</label>
@@ -49,7 +49,7 @@ class WordSpacing extends Component {
           min="0"
           max="100"
           step="0.1"
-          value={this.state.Word_space}
+          value={Word_space}
           onChange={this.onChange}
           name="Word_space"
         />
@@ -59,13 +59,13 @@ class WordSpacing extends Component {
           min="0"
           max="100"
           step="0.1"
-          value={this.state.Word_space}
+          value={Word_space}
           onChange={this.onChange}
           name="Word_space"
         />
         <br />
         <label htmlFor="value">unit</label>&nbsp;
-        <select value={this.state.unit} name="unit" onChange={this.onSelect}>
+        <select value={unit} name="unit" onChange={this.onSelect}>
           <option value="px">px </option>
           <option value="cm">cm</option>
           <option value="pt">pt</option>
@@ -84,8 +84,8 @@ class WordSpacing extends Component {
         </div>
         <div>
           {" "}
-          word-spacing = {this.state.Word_space}
-          {this.state.unit} ;
+          word-spacing = {Word_space}
+          {unit} ;
         </div>
         <p></p>
       </div>

@@ -12,6 +12,10 @@ class WordWrap extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.WordWrapStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -27,25 +31,19 @@ class WordWrap extends Component {
   }
 
   WordWrapStyle() {
+    const { Word_Wrap } = this.state;
     let e = document.querySelector(".WordWrap");
-    e.style.wordWrap = `${this.state.Word_Wrap}`;
-    console.log(this.state.Word_Wrap);
+    e.style.wordWrap = `${Word_Wrap}`;
+    console.log(Word_Wrap);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.WordWrapStyle();
-  }
-
   render() {
+    const { Word_Wrap } = this.state;
     return (
       <div className="App">
         <label htmlFor="value">Word Wrap</label>&nbsp;
-        <select
-          value={this.state.Word_Wrap}
-          name="Word_Wrap"
-          onChange={this.onSelect}
-        >
+        <select value={Word_Wrap} name="Word_Wrap" onChange={this.onSelect}>
           <option value="normal">normal </option>
           <option value="break-word">break-word</option>
           <option value="initial">initial</option>
@@ -62,7 +60,7 @@ class WordWrap extends Component {
             molestie et suscipit eget, convallis a ipsum.
           </p>
         </div>
-        <div> word-wrap = {this.state.Word_Wrap} ;</div>
+        <div> word-wrap = {Word_Wrap} ;</div>
         <p></p>
       </div>
     );
