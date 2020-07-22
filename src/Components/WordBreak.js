@@ -12,6 +12,10 @@ class WordBreak extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.WordBreakStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -27,25 +31,19 @@ class WordBreak extends Component {
   }
 
   WordBreakStyle() {
+    const { Word_Break } = this.state;
     let e = document.querySelector(".WordBreak");
-    e.style.wordBreak = `${this.state.Word_Break}`;
-    console.log(this.state.Word_Break);
+    e.style.wordBreak = `${Word_Break}`;
+    console.log(Word_Break);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.WordBreakStyle();
-  }
-
   render() {
+    const { Word_Break } = this.state;
     return (
       <div className="App">
         <label htmlFor="value">Word_Break</label> &nbsp;
-        <select
-          value={this.state.Word_Break}
-          name="Word_Break"
-          onChange={this.onSelect}
-        >
+        <select value={Word_Break} name="Word_Break" onChange={this.onSelect}>
           <option value="normal">Normal</option>
           <option value="keep-all">keep-all </option>
           <option value="break-word">break-word</option>
@@ -59,7 +57,7 @@ class WordBreak extends Component {
             Loremipsumdolorsitamet,consecteturadipiscingelit.Namegetconsequatdui,etluctusquam.Aliquammagnalibero,sodalesnonerosnec,vestibulumsollicitudinleo.Quisquesederatlorem.
           </p>
         </div>
-        <div> writing-mode = {this.state.Word_Break} ;</div>
+        <div> writing-mode = {Word_Break} ;</div>
         <p></p>
       </div>
     );
