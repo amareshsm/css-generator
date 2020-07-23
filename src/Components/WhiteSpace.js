@@ -12,6 +12,10 @@ class WhiteSpace extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.WhiteSpaceStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -27,25 +31,19 @@ class WhiteSpace extends Component {
   }
 
   WhiteSpaceStyle() {
+    const { White_Space } = this.state;
     let e = document.querySelector(".WhiteSpace");
-    e.style.whiteSpace = `${this.state.White_Space}`;
-    console.log(this.state.White_Space);
+    e.style.whiteSpace = `${White_Space}`;
+    console.log(White_Space);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.WhiteSpaceStyle();
-  }
-
   render() {
+    const { White_Space } = this.state;
     return (
       <div className="App">
         <label htmlFor="value">White Space</label>&nbsp;
-        <select
-          value={this.state.White_Space}
-          name="White_Space"
-          onChange={this.onSelect}
-        >
+        <select value={White_Space} name="White_Space" onChange={this.onSelect}>
           <option value="normal">normal </option>
           <option value="nowrap">nowrap</option>
           <option value="pre">pre</option>
@@ -65,7 +63,7 @@ class WhiteSpace extends Component {
             nisi.
           </p>
         </div>
-        <div> white-space = {this.state.White_Space} ;</div>
+        <div> white-space = {White_Space} ;</div>
         <p></p>
       </div>
     );
