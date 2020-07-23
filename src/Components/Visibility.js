@@ -12,6 +12,10 @@ class Visibility extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.VisibilityStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -27,25 +31,19 @@ class Visibility extends Component {
   }
 
   VisibilityStyle() {
+    const { Visibility } = this.state;
     let e = document.querySelector(".Visibility");
-    e.style.visibility = `${this.state.Visibility}`;
-    console.log(this.state.Visibility);
+    e.style.visibility = `${Visibility}`;
+    console.log(Visibility);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.VisibilityStyle();
-  }
-
   render() {
+    const { Visibility } = this.state;
     return (
       <div className="App">
         <label htmlFor="value">Visibility</label>&nbsp;
-        <select
-          value={this.state.Visibility}
-          name="Visibility"
-          onChange={this.onSelect}
-        >
+        <select value={Visibility} name="Visibility" onChange={this.onSelect}>
           <option value="visible">visible </option>
           <option value="hidden">hidden</option>
           <option value="initial">initial</option>
@@ -61,7 +59,7 @@ class Visibility extends Component {
             scelerisque varius morbi enim nunc faucibus.
           </p>
         </div>
-        <div> visibility = {this.state.Visibility} ;</div>
+        <div> visibility = {Visibility} ;</div>
         <p></p>
       </div>
     );
