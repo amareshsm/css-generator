@@ -13,6 +13,10 @@ class Top extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.TopStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -28,17 +32,15 @@ class Top extends Component {
   }
 
   TopStyle() {
+    const { Top, unit } = this.state;
     let e = document.querySelector(".Top");
-    e.style.top = `${parseInt(this.state.Top)}${this.state.unit}`;
-    console.log(this.state.Top, this.state.unit);
+    e.style.top = `${parseInt(Top)}${unit}`;
+    console.log(Top, unit);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.TopStyle();
-  }
-
   render() {
+    const { Top, unit } = this.state;
     return (
       <div className="App">
         <label htmlFor="Top">Top</label>
@@ -47,7 +49,7 @@ class Top extends Component {
           min="-20"
           max="200"
           step="1"
-          value={this.state.Top}
+          value={Top}
           onChange={this.onChange}
           name="Top"
         />
@@ -57,13 +59,13 @@ class Top extends Component {
           min="-20"
           max="200"
           step="1"
-          value={this.state.Top}
+          value={Top}
           onChange={this.onChange}
           name="Top"
         />
         <br />
         <label htmlFor="value">unit</label>&nbsp;
-        <select value={this.state.unit} name="unit" onChange={this.onSelect}>
+        <select value={unit} name="unit" onChange={this.onSelect}>
           <option value="px">px </option>
           <option value="cm">cm</option>
         </select>
@@ -78,8 +80,8 @@ class Top extends Component {
         </div>
         <div>
           {" "}
-          Top = {this.state.Top}
-          {this.state.unit} ;
+          Top = {Top}
+          {unit} ;
         </div>
         <p></p>
       </div>

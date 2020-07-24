@@ -12,6 +12,10 @@ class UserSelect extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.UserSelectStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -27,25 +31,19 @@ class UserSelect extends Component {
   }
 
   UserSelectStyle() {
+    const { User_Select } = this.state;
     let e = document.querySelector(".UserSelect");
-    e.style.userSelect = `${this.state.User_Select}`;
-    console.log(this.state.User_Select);
+    e.style.userSelect = `${User_Select}`;
+    console.log(User_Select);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.UserSelectStyle();
-  }
-
   render() {
+    const { User_Select } = this.state;
     return (
       <div className="App">
         <label htmlFor="value">User Select</label>&nbsp;
-        <select
-          value={this.state.User_Select}
-          name="User_Select"
-          onChange={this.onSelect}
-        >
+        <select value={User_Select} name="User_Select" onChange={this.onSelect}>
           <option value="auto">auto </option>
           <option value="none">none</option>
           <option value="text">text</option>
@@ -63,10 +61,10 @@ class UserSelect extends Component {
         </div>
         <div>
           {" "}
-          user-select = {this.state.User_Select} ; <br />
-          -webkit-user-select = {this.state.User_Select} ; <br />
-          -moz-user-select = {this.state.User_Select} ; <br />
-          -ms-user-select = {this.state.User_Select} ;
+          user-select = {User_Select} ; <br />
+          -webkit-user-select = {User_Select} ; <br />
+          -moz-user-select = {User_Select} ; <br />
+          -ms-user-select = {User_Select} ;
         </div>
         <p></p>
       </div>
