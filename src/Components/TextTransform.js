@@ -12,6 +12,10 @@ class TextTransform extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.textTransformStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -27,22 +31,20 @@ class TextTransform extends Component {
   }
 
   textTransformStyle() {
+    const { text_Transform } = this.state;
     let e = document.querySelector(".font");
-    e.style.textTransform = `${this.state.text_Transform}`;
-    console.log(this.state.text_Transform);
+    e.style.textTransform = `${text_Transform}`;
+    console.log(text_Transform);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.textTransformStyle();
-  }
-
   render() {
+    const { text_Transform } = this.state;
     return (
       <div className="App">
         <label htmlFor="value">text_Transform</label>
         <select
-          value={this.state.text_Transform}
+          value={text_Transform}
           name="text_Transform"
           onChange={this.onSelect}
         >
@@ -61,7 +63,7 @@ class TextTransform extends Component {
             molestie et suscipit eget, convallis a ipsum.
           </p>
         </div>
-        <div> textTransform = {this.state.text_Transform} ;</div>
+        <div> textTransform = {text_Transform} ;</div>
         <p></p>
       </div>
     );

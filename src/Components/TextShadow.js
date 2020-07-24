@@ -15,17 +15,31 @@ class TextShadow extends Component {
     this.textStyle = this.textStyle.bind(this);
   }
 
+  componentDidMount() {
+    const {
+      hShadow,
+      vShadow,
+      blurRadius,
+      shadowColor,
+      textColour,
+    } = this.state;
+    this.textStyle(hShadow, vShadow, blurRadius, shadowColor);
+    this.textColour(textColour);
+  }
+
   async onChange(e) {
+    const {
+      hShadow,
+      vShadow,
+      blurRadius,
+      shadowColor,
+      textColour,
+    } = this.state;
     await this.setState({
       [e.target.name]: [e.target.value],
     });
-    await this.textStyle(
-      this.state.hShadow,
-      this.state.vShadow,
-      this.state.blurRadius,
-      this.state.shadowColor
-    );
-    await this.textColour(this.state.textColour);
+    await this.textStyle(hShadow, vShadow, blurRadius, shadowColor);
+    await this.textColour(textColour);
   }
 
   textColour(bg) {
@@ -39,17 +53,14 @@ class TextShadow extends Component {
     document.body.appendChild(ele);
   }
 
-  componentDidMount() {
-    this.textStyle(
-      this.state.hShadow,
-      this.state.vShadow,
-      this.state.blurRadius,
-      this.state.shadowColor
-    );
-    this.textColour(this.state.textColour);
-  }
-
   render() {
+    const {
+      hShadow,
+      vShadow,
+      blurRadius,
+      shadowColor,
+      textColour,
+    } = this.state;
     return (
       <div className="App">
         <label htmlFor="hShadow">H-Shadow</label>
@@ -57,7 +68,7 @@ class TextShadow extends Component {
           type="range"
           min="-100"
           max="100"
-          value={this.state.hShadow}
+          value={hShadow}
           onChange={this.onChange}
           name="hShadow"
         />
@@ -66,7 +77,7 @@ class TextShadow extends Component {
           type="number"
           min="-100"
           max="100"
-          value={this.state.hShadow}
+          value={hShadow}
           onChange={this.onChange}
           name="hShadow"
         />
@@ -76,7 +87,7 @@ class TextShadow extends Component {
           type="range"
           min="-100"
           max="100"
-          value={this.state.vShadow}
+          value={vShadow}
           onChange={this.onChange}
           name="vShadow"
         />
@@ -85,7 +96,7 @@ class TextShadow extends Component {
           type="number"
           min="-100"
           max="100"
-          value={this.state.vShadow}
+          value={vShadow}
           onChange={this.onChange}
           name="vShadow"
         />
@@ -95,7 +106,7 @@ class TextShadow extends Component {
           type="range"
           min="0"
           max="150"
-          value={this.state.blurRadius}
+          value={blurRadius}
           onChange={this.onChange}
           name="blurRadius"
         />
@@ -104,7 +115,7 @@ class TextShadow extends Component {
           type="number"
           min="-100"
           max="100"
-          value={this.state.blurRadius}
+          value={blurRadius}
           onChange={this.onChange}
           name="blurRadius"
         />
@@ -114,12 +125,12 @@ class TextShadow extends Component {
           type="color"
           name="shadowColor"
           onChange={this.onChange}
-          value={this.state.shadowColor}
+          value={shadowColor}
         />
         &nbsp;
         <input
           type="text"
-          value={this.state.shadowColor}
+          value={shadowColor}
           onChange={this.onChange}
           name="shadowColor"
         />
@@ -129,12 +140,12 @@ class TextShadow extends Component {
           type="color"
           name="textColour"
           onChange={this.onChange}
-          value={this.state.textColour}
+          value={textColour}
         />
         &nbsp;
         <input
           type="text"
-          value={this.state.textColour}
+          value={textColour}
           onChange={this.onChange}
           name="textColour"
         />
@@ -146,8 +157,8 @@ class TextShadow extends Component {
         </div>
         <div>
           text-shadow:&nbsp;
-          {this.state.hShadow}px {this.state.vShadow}px {this.state.blurRadius}
-          px {this.state.shadowColor};
+          {hShadow}px {vShadow}px {blurRadius}
+          px {shadowColor};
         </div>
       </div>
     );
