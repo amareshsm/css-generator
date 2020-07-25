@@ -14,6 +14,10 @@ class TextDecoration extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.textDecorationStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -30,22 +34,28 @@ class TextDecoration extends Component {
   }
 
   textDecorationStyle() {
+    const {
+      text_Decoration_colour,
+      text_Decoration_line,
+      text_Decoration_style,
+    } = this.state;
     let e = document.querySelector(".font-decor");
-    e.style.textDecoration = `${this.state.text_Decoration_line} ${this.state.text_Decoration_style} ${this.state.text_Decoration_colour}`;
+    e.style.textDecoration = `${text_Decoration_line} ${text_Decoration_style} ${text_Decoration_colour}`;
     console.log(this.state.text_Decoration);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.textDecorationStyle();
-  }
-
   render() {
+    const {
+      text_Decoration_colour,
+      text_Decoration_line,
+      text_Decoration_style,
+    } = this.state;
     return (
       <div className="App">
         <label htmlFor="value">text_Decoration_line</label>
         <select
-          value={this.state.text_Decoration_line}
+          value={text_Decoration_line}
           name="text_Decoration_line"
           onChange={this.onSelect}
         >
@@ -58,7 +68,7 @@ class TextDecoration extends Component {
         <p></p>
         <label htmlFor="value">text_Decoration_style</label>
         <select
-          value={this.state.text_Decoration_style}
+          value={text_Decoration_style}
           name="text_Decoration_style"
           onChange={this.onChange}
         >
@@ -75,12 +85,12 @@ class TextDecoration extends Component {
           type="color"
           name="text_Decoration_colour"
           onChange={this.onChange}
-          value={this.state.text_Decoration_colour}
+          value={text_Decoration_colour}
         />
         &nbsp;
         <input
           type="text"
-          value={this.state.text_Decoration_colour}
+          value={text_Decoration_colour}
           onChange={this.onChange}
           name="text_Decoration_colour"
         />
@@ -97,14 +107,12 @@ class TextDecoration extends Component {
         </div>
         <div>
           {" "}
-          text-decoration = {this.state.text_Decoration_line}{" "}
-          {this.state.text_Decoration_style} {this.state.text_Decoration_colour}{" "}
-          ;
+          text-decoration = {text_Decoration_line} {text_Decoration_style}{" "}
+          {text_Decoration_colour} ;
         </div>
         <div>
-          -webkit-text-decoration = {this.state.text_Decoration_line}{" "}
-          {this.state.text_Decoration_style} {this.state.text_Decoration_colour}{" "}
-          ;{" "}
+          -webkit-text-decoration = {text_Decoration_line}{" "}
+          {text_Decoration_style} {text_Decoration_colour} ;{" "}
         </div>
         <p></p>
       </div>
