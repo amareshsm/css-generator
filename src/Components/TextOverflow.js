@@ -12,6 +12,10 @@ class TextOverflow extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.TextOverflowStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -27,22 +31,20 @@ class TextOverflow extends Component {
   }
 
   TextOverflowStyle() {
+    const { text_Overflow } = this.state;
     let e = document.querySelector(".Text_Overflow");
-    e.style.textOverflow = `${this.state.text_Overflow}`;
-    console.log(this.state.text_Overflow);
+    e.style.textOverflow = `${text_Overflow}`;
+    console.log(text_Overflow);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.TextOverflowStyle();
-  }
-
   render() {
+    const { text_Overflow } = this.state;
     return (
       <div className="App">
         <label htmlFor="value">text_Overflow</label>
         <select
-          value={this.state.text_Overflow}
+          value={text_Overflow}
           name="text_Overflow"
           onChange={this.onSelect}
         >
@@ -58,7 +60,7 @@ class TextOverflow extends Component {
             consequat dui, et luctus quam.
           </p>
         </div>
-        <div> text-overflow = {this.state.text_Overflow} ;</div>
+        <div> text-overflow = {text_Overflow} ;</div>
         <p></p>
       </div>
     );

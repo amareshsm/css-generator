@@ -13,6 +13,10 @@ class TextIndent extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.Text_IndentStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -28,19 +32,15 @@ class TextIndent extends Component {
   }
 
   Text_IndentStyle() {
+    const { Text_Indent, unit } = this.state;
     let e = document.querySelector(".TextIndent");
-    e.style.textIndent = `${parseInt(this.state.Text_Indent)}${
-      this.state.unit
-    }`;
-    console.log(this.state.Text_Indent, this.state.unit);
+    e.style.textIndent = `${parseInt(Text_Indent)}${unit}`;
+    console.log(Text_Indent, unit);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.Text_IndentStyle();
-  }
-
   render() {
+    const { Text_Indent, unit } = this.state;
     return (
       <div className="App">
         <label htmlFor="Text_Indent">TextIndent</label>
@@ -49,7 +49,7 @@ class TextIndent extends Component {
           min="0"
           max="200"
           step="1"
-          value={this.state.Text_Indent}
+          value={Text_Indent}
           onChange={this.onChange}
           name="Text_Indent"
         />
@@ -59,13 +59,13 @@ class TextIndent extends Component {
           min="0"
           max="200"
           step="1"
-          value={this.state.Text_Indent}
+          value={Text_Indent}
           onChange={this.onChange}
           name="Text_Indent"
         />
         <br />
         <label htmlFor="value">unit</label>&nbsp;
-        <select value={this.state.unit} name="unit" onChange={this.onSelect}>
+        <select value={unit} name="unit" onChange={this.onSelect}>
           <option value="px">px </option>
           <option value="cm">cm</option>
           <option value="%">%</option>
@@ -82,8 +82,8 @@ class TextIndent extends Component {
         </div>
         <div>
           {" "}
-          text-indent = {this.state.Text_Indent}
-          {this.state.unit} ;
+          text-indent = {Text_Indent}
+          {unit} ;
         </div>
         <p></p>
       </div>
