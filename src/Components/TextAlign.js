@@ -13,6 +13,10 @@ class TextAlign extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.TextAlignStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -28,26 +32,20 @@ class TextAlign extends Component {
   }
 
   TextAlignStyle() {
+    const { text_Direction, text_Align } = this.state;
     let e = document.querySelector(".text1");
-    e.style.textAlign = `${this.state.text_Align}`;
-    e.style.direction = `${this.state.text_Direction}`;
-    console.log(this.state.text_Align);
+    e.style.textAlign = `${text_Align}`;
+    e.style.direction = `${text_Direction}`;
+    console.log(text_Align);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.TextAlignStyle();
-  }
-
   render() {
+    const { text_Direction, text_Align } = this.state;
     return (
       <div className="App">
         <label htmlFor="value">text_Align</label>&nbsp;
-        <select
-          value={this.state.text_Align}
-          name="text_Align"
-          onChange={this.onSelect}
-        >
+        <select value={text_Align} name="text_Align" onChange={this.onSelect}>
           <option value="justify">Justify</option>
           <option value="center">Center</option>
           <option value="left">Left</option>
@@ -56,7 +54,7 @@ class TextAlign extends Component {
         <p></p>
         <label htmlFor="value">text_Direction</label>&nbsp;
         <select
-          value={this.state.text_Direction}
+          value={text_Direction}
           name="text_Direction"
           onChange={this.onChange}
         >
@@ -74,8 +72,8 @@ class TextAlign extends Component {
             molestie et suscipit eget, convallis a ipsum.
           </p>
         </div>
-        <div> text-align = {this.state.text_Align} ;</div>
-        <div>direction = {this.state.text_Direction}; </div>
+        <div> text-align = {text_Align} ;</div>
+        <div>direction = {text_Direction}; </div>
         <p></p>
       </div>
     );

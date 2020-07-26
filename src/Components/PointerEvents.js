@@ -27,9 +27,10 @@ class PointerEvents extends Component {
   }
 
   PointerEventStyle() {
+    const { Pointer_Event } = this.state;
     let e = document.querySelector(".PointerEvents");
-    e.style.pointerEvents = `${this.state.Pointer_Event}`;
-    console.log(this.state.Pointer_Event);
+    e.style.pointerEvents = `${Pointer_Event}`;
+    console.log(Pointer_Event);
     document.body.appendChild(e);
   }
 
@@ -38,11 +39,12 @@ class PointerEvents extends Component {
   }
 
   render() {
+    const { Pointer_Event } = this.state;
     return (
       <div className="App">
         <label htmlFor="value">Pointer_Event</label>
         <select
-          value={this.state.Pointer_Event}
+          value={Pointer_Event}
           name="Pointer_Event"
           onChange={this.onSelect}
         >
@@ -57,7 +59,7 @@ class PointerEvents extends Component {
             Welcome to <a href="PointerEvents">Pointer Events</a>
           </p>
         </div>
-        <div> PointerEvents = {this.state.Pointer_Event} ;</div>
+        <div> PointerEvents = {Pointer_Event} ;</div>
         <p></p>
       </div>
     );
