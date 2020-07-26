@@ -1,16 +1,20 @@
-import React, { Component } from 'react';
-import '../Styles/MaxHeight.css';
+import React, { Component } from "react";
+import "../Styles/MaxHeight.css";
 
 class MaxHeight extends Component {
   constructor(porps) {
     super(porps);
     this.state = {
-      MaxHeight: '30',
-      unit: 'px',
+      MaxHeight: "30",
+      unit: "px",
     };
     this.onChange = this.onChange.bind(this);
     this.MaxHeightStyle = this.MaxHeightStyle.bind(this);
     this.onSelect = this.onSelect.bind(this);
+  }
+
+  componentDidMount() {
+    this.MaxHeightStyle();
   }
 
   async onChange(e) {
@@ -28,17 +32,15 @@ class MaxHeight extends Component {
   }
 
   MaxHeightStyle() {
-    let e = document.querySelector('.MaxHeight');
-    e.style.maxHeight = `${parseInt(this.state.MaxHeight)}${this.state.unit}`;
-    console.log(this.state.MaxHeight, this.state.unit);
+    const { MaxHeight, unit } = this.state;
+    let e = document.querySelector(".MaxHeight");
+    e.style.maxHeight = `${parseInt(MaxHeight)}${unit}`;
+    console.log(MaxHeight, unit);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.MaxHeightStyle();
-  }
-
   render() {
+    const { MaxHeight, unit } = this.state;
     return (
       <div className="App">
         <label htmlFor="MaxHeight">MaxHeight</label>
@@ -47,7 +49,7 @@ class MaxHeight extends Component {
           min="0"
           max="500"
           step="1"
-          value={this.state.MaxHeight}
+          value={MaxHeight}
           onChange={this.onChange}
           name="MaxHeight"
         />
@@ -57,13 +59,13 @@ class MaxHeight extends Component {
           min="0"
           max="500"
           step="1"
-          value={this.state.MaxHeight}
+          value={MaxHeight}
           onChange={this.onChange}
           name="MaxHeight"
         />
         <br />
         <label htmlFor="value">unit</label>&nbsp;
-        <select value={this.state.unit} name="unit" onChange={this.onSelect}>
+        <select value={unit} name="unit" onChange={this.onSelect}>
           <option value="px">px </option>
           <option value="cm">cm</option>
         </select>
@@ -83,9 +85,9 @@ class MaxHeight extends Component {
           ipsum.
         </div>
         <div>
-          {' '}
-          MaxHeight = {this.state.MaxHeight}
-          {this.state.unit} ;
+          {" "}
+          MaxHeight = {MaxHeight}
+          {unit} ;
         </div>
         <p></p>
       </div>

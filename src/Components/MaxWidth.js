@@ -1,16 +1,20 @@
-import React, { Component } from 'react';
-import '../Styles/MaxWidth.css';
+import React, { Component } from "react";
+import "../Styles/MaxWidth.css";
 
 class MaxWidth extends Component {
   constructor(porps) {
     super(porps);
     this.state = {
-      MaxWidth: '30',
-      unit: 'px',
+      MaxWidth: "30",
+      unit: "px",
     };
     this.onChange = this.onChange.bind(this);
     this.MaxWidthStyle = this.MaxWidthStyle.bind(this);
     this.onSelect = this.onSelect.bind(this);
+  }
+
+  componentDidMount() {
+    this.MaxWidthStyle();
   }
 
   async onChange(e) {
@@ -28,17 +32,15 @@ class MaxWidth extends Component {
   }
 
   MaxWidthStyle() {
-    let e = document.querySelector('.MaxWidth');
-    e.style.maxWidth = `${parseInt(this.state.MaxWidth)}${this.state.unit}`;
-    console.log(this.state.MaxWidth, this.state.unit);
+    const { MaxWidth, unit } = this.state;
+    let e = document.querySelector(".MaxWidth");
+    e.style.maxWidth = `${parseInt(MaxWidth)}${unit}`;
+    console.log(MaxWidth, unit);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.MaxWidthStyle();
-  }
-
   render() {
+    const { MaxWidth, unit } = this.state;
     return (
       <div className="App">
         <label htmlFor="MaxWidth">MaxWidth</label>
@@ -47,7 +49,7 @@ class MaxWidth extends Component {
           min="0"
           max="500"
           step="1"
-          value={this.state.MaxWidth}
+          value={MaxWidth}
           onChange={this.onChange}
           name="MaxWidth"
         />
@@ -57,13 +59,13 @@ class MaxWidth extends Component {
           min="0"
           max="500"
           step="1"
-          value={this.state.MaxWidth}
+          value={MaxWidth}
           onChange={this.onChange}
           name="MaxWidth"
         />
         <br />
         <label htmlFor="value">unit</label>&nbsp;
-        <select value={this.state.unit} name="unit" onChange={this.onSelect}>
+        <select value={unit} name="unit" onChange={this.onSelect}>
           <option value="px">px </option>
           <option value="cm">cm</option>
         </select>
@@ -83,9 +85,9 @@ class MaxWidth extends Component {
           ipsum.
         </div>
         <div>
-          {' '}
-          MaxWidth = {this.state.MaxWidth}
-          {this.state.unit} ;
+          {" "}
+          MaxWidth = {MaxWidth}
+          {unit} ;
         </div>
         <p></p>
       </div>
