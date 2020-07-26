@@ -12,6 +12,10 @@ class Cursor extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.CursorStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -33,9 +37,7 @@ class Cursor extends Component {
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.CursorStyle();
-  }
+
 
   render() {
     return (
