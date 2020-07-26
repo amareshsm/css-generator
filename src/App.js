@@ -1,86 +1,87 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
-import BoxShadow from './Components/BoxShadow';
-import BorderRadius from './Components/BorderRadius.js';
-import TextShadow from './Components/TextShadow';
-import FlexBoxGenerator from './Components/FlexBoxGenerator';
-import Margin from './Components/Margin';
-import LineHeight from './Components/LineHeight';
-import FontStyle from './Components/FontStyle';
-import LetterSpacing from './Components/LetterSpacing';
-import TextTransform from './Components/TextTransform';
-import TextDecoration from './Components/TextDecoration';
-import Cursor from './Components/Cursor';
-import Outline from './Components/Outline';
-import TextAlign from './Components/TextAlign';
-import ListStyle from './Components/ListStyle';
-import WritingMode from './Components/WritingMode';
-import WordWrap from './Components/WordWrap';
-import WordBreak from './Components/WordBreak';
-import TextOverflow from './Components/TextOverflow';
-import CssFloat from './Components/CssFloat';
-import Overflow from './Components/Overflow';
-import BorderCollapse from './Components/BorderCollapse';
-import FontSize from './Components/FontSize';
-import AlignContent from './Components/AlignContent';
-import AllProperty from './Components/AllProperty';
-import BoxSizing from './Components/BoxSizing';
-import PointerEvents from './Components/PointerEvents';
-import CaptionSide from './Components/CaptionSide';
-import ColumnCount from './Components/ColumnCount';
-import Border from './Components/Border';
-import BorderBottom from './Components/BorderBottom';
-import BackgroundClip from './Components/BackgroundClip';
-import ColumnRule from './Components/ColumnRule';
-import WordSpacing from './Components/WordSpacing';
-import WhiteSpace from './Components/WhiteSpace';
-import Width from './Components/Width';
-import Visibility from './Components/Visibility';
-import UserSelect from './Components/UserSelect';
-import Top from './Components/Top';
-import TextIndent from './Components/TextIndent';
-import BackfaceVisibility from './Components/BackfaceVisibility';
-import Height from './Components/Height';
-import ColumnGap from './Components/ColumnGap';
-import EmptyCells from './Components/EmptyCells';
-import FontVariant from './Components/FontVariant';
-import FlexboxPlayground from './Components/FlexboxPlayground';
-import MaxHeight from './Components/MaxHeight';
-import MaxWidth from './Components/MaxWidth';
-import { Switch, BrowserRouter, Route } from 'react-router-dom';
+import BoxShadow from "./Components/BoxShadow";
+import BorderRadius from "./Components/BorderRadius.js";
+import TextShadow from "./Components/TextShadow";
+import FlexBoxGenerator from "./Components/FlexBoxGenerator";
+import Margin from "./Components/Margin";
+import LineHeight from "./Components/LineHeight";
+import FontStyle from "./Components/FontStyle";
+import LetterSpacing from "./Components/LetterSpacing";
+import TextTransform from "./Components/TextTransform";
+import TextDecoration from "./Components/TextDecoration";
+import Cursor from "./Components/Cursor";
+import Outline from "./Components/Outline";
+import TextAlign from "./Components/TextAlign";
+import ListStyle from "./Components/ListStyle";
+import WritingMode from "./Components/WritingMode";
+import WordWrap from "./Components/WordWrap";
+import WordBreak from "./Components/WordBreak";
+import TextOverflow from "./Components/TextOverflow";
+import CssFloat from "./Components/CssFloat";
+import Overflow from "./Components/Overflow";
+import BorderCollapse from "./Components/BorderCollapse";
+import FontSize from "./Components/FontSize";
+import AlignContent from "./Components/AlignContent";
+import AllProperty from "./Components/AllProperty";
+import BoxSizing from "./Components/BoxSizing";
+import PointerEvents from "./Components/PointerEvents";
+import CaptionSide from "./Components/CaptionSide";
+import ColumnCount from "./Components/ColumnCount";
+import Border from "./Components/Border";
+import BorderBottom from "./Components/BorderBottom";
+import BackgroundClip from "./Components/BackgroundClip";
+import ColumnRule from "./Components/ColumnRule";
+import WordSpacing from "./Components/WordSpacing";
+import WhiteSpace from "./Components/WhiteSpace";
+import Width from "./Components/Width";
+import Visibility from "./Components/Visibility";
+import UserSelect from "./Components/UserSelect";
+import Top from "./Components/Top";
+import TextIndent from "./Components/TextIndent";
+import BackfaceVisibility from "./Components/BackfaceVisibility";
+import Height from "./Components/Height";
+import ColumnGap from "./Components/ColumnGap";
+import EmptyCells from "./Components/EmptyCells";
+import FontVariant from "./Components/FontVariant";
+import FlexboxPlayground from "./Components/FlexboxPlayground";
+import MaxHeight from "./Components/MaxHeight";
+import MaxWidth from "./Components/MaxWidth";
+import MinHeight from "./Components/MinHeight";
+import { Switch, BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
   componentDidMount() {
     // Mobile
-    var menulist = document.getElementById('menu-list');
-    var sublist = document.getElementById('sub-menu');
+    var menulist = document.getElementById("menu-list");
+    var sublist = document.getElementById("sub-menu");
     document
-      .querySelector('.mobile-menu-open')
-      .addEventListener('click', openMenu);
+      .querySelector(".mobile-menu-open")
+      .addEventListener("click", openMenu);
     function openMenu() {
       showAndHide(menulist);
     }
-    document.getElementById('dropdown').onclick = function () {
+    document.getElementById("dropdown").onclick = function () {
       showAndHide(sublist);
     };
     function showAndHide(obj) {
       if (window.innerWidth > 799) return;
-      if (obj.classList.contains('shown')) {
-        obj.classList.add('hidden');
-        obj.classList.remove('shown');
+      if (obj.classList.contains("shown")) {
+        obj.classList.add("hidden");
+        obj.classList.remove("shown");
         return;
       }
-      obj.classList.remove('hidden');
-      obj.classList.add('shown');
+      obj.classList.remove("hidden");
+      obj.classList.add("shown");
     }
     //Resize the window - change desktop or mobile version
     document.body.onresize = function () {
       if (window.innerWidth > 799) {
-        menulist.classList.remove('hidden');
-        menulist.classList.remove('shown');
-        sublist.classList.remove('hidden');
-        sublist.classList.remove('shown');
+        menulist.classList.remove("hidden");
+        menulist.classList.remove("shown");
+        sublist.classList.remove("hidden");
+        sublist.classList.remove("shown");
       }
     };
   }
@@ -116,7 +117,7 @@ class App extends Component {
             </li>
           </ul>
         </div>
-        <ul className="nav-dropdown" style={{ marginTop: '70px' }}>
+        <ul className="nav-dropdown" style={{ marginTop: "70px" }}>
           <li>
             <a href="AlignContent">AlignContent</a>
           </li>
@@ -205,6 +206,9 @@ class App extends Component {
           </li>
           <li>
             <a href="MaxWidth">Max Width</a>
+          </li>
+          <li>
+            <a href="MinHeight">Min Height</a>
           </li>
           <li>
             <a href="Outline">Outline</a>
@@ -312,6 +316,7 @@ class App extends Component {
             <Route path="/FlexboxPlayground" component={FlexboxPlayground} />
             <Route path="/MaxHeight" component={MaxHeight} />
             <Route path="/MaxWidth" component={MaxWidth} />
+            <Route path="/MinHeight" component={MinHeight} />
           </Switch>
         </BrowserRouter>
       </>
