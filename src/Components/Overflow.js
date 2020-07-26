@@ -12,6 +12,10 @@ class Overflow extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.OverflowStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -27,25 +31,19 @@ class Overflow extends Component {
   }
 
   OverflowStyle() {
+    const { Over_flow } = this.state;
     let e = document.querySelector(".Overflow");
-    e.style.overflow = `${this.state.Over_flow}`;
-    console.log(this.state.Over_flow);
+    e.style.overflow = `${Over_flow}`;
+    console.log(Over_flow);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.OverflowStyle();
-  }
-
   render() {
+    const { Over_flow } = this.state;
     return (
       <div className="App">
         <label htmlFor="value">Overflow</label>
-        <select
-          value={this.state.Over_flow}
-          name="Over_flow"
-          onChange={this.onSelect}
-        >
+        <select value={Over_flow} name="Over_flow" onChange={this.onSelect}>
           <option value="visible">visible </option>
           <option value="hidden">hidden</option>
           <option value="scroll">scroll</option>
@@ -64,7 +62,7 @@ class Overflow extends Component {
             molestie et suscipit eget, convallis a ipsum.
           </p>
         </div>
-        <div> overflow = {this.state.Over_flow} ;</div>
+        <div> overflow = {Over_flow} ;</div>
         <p></p>
       </div>
     );

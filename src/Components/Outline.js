@@ -15,6 +15,10 @@ class Outline extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.OutlineStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -30,18 +34,26 @@ class Outline extends Component {
   }
 
   OutlineStyle() {
+    const {
+      outline_offset,
+      Outline_colour,
+      Outline_style,
+      Outline_width,
+    } = this.state;
     let e = document.querySelector(".outline");
-    e.style.outline = `${this.state.Outline_width}px ${this.state.Outline_style} ${this.state.Outline_colour}`;
-    e.style.outlineOffset = `${parseInt(this.state.outline_offset)}px`;
+    e.style.outline = `${Outline_width}px ${Outline_style} ${Outline_colour}`;
+    e.style.outlineOffset = `${parseInt(outline_offset)}px`;
     console.log(this.state.Outline);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.OutlineStyle();
-  }
-
   render() {
+    const {
+      outline_offset,
+      Outline_colour,
+      Outline_style,
+      Outline_width,
+    } = this.state;
     return (
       <div className="App">
         <label htmlFor="value">Outline_width</label>
@@ -50,7 +62,7 @@ class Outline extends Component {
           type="range"
           min="0"
           max="100"
-          value={this.state.Outline_width}
+          value={Outline_width}
           onChange={this.onChange}
           name="Outline_width"
         />
@@ -59,7 +71,7 @@ class Outline extends Component {
           type="number"
           min="0"
           max="100"
-          value={this.state.Outline_width}
+          value={Outline_width}
           onChange={this.onChange}
           name="Outline_width"
         />
@@ -67,7 +79,7 @@ class Outline extends Component {
         <p></p>
         <label htmlFor="value">Outline_style</label>
         <select
-          value={this.state.Outline_style}
+          value={Outline_style}
           name="Outline_style"
           onChange={this.onChange}
         >
@@ -88,12 +100,12 @@ class Outline extends Component {
           type="color"
           name="Outline_colour"
           onChange={this.onChange}
-          value={this.state.Outline_colour}
+          value={Outline_colour}
         />
         &nbsp;
         <input
           type="text"
-          value={this.state.Outline_colour}
+          value={Outline_colour}
           onChange={this.onChange}
           name="Outline_colour"
         />
@@ -103,7 +115,7 @@ class Outline extends Component {
           type="range"
           min="1"
           max="250"
-          value={this.state.outline_offset}
+          value={outline_offset}
           onChange={this.onChange}
           name="outline_offset"
         />
@@ -112,7 +124,7 @@ class Outline extends Component {
           type="number"
           min="1"
           max="250"
-          value={this.state.outline_offset}
+          value={outline_offset}
           onChange={this.onChange}
           name="outline_offset"
         />
@@ -120,10 +132,9 @@ class Outline extends Component {
         <div className="outline"></div>
         <div>
           {" "}
-          outline = {this.state.Outline_width}px {this.state.Outline_style}{" "}
-          {this.state.Outline_colour} ;
+          outline = {Outline_width}px {Outline_style} {Outline_colour} ;
         </div>
-        <div> outlineOffset= {this.state.outline_offset}px;</div>
+        <div> outlineOffset= {outline_offset}px;</div>
         <p></p>
       </div>
     );
