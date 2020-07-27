@@ -10,13 +10,16 @@ class LineHeight extends Component {
     };
     this.onChange = this.onChange.bind(this);
     this.lineHeightStyle = this.lineHeightStyle.bind(this);
-    this.onSelect =this.onSelect.bind(this)
+    this.onSelect = this.onSelect.bind(this);
+  }
+
+  componentDidMount() {
+    this.lineHeightStyle();
   }
 
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
-
     });
     await this.lineHeightStyle();
   }
@@ -29,19 +32,15 @@ class LineHeight extends Component {
   }
 
   lineHeightStyle() {
+    const { line_Height, unit } = this.state;
     let e = document.querySelector(".line");
-    e.style.lineHeight = `${parseInt(this.state.line_Height)}${this.state.unit}`;
-    console.log(this.state.line_Height,this.state.unit)
+    e.style.lineHeight = `${parseInt(line_Height)}${unit}`;
+    console.log(line_Height, unit);
     document.body.appendChild(e);
   }
 
-
-
-  componentDidMount() {
-    this.lineHeightStyle();
-  }
-
   render() {
+    const { line_Height, unit } = this.state;
     return (
       <div className="App">
         <label htmlFor="line_Height">Line Height</label>
@@ -49,7 +48,7 @@ class LineHeight extends Component {
           type="range"
           min="1"
           max="250"
-          value={this.state.line_Height}
+          value={line_Height}
           onChange={this.onChange}
           name="line_Height"
         />
@@ -58,13 +57,13 @@ class LineHeight extends Component {
           type="number"
           min="1"
           max="250"
-          value={this.state.line_Height}
+          value={line_Height}
           onChange={this.onChange}
           name="line_Height"
         />
         <br />
         <label htmlFor="value">unit</label>
-        <select value={this.state.unit} name="unit" onChange={this.onSelect}>
+        <select value={unit} name="unit" onChange={this.onSelect}>
           <option value="px">px </option>
           <option value=" ">unitless</option>
           <option value="em">em</option>
@@ -82,7 +81,11 @@ class LineHeight extends Component {
             molestie et suscipit eget, convallis a ipsum.
           </p>
         </div>
-        <div> lineHeight = {this.state.line_Height}{this.state.unit} ;</div>
+        <div>
+          {" "}
+          lineHeight = {line_Height}
+          {unit} ;
+        </div>
         <p></p>
       </div>
     );

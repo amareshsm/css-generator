@@ -13,6 +13,10 @@ class ListStyle extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.listStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -28,23 +32,21 @@ class ListStyle extends Component {
   }
 
   listStyle() {
+    const { list_Style_position, list_Style_type } = this.state;
     let e = document.querySelector(".list");
-    e.style.listStyle = `${this.state.list_Style_type}`;
-    e.style.listStylePosition = `${this.state.list_Style_position}`;
-    console.log(this.state.list_Style_type);
+    e.style.listStyle = `${list_Style_type}`;
+    e.style.listStylePosition = `${list_Style_position}`;
+    console.log(list_Style_type);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.listStyle();
-  }
-
   render() {
+    const { list_Style_position, list_Style_type } = this.state;
     return (
       <div className="App list-style">
         <label htmlFor="value">list_Style_type</label>
         <select
-          value={this.state.list_Style_type}
+          value={list_Style_type}
           name="list_Style_type"
           onChange={this.onSelect}
         >
@@ -69,7 +71,7 @@ class ListStyle extends Component {
         <p></p>
         <label htmlFor="value">list_Style_position</label>
         <select
-          value={this.state.list_Style_position}
+          value={list_Style_position}
           name="list_Style_position"
           onChange={this.onChange}
         >
@@ -90,8 +92,8 @@ class ListStyle extends Component {
             <li>Hedwig</li>
           </ul>
         </div>
-        <div> list-style-type = {this.state.list_Style_type} ;</div>
-        <div> list-style-position = {this.state.list_Style_position} ;</div>
+        <div> list-style-type = {list_Style_type} ;</div>
+        <div> list-style-position = {list_Style_position} ;</div>
         <p></p>
       </div>
     );
