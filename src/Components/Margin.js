@@ -21,21 +21,41 @@ class Margin extends Component {
     this.boxColour = this.boxColour.bind(this);
   }
 
+  componentDidMount() {
+    const {
+      paddingBottom,
+      paddingLeft,
+      paddingRight,
+      paddingTop,
+      marginRight,
+      marginBottom,
+      marginLeft,
+      marginTop,
+    } = this.state;
+    this.paddingStyle(paddingTop, paddingRight, paddingBottom, paddingLeft);
+    this.marginStyle(marginTop, marginRight, marginBottom, marginLeft);
+    this.boxColour(this.state.boxColour);
+  }
   async onChange(e) {
+    const {
+      paddingBottom,
+      paddingLeft,
+      paddingRight,
+      paddingTop,
+      marginRight,
+      marginBottom,
+      marginLeft,
+      marginTop,
+    } = this.state;
     await this.setState({
       [e.target.name]: [e.target.value],
     });
-    await this.marginStyle(
-      this.state.marginTop,
-      this.state.marginRight,
-      this.state.marginBottom,
-      this.state.marginLeft
-    );
+    await this.marginStyle(marginTop, marginRight, marginBottom, marginLeft);
     await this.paddingStyle(
-      this.state.paddingTop,
-      this.state.paddingRight,
-      this.state.paddingBottom,
-      this.state.paddingLeft
+      paddingTop,
+      paddingRight,
+      paddingBottom,
+      paddingLeft
     );
     await this.boxColour(this.state.boxColour);
   }
@@ -45,33 +65,29 @@ class Margin extends Component {
     b.style.backgroundColor = bg;
   }
   marginStyle(marginTop, marginRight, marginBottom, marginLeft) {
+    //const { marginRight, marginBottom, marginLeft, marginTop } = this.state;
     let ele = document.querySelector(".box-margin");
     ele.style.margin = `${marginTop}px ${marginRight}px ${marginBottom}px ${marginLeft}px `;
     document.body.appendChild(ele);
   }
   paddingStyle(paddingTop, paddingRight, paddingBottom, paddingLeft) {
+    //const { paddingBottom, paddingLeft, paddingRight, paddingTop } = this.state;
     let ele = document.querySelector(".box-margin");
     ele.style.padding = `${paddingTop}px ${paddingRight}px ${paddingBottom}px ${paddingLeft}px `;
     document.body.appendChild(ele);
   }
 
-  componentDidMount() {
-    this.paddingStyle(
-      this.state.paddingTop,
-      this.state.paddingRight,
-      this.state.paddingBottom,
-      this.state.paddingLeft
-    );
-    this.marginStyle(
-      this.state.marginTop,
-      this.state.marginRight,
-      this.state.marginBottom,
-      this.state.marginLeft
-    );
-    this.boxColour(this.state.boxColour);
-  }
-
   render() {
+    const {
+      paddingBottom,
+      paddingLeft,
+      paddingRight,
+      paddingTop,
+      marginRight,
+      marginBottom,
+      marginLeft,
+      marginTop,
+    } = this.state;
     return (
       <div className="App">
         <label htmlFor="marginTop">Margin Top</label>
@@ -79,7 +95,7 @@ class Margin extends Component {
           type="range"
           min="0"
           max="100"
-          value={this.state.marginTop}
+          value={marginTop}
           onChange={this.onChange}
           name="marginTop"
         />
@@ -88,7 +104,7 @@ class Margin extends Component {
           type="number"
           min="0"
           max="100"
-          value={this.state.marginTop}
+          value={marginTop}
           onChange={this.onChange}
           name="marginTop"
         />
@@ -98,7 +114,7 @@ class Margin extends Component {
           type="range"
           min="0"
           max="100"
-          value={this.state.marginBottom}
+          value={marginBottom}
           onChange={this.onChange}
           name="marginBottom"
         />
@@ -107,7 +123,7 @@ class Margin extends Component {
           type="number"
           min="0"
           max="100"
-          value={this.state.marginBottom}
+          value={marginBottom}
           onChange={this.onChange}
           name="marginBottom"
         />
@@ -117,7 +133,7 @@ class Margin extends Component {
           type="range"
           min="0"
           max="100"
-          value={this.state.marginRight}
+          value={marginRight}
           onChange={this.onChange}
           name="marginRight"
         />
@@ -126,7 +142,7 @@ class Margin extends Component {
           type="number"
           min="0"
           max="100"
-          value={this.state.marginRight}
+          value={marginRight}
           onChange={this.onChange}
           name="marginRight"
         />
@@ -136,7 +152,7 @@ class Margin extends Component {
           type="range"
           min="0"
           max="100"
-          value={this.state.marginLeft}
+          value={marginLeft}
           onChange={this.onChange}
           name="marginLeft"
         />
@@ -145,7 +161,7 @@ class Margin extends Component {
           type="number"
           min="0"
           max="100"
-          value={this.state.marginLeft}
+          value={marginLeft}
           onChange={this.onChange}
           name="marginLeft"
         />
@@ -155,7 +171,7 @@ class Margin extends Component {
           type="range"
           min="0"
           max="100"
-          value={this.state.paddingTop}
+          value={paddingTop}
           onChange={this.onChange}
           name="paddingTop"
         />
@@ -164,7 +180,7 @@ class Margin extends Component {
           type="number"
           min="0"
           max="100"
-          value={this.state.paddingTop}
+          value={paddingTop}
           onChange={this.onChange}
           name="paddingTop"
         />
@@ -174,7 +190,7 @@ class Margin extends Component {
           type="range"
           min="0"
           max="100"
-          value={this.state.paddingBottom}
+          value={paddingBottom}
           onChange={this.onChange}
           name="paddingBottom"
         />
@@ -183,7 +199,7 @@ class Margin extends Component {
           type="number"
           min="0"
           max="100"
-          value={this.state.paddingBottom}
+          value={paddingBottom}
           onChange={this.onChange}
           name="paddingBottom"
         />
@@ -193,7 +209,7 @@ class Margin extends Component {
           type="range"
           min="0"
           max="100"
-          value={this.state.paddingRight}
+          value={paddingRight}
           onChange={this.onChange}
           name="paddingRight"
         />
@@ -202,7 +218,7 @@ class Margin extends Component {
           type="number"
           min="0"
           max="100"
-          value={this.state.paddingRight}
+          value={paddingRight}
           onChange={this.onChange}
           name="paddingRight"
         />
@@ -212,7 +228,7 @@ class Margin extends Component {
           type="range"
           min="0"
           max="100"
-          value={this.state.paddingLeft}
+          value={paddingLeft}
           onChange={this.onChange}
           name="paddingLeft"
         />
@@ -221,7 +237,7 @@ class Margin extends Component {
           type="number"
           min="0"
           max="100"
-          value={this.state.paddingLeft}
+          value={paddingLeft}
           onChange={this.onChange}
           name="paddingLeft"
         />
@@ -243,11 +259,11 @@ class Margin extends Component {
         />
         <br />
         <div>
-          margin: &nbsp; {this.state.marginTop}px {this.state.marginRight}px{" "}
-          {this.state.marginBottom}px {this.state.marginLeft}px;
+          margin: &nbsp; {marginTop}px {marginRight}px {marginBottom}px{" "}
+          {marginLeft}px;
           <br></br>
-          padding: &nbsp; {this.state.paddingTop}px {this.state.paddingRight}px{" "}
-          {this.state.paddingBottom}px {this.state.paddingLeft}px;
+          padding: &nbsp; {paddingTop}px {paddingRight}px {paddingBottom}px{" "}
+          {paddingLeft}px;
         </div>
         <br></br>
         <div className="box-margin"> Hellooo </div>
