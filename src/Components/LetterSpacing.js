@@ -13,6 +13,10 @@ class LetterSpacing extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.letterSpacingStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -28,19 +32,15 @@ class LetterSpacing extends Component {
   }
 
   letterSpacingStyle() {
+    const { letter_space, unit } = this.state;
     let e = document.querySelector(".line");
-    e.style.letterSpacing = `${parseInt(this.state.letter_space)}${
-      this.state.unit
-    }`;
-    console.log(this.state.letter_space, this.state.unit);
+    e.style.letterSpacing = `${parseInt(letter_space)}${unit}`;
+    console.log(letter_space, unit);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.letterSpacingStyle();
-  }
-
   render() {
+    const { letter_space, unit } = this.state;
     return (
       <div className="App">
         <label htmlFor="letter_space">Letter Spacing</label>
@@ -49,7 +49,7 @@ class LetterSpacing extends Component {
           min="0"
           max="250"
           step="0.1"
-          value={this.state.letter_space}
+          value={letter_space}
           onChange={this.onChange}
           name="letter_space"
         />
@@ -59,17 +59,15 @@ class LetterSpacing extends Component {
           min="0"
           max="250"
           step="0.1"
-          value={this.state.letter_space}
+          value={letter_space}
           onChange={this.onChange}
           name="letter_space"
         />
         <br />
         <label htmlFor="value">unit</label>
-        <select value={this.state.unit} name="unit" onChange={this.onSelect}>
+        <select value={unit} name="unit" onChange={this.onSelect}>
           <option value="px">px </option>
           <option value="em">em</option>
-          <option value="%">percent</option>
-          <option value="normal">normal</option>
         </select>
         <p></p>
         <div className="line">
@@ -84,8 +82,8 @@ class LetterSpacing extends Component {
         </div>
         <div>
           {" "}
-          letterSpacing = {this.state.letter_space}
-          {this.state.unit} ;
+          letterSpacing = {letter_space}
+          {unit} ;
         </div>
         <p></p>
       </div>
