@@ -12,6 +12,10 @@ class FontVariant extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.FontVariantStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -27,22 +31,20 @@ class FontVariant extends Component {
   }
 
   FontVariantStyle() {
+    const { Font_Variant } = this.state;
     let e = document.querySelector(".FontVariant");
-    e.style.fontVariant = `${this.state.Font_Variant}`;
-    console.log(this.state.Font_Variant);
+    e.style.fontVariant = `${Font_Variant}`;
+    console.log(Font_Variant);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.FontVariantStyle();
-  }
-
   render() {
+    const { Font_Variant } = this.state;
     return (
       <div className="App">
         <label htmlFor="value">Font Variant</label>
         <select
-          value={this.state.Font_Variant}
+          value={Font_Variant}
           name="Font_Variant"
           onChange={this.onSelect}
         >
@@ -62,7 +64,7 @@ class FontVariant extends Component {
             molestie et suscipit eget, convallis a ipsum.
           </p>
         </div>
-        <div> font-variant = {this.state.Font_Variant} ; </div>
+        <div> font-variant = {Font_Variant} ; </div>
       </div>
     );
   }

@@ -13,6 +13,10 @@ class Height extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.HeightStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -28,17 +32,15 @@ class Height extends Component {
   }
 
   HeightStyle() {
+    const { Height, unit } = this.state;
     let e = document.querySelector(".Height");
-    e.style.height = `${parseInt(this.state.Height)}${this.state.unit}`;
-    console.log(this.state.Height, this.state.unit);
+    e.style.height = `${parseInt(Height)}${unit}`;
+    console.log(Height, unit);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.HeightStyle();
-  }
-
   render() {
+    const { Height, unit } = this.state;
     return (
       <div className="App">
         <label htmlFor="Height">Height</label>
@@ -47,7 +49,7 @@ class Height extends Component {
           min="0"
           max="500"
           step="1"
-          value={this.state.Height}
+          value={Height}
           onChange={this.onChange}
           name="Height"
         />
@@ -57,13 +59,13 @@ class Height extends Component {
           min="0"
           max="500"
           step="1"
-          value={this.state.Height}
+          value={Height}
           onChange={this.onChange}
           name="Height"
         />
         <br />
         <label htmlFor="value">unit</label>&nbsp;
-        <select value={this.state.unit} name="unit" onChange={this.onSelect}>
+        <select value={unit} name="unit" onChange={this.onSelect}>
           <option value="px">px </option>
           <option value="cm">cm</option>
         </select>
@@ -84,8 +86,8 @@ class Height extends Component {
         </div>
         <div>
           {" "}
-          Height = {this.state.Height}
-          {this.state.unit} ;
+          Height = {Height}
+          {unit} ;
         </div>
         <p></p>
       </div>

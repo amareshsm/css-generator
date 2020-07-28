@@ -12,6 +12,10 @@ class fontStyle extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.fontStyleStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -27,25 +31,19 @@ class fontStyle extends Component {
   }
 
   fontStyleStyle() {
+    const { font_Style } = this.state;
     let e = document.querySelector(".font");
-    e.style.fontStyle = `${this.state.font_Style}`;
-    console.log(this.state.font_Style);
+    e.style.fontStyle = `${font_Style}`;
+    console.log(font_Style);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.fontStyleStyle();
-  }
-
   render() {
+    const { font_Style } = this.state;
     return (
       <div className="App">
         <label htmlFor="value">font_Style</label>
-        <select
-          value={this.state.font_Style}
-          name="font_Style"
-          onChange={this.onSelect}
-        >
+        <select value={font_Style} name="font_Style" onChange={this.onSelect}>
           <option value="italic">italic </option>
           <option value="oblique">oblique</option>
           <option value="normal">normal</option>
@@ -61,7 +59,7 @@ class fontStyle extends Component {
             molestie et suscipit eget, convallis a ipsum.
           </p>
         </div>
-        <div> fontStyle = {this.state.font_Style} ;</div>
+        <div> fontStyle = {font_Style} ;</div>
         <p></p>
       </div>
     );
