@@ -12,6 +12,10 @@ class AllProperty extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.AllPropertyStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -27,22 +31,21 @@ class AllProperty extends Component {
   }
 
   AllPropertyStyle() {
+    const {All_Property} = this.state
     let e = document.querySelector(".AllProperty");
-    e.style.all = `${this.state.All_Property}`;
-    console.log(this.state.All_Property);
+    e.style.all = `${All_Property}`;
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.AllPropertyStyle();
-  }
+
 
   render() {
+    const {All_Property} = this.state
     return (
       <div className="App">
         <label htmlFor="value">All</label>&nbsp;
         <select
-          value={this.state.All_Property}
+          value={All_Property}
           name="All_Property"
           onChange={this.onSelect}
         >
@@ -62,7 +65,7 @@ class AllProperty extends Component {
             molestie et suscipit eget, convallis a ipsum.
           </p>
         </div>
-        <div> all = {this.state.All_Property} ;</div>
+        <div> all = {All_Property} ;</div>
         <p></p>
       </div>
     );
