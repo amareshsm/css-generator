@@ -49,6 +49,7 @@ import FlexboxPlayground from "./Components/FlexboxPlayground";
 import MaxHeight from "./Components/MaxHeight";
 import MaxWidth from "./Components/MaxWidth";
 import MinHeight from "./Components/MinHeight";
+import TableLayout from "./Components/TableLayout";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
@@ -220,6 +221,9 @@ class App extends Component {
             <a href="PointerEvents">PointerEvents</a>
           </li>
           <li>
+            <a href="TableLayout">Table Layout</a>
+          </li>
+          <li>
             <a href="TextAlign">TextAlign</a>
           </li>
           <li>
@@ -317,6 +321,7 @@ class App extends Component {
             <Route path="/MaxHeight" component={MaxHeight} />
             <Route path="/MaxWidth" component={MaxWidth} />
             <Route path="/MinHeight" component={MinHeight} />
+            <Route path="/TableLayout" component={TableLayout} />
           </Switch>
         </BrowserRouter>
       </>

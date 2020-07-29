@@ -1,0 +1,9 @@
+.TableLayout {
+  margin-left: 10px;
+  width: 200px;
+}
+table,
+th,
+td {
+  border: 1px solid black;
+}
