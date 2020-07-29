@@ -12,6 +12,10 @@ class EmptyCells extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.EmptyCellsStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -27,25 +31,19 @@ class EmptyCells extends Component {
   }
 
   EmptyCellsStyle() {
+    const { Empty_Cells } = this.state;
     let e = document.querySelector(".EmptyCells");
-    e.style.emptyCells = `${this.state.Empty_Cells}`;
-    console.log(this.state.Empty_Cells);
+    e.style.emptyCells = `${Empty_Cells}`;
+    console.log(Empty_Cells);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.EmptyCellsStyle();
-  }
-
   render() {
+    const { Empty_Cells } = this.state;
     return (
       <div className="App">
         <label htmlFor="value">Empty_Cells</label>
-        <select
-          value={this.state.Empty_Cells}
-          name="Empty_Cells"
-          onChange={this.onSelect}
-        >
+        <select value={Empty_Cells} name="Empty_Cells" onChange={this.onSelect}>
           <option value="hide">hide </option>
           <option value="show">show</option>
           <option value="initial">initial</option>
@@ -75,7 +73,7 @@ class EmptyCells extends Component {
             </tr>
           </tbody>
         </table>
-        <div> empty-cells = {this.state.Empty_Cells} ;</div>
+        <div> empty-cells = {Empty_Cells} ;</div>
         <p></p>
       </div>
     );
