@@ -12,6 +12,10 @@ class FontSize extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.FontSizeStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -27,25 +31,19 @@ class FontSize extends Component {
   }
 
   FontSizeStyle() {
+    const { Font_Size } = this.state;
     let e = document.querySelector(".FontSize");
-    e.style.fontSize = `${this.state.Font_Size}`;
-    console.log(this.state.Font_Size);
+    e.style.fontSize = `${Font_Size}`;
+    console.log(Font_Size);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.FontSizeStyle();
-  }
-
   render() {
+    const { Font_Size } = this.state;
     return (
       <div className="App">
         <label htmlFor="value">Font_Size</label>
-        <select
-          value={this.state.Font_Size}
-          name="Font_Size"
-          onChange={this.onSelect}
-        >
+        <select value={Font_Size} name="Font_Size" onChange={this.onSelect}>
           <option value="xx-small">xx-small </option>
           <option value="x-small">x-small</option>
           <option value="small">small</option>
@@ -67,7 +65,7 @@ class FontSize extends Component {
             molestie et suscipit eget, convallis a ipsum.
           </p>
         </div>
-        <div> font-size = {this.state.Font_Size} ;</div>
+        <div> font-size = {Font_Size} ;</div>
         <p></p>
       </div>
     );
