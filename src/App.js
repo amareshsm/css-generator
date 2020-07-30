@@ -51,6 +51,7 @@ import MaxWidth from "./Components/MaxWidth";
 import MinHeight from "./Components/MinHeight";
 import TableLayout from "./Components/TableLayout";
 import BorderSpacing from "./Components/BorderSpacing";
+import FontWeight from "./Components/FontWeight";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
@@ -191,6 +192,9 @@ class App extends Component {
             <a href="FontVariant">Font Variant</a>
           </li>
           <li>
+            <a href="FontWeight">FontWeight</a>
+          </li>
+          <li>
             <a href="Height">Height</a>
           </li>
 
@@ -327,6 +331,7 @@ class App extends Component {
             <Route path="/MinHeight" component={MinHeight} />
             <Route path="/TableLayout" component={TableLayout} />
             <Route path="/BorderSpacing" component={BorderSpacing} />
+            <Route path="/FontWeight" component={FontWeight} />
           </Switch>
         </BrowserRouter>
       </>
