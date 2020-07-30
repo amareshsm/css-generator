@@ -50,6 +50,7 @@ import MaxHeight from "./Components/MaxHeight";
 import MaxWidth from "./Components/MaxWidth";
 import MinHeight from "./Components/MinHeight";
 import TableLayout from "./Components/TableLayout";
+import BorderSpacing from "./Components/BorderSpacing";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
@@ -142,6 +143,9 @@ class App extends Component {
           </li>
           <li>
             <a href="BorderRadius">BorderRadius</a>
+          </li>
+          <li>
+            <a href="BorderSpacing">Border Spacing</a>
           </li>
           <li>
             <a href="BoxSizing">Box Sizing</a>
@@ -322,6 +326,7 @@ class App extends Component {
             <Route path="/MaxWidth" component={MaxWidth} />
             <Route path="/MinHeight" component={MinHeight} />
             <Route path="/TableLayout" component={TableLayout} />
+            <Route path="/BorderSpacing" component={BorderSpacing} />
           </Switch>
         </BrowserRouter>
       </>

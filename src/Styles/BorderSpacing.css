@@ -1,0 +1,10 @@
+.BorderSpacing {
+  margin-left: 10px;
+  width: 200px;
+  border-collapse: separate;
+}
+table,
+th,
+td {
+  border: 1px solid black;
+}
