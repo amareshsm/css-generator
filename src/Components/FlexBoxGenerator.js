@@ -15,45 +15,52 @@ class FlexBoxGenerator extends Component {
     this.Add_Click_Event = this.Add_Click_Event.bind(this);
   }
 
+  componentDidMount() {
+    this.Add_Click_Event();
+    this.Generate_Box();
+  }
+
   Add_Click_Event() {
-    let button = document.getElementById("button"); 
-    button.addEventListener("click", this.Generate_Box); 
-   
+    let button = document.getElementById("button");
+    button.addEventListener("click", this.Generate_Box);
   }
 
   Generate_Box() {
-    console.log()
+    const { no_of_boxes } = this.state;
+    console.log();
     let n;
-    n = document.getElementById("boxes").childElementCount+parseInt(this.state.no_of_boxes);
-    for (let i=document.getElementById("boxes").childElementCount+1; i <= n; i++) {
+    n =
+      document.getElementById("boxes").childElementCount +
+      parseInt(no_of_boxes);
+    for (
+      let i = document.getElementById("boxes").childElementCount + 1;
+      i <= n;
+      i++
+    ) {
       let boxes = document.createElement("div");
       boxes.classList.add("myDiv");
       document.getElementById("boxes").appendChild(boxes);
       boxes.innerHTML = i;
-    } 
+    }
   }
 
   async onChange(e) {
     await this.setState({
       [e.target.name]: [e.target.value],
     });
-
-  } 
-
-  componentDidMount() { 
-    this.Add_Click_Event()
-    this. Generate_Box()
   }
 
   render() {
+    const { no_of_boxes } = this.state;
     return (
       <div className="App">
         <label htmlFor="topLeftRadius">NO OF BOXES</label>
         <input
           type="number"
-          value={this.state.no_of_boxes}
+          value={no_of_boxes}
           onChange={this.onChange}
-          name="no_of_boxes"   />
+          name="no_of_boxes"
+        />
         <div>
           <button id="button">Generate</button>
         </div>

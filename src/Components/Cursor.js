@@ -31,23 +31,19 @@ class Cursor extends Component {
   }
 
   CursorStyle() {
+    const { Cursor } = this.state;
     let e = document.querySelector(".Cursor");
-    e.style.cursor = `${this.state.Cursor}`;
-    console.log(this.state.Cursor);
+    e.style.cursor = `${Cursor}`;
+    console.log(Cursor);
     document.body.appendChild(e);
   }
 
-
-
   render() {
+    const { Cursor } = this.state;
     return (
       <div className="App">
         <label htmlFor="value">Cursor</label>&nbsp;
-        <select
-          value={this.state.Cursor}
-          name="Cursor"
-          onChange={this.onSelect}
-        >
+        <select value={Cursor} name="Cursor" onChange={this.onSelect}>
           <option value="default">default</option>
           <option value="initial">initial</option>
           <option value="inherit">inherit</option>
@@ -88,7 +84,7 @@ class Cursor extends Component {
         </select>
         <p></p>
         <div className="Cursor"></div>
-        <div> cursor = {this.state.Cursor} ;</div>
+        <div> cursor = {Cursor} ;</div>
         <p></p>
       </div>
     );
