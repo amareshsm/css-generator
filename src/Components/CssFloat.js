@@ -12,6 +12,10 @@ class CssFloat extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.CssFloatStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -27,25 +31,19 @@ class CssFloat extends Component {
   }
 
   CssFloatStyle() {
+    const { Css_Float } = this.state;
     let e = document.querySelector(".CssFloat");
-    e.style.cssFloat = `${this.state.Css_Float}`;
-    console.log(this.state.Css_Float);
+    e.style.cssFloat = `${Css_Float}`;
+    console.log(Css_Float);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.CssFloatStyle();
-  }
-
   render() {
+    const { Css_Float } = this.state;
     return (
       <div className="App">
         <label htmlFor="value">Css_Float</label>&nbsp;
-        <select
-          value={this.state.Css_Float}
-          name="Css_Float"
-          onChange={this.onSelect}
-        >
+        <select value={Css_Float} name="Css_Float" onChange={this.onSelect}>
           <option value="left">left </option>
           <option value="right">right</option>
           <option value="none">none</option>
@@ -53,7 +51,7 @@ class CssFloat extends Component {
           <option value="inherit">inherit</option>
         </select>
         <p></p>
-        <div> float = {this.state.Css_Float} ;</div>
+        <div> float = {Css_Float} ;</div>
         <div className="Float">
           <p className="CssFloat" />
           <p>
