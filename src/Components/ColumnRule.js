@@ -15,6 +15,10 @@ class ColumnRule extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.ColumnRuleStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -30,17 +34,23 @@ class ColumnRule extends Component {
   }
 
   ColumnRuleStyle() {
+    const {
+      ColumnRule_colour,
+      ColumnRule_style,
+      ColumnRule_width,
+    } = this.state;
     let e = document.querySelector(".ColumnRule");
-    e.style.columnRule = `${this.state.ColumnRule_width}px ${this.state.ColumnRule_style} ${this.state.ColumnRule_colour}`;
+    e.style.columnRule = `${ColumnRule_width}px ${ColumnRule_style} ${ColumnRule_colour}`;
     console.log(this.state.ColumnRule);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.ColumnRuleStyle();
-  }
-
   render() {
+    const {
+      ColumnRule_colour,
+      ColumnRule_style,
+      ColumnRule_width,
+    } = this.state;
     return (
       <div className="App">
         <label htmlFor="value">ColumnRule_width</label>
@@ -49,7 +59,7 @@ class ColumnRule extends Component {
           type="range"
           min="0"
           max="25"
-          value={this.state.ColumnRule_width}
+          value={ColumnRule_width}
           onChange={this.onChange}
           name="ColumnRule_width"
         />
@@ -58,7 +68,7 @@ class ColumnRule extends Component {
           type="number"
           min="0"
           max="25"
-          value={this.state.ColumnRule_width}
+          value={ColumnRule_width}
           onChange={this.onChange}
           name="ColumnRule_width"
         />
@@ -66,7 +76,7 @@ class ColumnRule extends Component {
         <p></p>
         <label htmlFor="value">ColumnRule_style</label>
         <select
-          value={this.state.ColumnRule_style}
+          value={ColumnRule_style}
           name="ColumnRule_style"
           onChange={this.onChange}
         >
@@ -89,12 +99,12 @@ class ColumnRule extends Component {
           type="color"
           name="ColumnRule_colour"
           onChange={this.onChange}
-          value={this.state.ColumnRule_colour}
+          value={ColumnRule_colour}
         />
         &nbsp;
         <input
           type="text"
-          value={this.state.ColumnRule_colour}
+          value={ColumnRule_colour}
           onChange={this.onChange}
           name="ColumnRule_colour"
         />
@@ -109,16 +119,16 @@ class ColumnRule extends Component {
         </div>
         <div>
           {" "}
-          column-rule = {this.state.ColumnRule_width}px{" "}
-          {this.state.ColumnRule_style} {this.state.ColumnRule_colour} ;
+          column-rule = {ColumnRule_width}px {ColumnRule_style}{" "}
+          {ColumnRule_colour} ;
         </div>
         <div>
-          -webkit-column-rule = {this.state.ColumnRule_width}px{" "}
-          {this.state.ColumnRule_style} {this.state.ColumnRule_colour} ;
+          -webkit-column-rule = {ColumnRule_width}px {ColumnRule_style}{" "}
+          {ColumnRule_colour} ;
         </div>
         <div>
-          -moz-column-rule = {this.state.ColumnRule_width}px{" "}
-          {this.state.ColumnRule_style} {this.state.ColumnRule_colour} ;
+          -moz-column-rule = {ColumnRule_width}px {ColumnRule_style}{" "}
+          {ColumnRule_colour} ;
         </div>
         <p></p>
       </div>
