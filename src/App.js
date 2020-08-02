@@ -53,6 +53,7 @@ import TableLayout from "./Components/TableLayout";
 import BorderSpacing from "./Components/BorderSpacing";
 import FontWeight from "./Components/FontWeight";
 import MinWidth from "./Components/MinWidth";
+import TextAlignLast from "./Components/TextAlignLast";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
@@ -235,8 +236,12 @@ class App extends Component {
           <li>
             <a href="TableLayout">Table Layout</a>
           </li>
+
           <li>
             <a href="TextAlign">TextAlign</a>
+          </li>
+          <li>
+            <a href="TextAlignLast">Textalign Last</a>
           </li>
           <li>
             <a href="TextDecoration">TextDecoration</a>
@@ -337,6 +342,7 @@ class App extends Component {
             <Route path="/BorderSpacing" component={BorderSpacing} />
             <Route path="/FontWeight" component={FontWeight} />
             <Route path="/MinWidth" component={MinWidth} />
+            <Route path="/TextAlignLast" component={TextAlignLast} />
           </Switch>
         </BrowserRouter>
       </>
