@@ -56,6 +56,7 @@ import MinWidth from "./Components/MinWidth";
 import TextAlignLast from "./Components/TextAlignLast";
 import TabSize from "./Components/TabSize";
 import Resize from "./Components/Resize";
+import OverflowX from "./Components/OverflowX";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
@@ -170,7 +171,6 @@ class App extends Component {
           <li>
             <a href="ColumnRule">Column Rule</a>
           </li>
-
           <li>
             <a href="CssFloat">CssFloat</a>
           </li>
@@ -231,6 +231,9 @@ class App extends Component {
           </li>
           <li>
             <a href="Overflow">Overflow</a>
+          </li>
+          <li>
+            <a href="OverflowX">OverflowX</a>
           </li>
           <li>
             <a href="PointerEvents">PointerEvents</a>
@@ -352,6 +355,7 @@ class App extends Component {
             <Route path="/TextAlignLast" component={TextAlignLast} />
             <Route path="/TabSize" component={TabSize} />
             <Route path="/Resize" component={Resize} />
+            <Route path="/OverflowX" component={OverflowX} />
           </Switch>
         </BrowserRouter>
       </>
