@@ -54,6 +54,8 @@ import BorderSpacing from "./Components/BorderSpacing";
 import FontWeight from "./Components/FontWeight";
 import MinWidth from "./Components/MinWidth";
 import TextAlignLast from "./Components/TextAlignLast";
+import TabSize from "./Components/TabSize";
+import Resize from "./Components/Resize";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
@@ -234,9 +236,14 @@ class App extends Component {
             <a href="PointerEvents">PointerEvents</a>
           </li>
           <li>
+            <a href="Resize">Resize</a>
+          </li>
+          <li>
             <a href="TableLayout">Table Layout</a>
           </li>
-
+          <li>
+            <a href="TabSize">Tab Size</a>
+          </li>
           <li>
             <a href="TextAlign">TextAlign</a>
           </li>
@@ -343,6 +350,8 @@ class App extends Component {
             <Route path="/FontWeight" component={FontWeight} />
             <Route path="/MinWidth" component={MinWidth} />
             <Route path="/TextAlignLast" component={TextAlignLast} />
+            <Route path="/TabSize" component={TabSize} />
+            <Route path="/Resize" component={Resize} />
           </Switch>
         </BrowserRouter>
       </>
