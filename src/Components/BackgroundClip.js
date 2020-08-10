@@ -12,6 +12,10 @@ class BackgroundClip extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.BackgroundClipStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -28,21 +32,18 @@ class BackgroundClip extends Component {
 
   BackgroundClipStyle() {
     let e = document.querySelector(".BackgroundClip");
-    e.style.backgroundClip = `${this.state.Background_Clip}`;
-    console.log(this.state.Background_Clip);
+    e.style.backgroundClip = `${Background_Clip}`;
+    console.log(Background_Clip);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.BackgroundClipStyle();
-  }
-
   render() {
+    const { Background_Clip } = this.state;
     return (
       <div className="App">
         <label htmlFor="value">Background Clip</label>&nbsp;
         <select
-          value={this.state.Background_Clip}
+          value={Background_Clip}
           name="Background_Clip"
           onChange={this.onSelect}
         >
@@ -63,7 +64,7 @@ class BackgroundClip extends Component {
             molestie et suscipit eget, convallis a ipsum.
           </p>
         </div>
-        <div> background-clip = {this.state.Background_Clip} ;</div>
+        <div> background-clip = {Background_Clip} ;</div>
         <p></p>
       </div>
     );
