@@ -12,6 +12,10 @@ class BorderCollapse extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.BorderCollapseStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -27,22 +31,20 @@ class BorderCollapse extends Component {
   }
 
   BorderCollapseStyle() {
+    const { Border_Collapse } = this.state;
     let e = document.querySelector(".BorderCollapse");
-    e.style.borderCollapse = `${this.state.Border_Collapse}`;
-    console.log(this.state.Border_Collapse);
+    e.style.borderCollapse = `${Border_Collapse}`;
+    console.log(Border_Collapse);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.BorderCollapseStyle();
-  }
-
   render() {
+    const { Border_Collapse } = this.state;
     return (
       <div className="App">
         <label htmlFor="value">Border_Collapse</label>&nbsp;
         <select
-          value={this.state.Border_Collapse}
+          value={Border_Collapse}
           name="Border_Collapse"
           onChange={this.onSelect}
         >
@@ -75,7 +77,7 @@ class BorderCollapse extends Component {
             </tr>
           </tbody>
         </table>
-        <div> border-collapse = {this.state.Border_Collapse} ;</div>
+        <div> border-collapse = {Border_Collapse} ;</div>
         <p></p>
       </div>
     );

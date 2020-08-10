@@ -31,6 +31,7 @@ class BackgroundClip extends Component {
   }
 
   BackgroundClipStyle() {
+    const { Background_Clip } = this.state;
     let e = document.querySelector(".BackgroundClip");
     e.style.backgroundClip = `${Background_Clip}`;
     console.log(Background_Clip);
