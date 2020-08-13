@@ -57,6 +57,7 @@ import TextAlignLast from "./Components/TextAlignLast";
 import TabSize from "./Components/TabSize";
 import Resize from "./Components/Resize";
 import OverflowX from "./Components/OverflowX";
+import Opacity from "./Components/Opacity";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
@@ -227,6 +228,9 @@ class App extends Component {
             <a href="MinWidth">Min Width</a>
           </li>
           <li>
+            <a href="Opacity">Opacity</a>
+          </li>
+          <li>
             <a href="Outline">Outline</a>
           </li>
           <li>
@@ -357,6 +361,7 @@ class App extends Component {
             <Route path="/TabSize" component={TabSize} />
             <Route path="/Resize" component={Resize} />
             <Route path="/OverflowX" component={OverflowX} />
+            <Route path="/Opacity" component={Opacity} />
           </Switch>
         </BrowserRouter>
       </>
