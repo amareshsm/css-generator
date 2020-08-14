@@ -58,6 +58,7 @@ import TabSize from "./Components/TabSize";
 import Resize from "./Components/Resize";
 import OverflowX from "./Components/OverflowX";
 import Opacity from "./Components/Opacity";
+import Direction from "./Components/Direction";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
@@ -177,6 +178,9 @@ class App extends Component {
           </li>
           <li>
             <a href="Cursor">Cursor</a>
+          </li>
+          <li>
+            <a href="Direction">Direction</a>
           </li>
           <li>
             <a href="EmptyCells">Empty Cells</a>
@@ -362,6 +366,7 @@ class App extends Component {
             <Route path="/Resize" component={Resize} />
             <Route path="/OverflowX" component={OverflowX} />
             <Route path="/Opacity" component={Opacity} />
+            <Route path="/Direction" component={Direction} />
           </Switch>
         </BrowserRouter>
       </>
