@@ -1,7 +1,8 @@
 .Text_Overflow {
-  width: 10em;
-  outline: 1px solid #000;
+  width: 65px;
+  border: 1px solid #000;
   margin-left: 15px;
+  margin-bottom: 20px;
   white-space: nowrap;
   overflow: hidden;
 }

@@ -12,6 +12,10 @@ class BoxSizing extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.BoxSizingStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -27,25 +31,19 @@ class BoxSizing extends Component {
   }
 
   BoxSizingStyle() {
+    const { box_sizing } = this.state;
     let e = document.querySelector(".BoxSizing");
-    e.style.boxSizing = `${this.state.box_sizing}`;
-    console.log(this.state.box_sizing);
+    e.style.boxSizing = `${box_sizing}`;
+    console.log(box_sizing);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.BoxSizingStyle();
-  }
-
   render() {
+    const { box_sizing } = this.state;
     return (
       <div className="App">
         <label htmlFor="value">Box Sizing</label>&nbsp;
-        <select
-          value={this.state.box_sizing}
-          name="box_sizing"
-          onChange={this.onSelect}
-        >
+        <select value={box_sizing} name="box_sizing" onChange={this.onSelect}>
           <option value="">None</option>
           <option value="initial">initial</option>
           <option value="inherit">inherit</option>
@@ -59,9 +57,9 @@ class BoxSizing extends Component {
             consequat dui, et luctus quam.
           </p>
         </div>
-        <div> box-sizing = {this.state.box_sizing} ;</div>
-        <div> -webkit-box-sizing = {this.state.box_sizing} ;</div>
-        <div> -moz-box-sizing = {this.state.box_sizing} ;</div>
+        <div> box-sizing = {box_sizing} ;</div>
+        <div> -webkit-box-sizing = {box_sizing} ;</div>
+        <div> -moz-box-sizing = {box_sizing} ;</div>
         <p></p>
       </div>
     );

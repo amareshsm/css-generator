@@ -46,11 +46,10 @@ class TextOverflow extends Component {
         <select
           value={text_Overflow}
           name="text_Overflow"
-          onChange={this.onSelect}
+          onChange={this.onChange}
         >
           <option value="clip">clip </option>
           <option value="ellipsis">ellipsis</option>
-          <option value="---">---</option>
           <option value="">None</option>
         </select>
         <p></p>
