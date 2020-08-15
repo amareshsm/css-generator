@@ -12,6 +12,10 @@ class CaptionSide extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.CaptionSideStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -27,22 +31,20 @@ class CaptionSide extends Component {
   }
 
   CaptionSideStyle() {
+    const { Caption_Side } = this.state;
     let e = document.querySelector(".CaptionSide");
-    e.style.captionSide = `${this.state.Caption_Side}`;
-    console.log(this.state.Caption_Side);
+    e.style.captionSide = `${Caption_Side}`;
+    console.log(Caption_Side);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.CaptionSideStyle();
-  }
-
   render() {
+    const { Caption_Side } = this.state;
     return (
       <div className="App">
         <label htmlFor="value">Caption_Side</label>
         <select
-          value={this.state.Caption_Side}
+          value={Caption_Side}
           name="Caption_Side"
           onChange={this.onSelect}
         >
@@ -75,7 +77,7 @@ class CaptionSide extends Component {
             </tr>
           </tbody>
         </table>
-        <div> caption-side = {this.state.Caption_Side} ;</div>
+        <div> caption-side = {Caption_Side} ;</div>
         <p></p>
       </div>
     );
