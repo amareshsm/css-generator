@@ -13,6 +13,10 @@ class ColumnGap extends Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
+  componentDidMount() {
+    this.ColumnGapStyle();
+  }
+
   async onChange(e) {
     await this.setState({
       [e.target.name]: e.target.value,
@@ -28,17 +32,15 @@ class ColumnGap extends Component {
   }
 
   ColumnGapStyle() {
+    const { unit, ColumnGap } = this.state;
     let e = document.querySelector(".ColumnGap");
-    e.style.columnGap = `${parseInt(this.state.ColumnGap)}${this.state.unit}`;
-    console.log(this.state.ColumnGap, this.state.unit);
+    e.style.columnGap = `${parseInt(ColumnGap)}${unit}`;
+    console.log(ColumnGap, unit);
     document.body.appendChild(e);
   }
 
-  componentDidMount() {
-    this.ColumnGapStyle();
-  }
-
   render() {
+    const { unit, ColumnGap } = this.state;
     return (
       <div className="App">
         <label htmlFor="ColumnGap">ColumnGap</label>
@@ -47,7 +49,7 @@ class ColumnGap extends Component {
           min="0"
           max="500"
           step="1"
-          value={this.state.ColumnGap}
+          value={ColumnGap}
           onChange={this.onChange}
           name="ColumnGap"
         />
@@ -57,13 +59,13 @@ class ColumnGap extends Component {
           min="0"
           max="500"
           step="1"
-          value={this.state.ColumnGap}
+          value={ColumnGap}
           onChange={this.onChange}
           name="ColumnGap"
         />
         <br />
         <label htmlFor="value">unit</label>&nbsp;
-        <select value={this.state.unit} name="unit" onChange={this.onSelect}>
+        <select value={unit} name="unit" onChange={this.onSelect}>
           <option value="px">px </option>
         </select>
         <p></p>
@@ -83,12 +85,12 @@ class ColumnGap extends Component {
         </div>
         <div>
           {" "}
-          column-gap = {this.state.ColumnGap}
-          {this.state.unit} ;<br />
-          -webkit-column-gap = {this.state.ColumnGap}
-          {this.state.unit} ;<br />
-          -moz-column-gap = {this.state.ColumnGap}
-          {this.state.unit} ;<br />
+          column-gap = {ColumnGap}
+          {unit} ;<br />
+          -webkit-column-gap = {ColumnGap}
+          {unit} ;<br />
+          -moz-column-gap = {ColumnGap}
+          {unit} ;<br />
         </div>
         <p></p>
       </div>
