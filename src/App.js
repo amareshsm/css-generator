@@ -59,6 +59,7 @@ import Resize from "./Components/Resize";
 import OverflowX from "./Components/OverflowX";
 import Opacity from "./Components/Opacity";
 import Direction from "./Components/Direction";
+import Position from "./Components/Position";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
@@ -247,6 +248,9 @@ class App extends Component {
             <a href="PointerEvents">PointerEvents</a>
           </li>
           <li>
+            <a href="Position">Position</a>
+          </li>
+          <li>
             <a href="Resize">Resize</a>
           </li>
           <li>
@@ -367,6 +371,7 @@ class App extends Component {
             <Route path="/OverflowX" component={OverflowX} />
             <Route path="/Opacity" component={Opacity} />
             <Route path="/Direction" component={Direction} />
+            <Route path="/Position" component={Position} />
           </Switch>
         </BrowserRouter>
       </>
