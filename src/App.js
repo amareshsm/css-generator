@@ -60,6 +60,7 @@ import OverflowX from "./Components/OverflowX";
 import Opacity from "./Components/Opacity";
 import Direction from "./Components/Direction";
 import Position from "./Components/Position";
+import Right from "./Components/Right";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
@@ -254,6 +255,9 @@ class App extends Component {
             <a href="Resize">Resize</a>
           </li>
           <li>
+            <a href="Right">Right</a>
+          </li>
+          <li>
             <a href="TableLayout">Table Layout</a>
           </li>
           <li>
@@ -372,6 +376,7 @@ class App extends Component {
             <Route path="/Opacity" component={Opacity} />
             <Route path="/Direction" component={Direction} />
             <Route path="/Position" component={Position} />
+            <Route path="/Right" component={Right} />
           </Switch>
         </BrowserRouter>
       </>
