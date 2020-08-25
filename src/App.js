@@ -61,6 +61,7 @@ import Opacity from "./Components/Opacity";
 import Direction from "./Components/Direction";
 import Position from "./Components/Position";
 import Right from "./Components/Right";
+import Left from "./Components/Left";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
@@ -208,7 +209,9 @@ class App extends Component {
           <li>
             <a href="Height">Height</a>
           </li>
-
+          <li>
+            <a href="Left">Left</a>
+          </li>
           <li>
             <a href="LetterSpacing">LetterSpacing</a>
           </li>
@@ -377,6 +380,7 @@ class App extends Component {
             <Route path="/Direction" component={Direction} />
             <Route path="/Position" component={Position} />
             <Route path="/Right" component={Right} />
+            <Route path="/Left" component={Left} />
           </Switch>
         </BrowserRouter>
       </>
