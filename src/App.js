@@ -62,6 +62,7 @@ import Direction from "./Components/Direction";
 import Position from "./Components/Position";
 import Right from "./Components/Right";
 import Left from "./Components/Left";
+import BackgroundRepeat from "./Components/BackgroundRepeat";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
@@ -142,6 +143,9 @@ class App extends Component {
           </li>
           <li>
             <a href="BackgroundClip">BackgroundClip</a>
+          </li>
+          <li>
+            <a href="BackgroundRepeat">BackgroundRepeat</a>
           </li>
           <li>
             <a href="Border">Border</a>
@@ -381,6 +385,7 @@ class App extends Component {
             <Route path="/Position" component={Position} />
             <Route path="/Right" component={Right} />
             <Route path="/Left" component={Left} />
+            <Route path="/BackgroundRepeat" component={BackgroundRepeat} />
           </Switch>
         </BrowserRouter>
       </>
