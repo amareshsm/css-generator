@@ -64,6 +64,7 @@ import Right from "./Components/Right";
 import Left from "./Components/Left";
 import BackgroundRepeat from "./Components/BackgroundRepeat";
 import BackgroundBlendMode from "./Components/BackgroundBlendMode";
+import BackgroundColor from "./Components/BackgroundColor";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
@@ -147,6 +148,9 @@ class App extends Component {
           </li>
           <li>
             <a href="BackgroundClip">BackgroundClip</a>
+          </li>
+          <li>
+            <a href="BackgroundColor">BackgroundColor</a>
           </li>
           <li>
             <a href="BackgroundRepeat">BackgroundRepeat</a>
@@ -393,7 +397,8 @@ class App extends Component {
             <Route
               path="/BackgroundBlendMode"
               component={BackgroundBlendMode}
-            />{" "}
+            />
+            <Route path="/BackgroundColor" component={BackgroundColor}></Route>
           </Switch>
         </BrowserRouter>
       </>
