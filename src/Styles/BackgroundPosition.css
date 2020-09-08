@@ -1,10 +1,9 @@
 .BackgroundPosition {
-  background-image: url(https://images.unsplash.com/photo-1568719051357-45ddb8e4e3f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
-  height: 300px;
+  background-image: url(https://www.iconfinder.com/data/icons/energy-technology-flat-multicolor-background-shado/2048/318_-_Water_II-128.png);
+  height: 200px;
   width: 50%;
-}
-.Body {
-  height: 500px;
-  width: 500px;
   border: 1px solid black;
+  background-repeat: no-repeat;
+  margin: 20px;
+  background-size: 70px;
 }
