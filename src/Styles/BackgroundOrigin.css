@@ -1,0 +1,11 @@
+.BackgroundOrigin {
+  background-image: url(https://www.iconfinder.com/data/icons/energy-technology-flat-multicolor-background-shado/2048/318_-_Water_II-128.png);
+  height: 300px;
+  width: 50%;
+  border: 3px dotted black;
+  background-repeat: no-repeat;
+  margin: 20px;
+  background-size: 70px;
+  padding: 30px;
+  background-repeat: no-repeat;
+}
