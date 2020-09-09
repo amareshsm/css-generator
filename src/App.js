@@ -67,6 +67,7 @@ import BackgroundBlendMode from "./Components/BackgroundBlendMode";
 import BackgroundColor from "./Components/BackgroundColor";
 import BackgroundPosition from "./Components/BackgroundPosition";
 import BackgroundOrigin from "./Components/BackgroundOrigin";
+import OverflowY from "./Components/OverflowY";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
@@ -269,6 +270,9 @@ class App extends Component {
             <a href="OverflowX">OverflowX</a>
           </li>
           <li>
+            <a href="OverflowY">OverflowY</a>
+          </li>
+          <li>
             <a href="PointerEvents">PointerEvents</a>
           </li>
           <li>
@@ -310,7 +314,6 @@ class App extends Component {
           <li>
             <a href="Top">Top Property</a>
           </li>
-
           <li>
             <a href="UserSelect">UserSelect</a>
           </li>
@@ -409,6 +412,7 @@ class App extends Component {
             <Route path="/BackgroundColor" component={BackgroundColor}></Route>
             <Route path="/BackgroundPosition" component={BackgroundPosition} />
             <Route path="/BackgroundOrigin" component={BackgroundOrigin} />
+            <Route path="/OverflowY" component={OverflowY} />
           </Switch>
         </BrowserRouter>
       </>
