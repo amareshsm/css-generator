@@ -68,6 +68,7 @@ import BackgroundColor from "./Components/BackgroundColor";
 import BackgroundPosition from "./Components/BackgroundPosition";
 import BackgroundOrigin from "./Components/BackgroundOrigin";
 import OverflowY from "./Components/OverflowY";
+import Display from './Components/Display';
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
@@ -205,6 +206,9 @@ class App extends Component {
           </li>
           <li>
             <a href="Direction">Direction</a>
+          </li>
+          <li>
+            <a href="Display">Display</a>
           </li>
           <li>
             <a href="EmptyCells">Empty Cells</a>
@@ -413,6 +417,7 @@ class App extends Component {
             <Route path="/BackgroundPosition" component={BackgroundPosition} />
             <Route path="/BackgroundOrigin" component={BackgroundOrigin} />
             <Route path="/OverflowY" component={OverflowY} />
+            <Route path="/Display" component={Display} />
           </Switch>
         </BrowserRouter>
       </>
