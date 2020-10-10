@@ -33,8 +33,8 @@ class Border extends Component {
     await this.BorderStyle();
   }
 
-  BorderStyle() {
-    const {Border_colour,Border_offset,Border_style,Border_width} = this.state
+  BorderStyle= ()=> {
+    const {Border_colour,Border_style,Border_width} = this.state
     
     let e = document.querySelector(".Border");
     e.style.border = `${Border_width}px ${Border_style} ${Border_colour}`;

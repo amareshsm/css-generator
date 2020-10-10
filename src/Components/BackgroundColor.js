@@ -8,7 +8,6 @@ class BackgroundColor extends Component {
       BackgroundColor: "#88afd7",
     };
     this.onChange = this.onChange.bind(this);
-    this.BackgroundColorStyle = this.BackgroundColorStyle.bind(this);
     this.onSelect = this.onSelect.bind(this);
   }
 
@@ -30,7 +29,7 @@ class BackgroundColor extends Component {
     await this.BackgroundColorStyle();
   }
 
-  BackgroundColorStyle() {
+  BackgroundColorStyle=()=> {
     const { BackgroundColor } = this.state;
 
     let e = document.querySelector(".BackgroundColor");

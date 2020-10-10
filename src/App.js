@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-
+import Home from "./Pages/Home"
 import BoxShadow from "./Components/BoxShadow";
 import BorderRadius from "./Components/BorderRadius.js";
 import TextShadow from "./Components/TextShadow";
@@ -342,7 +342,7 @@ class App extends Component {
 
         <BrowserRouter>
           <Switch>
-            {/* <Route path="/" component={Home} exact />*/}
+             <Route path="/home" component={Home} exact />
             <Route path="/BoxShadow" component={BoxShadow} />
             <Route path="/BorderRadius" component={BorderRadius} />
             <Route path="/TextShadow" component={TextShadow} />

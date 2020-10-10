@@ -7,30 +7,28 @@ class AlignContent extends Component {
     this.state = {
       Align_Content: "stretch",
     };
-    this.onChange = this.onChange.bind(this);
-    this.AlignContentStyle = this.AlignContentStyle.bind(this);
-    this.onSelect = this.onSelect.bind(this);
+
   }
 
   componentDidMount() {
     this.AlignContentStyle();
   }
 
-  async onChange(e) {
+   onChange= async (e)=> {
     await this.setState({
       [e.target.name]: e.target.value,
     });
     await this.AlignContentStyle();
   }
 
-  async onSelect(e) {
+   onSelect = async (e) =>{
     await this.setState({
       Align_Content: [e.target.value],
     });
     await this.AlignContentStyle();
   }
 
-  AlignContentStyle() {
+  AlignContentStyle=()=> {
     const {Align_Content} =this.state 
     let e = document.querySelector(".AlignContent");
     e.style.alignContent = `${Align_Content}`;
@@ -41,7 +39,6 @@ class AlignContent extends Component {
 
 
   render() {
-
       const {Align_Content} = this.state
     return (
       <div className="App">
