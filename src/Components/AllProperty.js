@@ -7,30 +7,28 @@ class AllProperty extends Component {
     this.state = {
       All_Property: "",
     };
-    this.onChange = this.onChange.bind(this);
-    this.AllPropertyStyle = this.AllPropertyStyle.bind(this);
-    this.onSelect = this.onSelect.bind(this);
+
   }
 
   componentDidMount() {
     this.AllPropertyStyle();
   }
 
-  async onChange(e) {
+   onChange= async (e) =>{
     await this.setState({
       [e.target.name]: e.target.value,
     });
     await this.AllPropertyStyle();
   }
 
-  async onSelect(e) {
+   onSelect= async (e) =>{
     await this.setState({
       All_Property: [e.target.value],
     });
     await this.AllPropertyStyle();
   }
 
-  AllPropertyStyle() {
+  AllPropertyStyle = ()=> {
     const {All_Property} = this.state
     let e = document.querySelector(".AllProperty");
     e.style.all = `${All_Property}`;
