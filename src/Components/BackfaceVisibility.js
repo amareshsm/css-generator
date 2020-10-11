@@ -16,21 +16,21 @@ class BackfaceVisibility extends Component {
     this.BackfaceVisibilityStyle();
   }
 
-  async onChange(e) {
+   onChange =  async (e) =>{
     await this.setState({
       [e.target.name]: e.target.value,
     });
     await this.BackfaceVisibilityStyle();
   }
 
-  async onSelect(e) {
+   onSelect =  async (e) =>{
     await this.setState({
       Backface_Visibility: [e.target.value],
     });
     await this.BackfaceVisibilityStyle();
   }
 
-  BackfaceVisibilityStyle() {
+  BackfaceVisibilityStyle = () => {
     const {Backface_Visibility} = this.state
     let e = document.querySelector(".BackfaceVisibility");
     e.style.backfaceVisibility = `${Backface_Visibility}`;
