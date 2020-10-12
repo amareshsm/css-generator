@@ -16,14 +16,14 @@ class BackgroundBlendMode extends Component {
     this.BackgroundBlendModeStyle();
   }
 
-  async onChange(e) {
+   onChange = async(e) => {
     await this.setState({
       [e.target.name]: e.target.value,
     });
     await this.BackgroundBlendModeStyle();
   }
 
-  async onSelect(e) {
+   onSelect = async (e) =>{
     await this.setState({
       BackgroundBlendMode: [e.target.value],
     });
