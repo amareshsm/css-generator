@@ -22,7 +22,7 @@ class BackgroundColor extends Component {
     await this.BackgroundColorStyle();
   }
 
-  async onSelect(e) {
+   onSelect= async(e)=> {
     await this.setState({
       BackgroundColor_width: [e.target.value],
     });
