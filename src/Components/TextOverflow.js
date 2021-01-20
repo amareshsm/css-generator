@@ -50,14 +50,13 @@ class TextOverflow extends Component {
         >
           <option value="clip">clip </option>
           <option value="ellipsis">ellipsis</option>
-          <option value="">None</option>
+          <option value="initial">Initial</option>
+          <option value="inherit">inherit</option>
         </select>
         <p></p>
         <div className="Text_Overflow">
-          <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget
             consequat dui, et luctus quam.
-          </p>
         </div>
         <div> text-overflow = {text_Overflow} ;</div>
         <p></p>
