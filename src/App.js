@@ -69,6 +69,7 @@ import BackgroundPosition from "./Components/BackgroundPosition";
 import BackgroundOrigin from "./Components/BackgroundOrigin";
 import OverflowY from "./Components/OverflowY";
 import Display from './Components/Display';
+import CaretColor from './Components/CaretColor';
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
@@ -188,6 +189,9 @@ class App extends Component {
           </li>
           <li>
             <a href="CaptionSide">CaptionSide</a>
+          </li>
+          <li>
+            <a href="CaretColor">CaretColor</a>
           </li>
           <li>
             <a href="ColumnCount">Column Count</a>
@@ -418,6 +422,7 @@ class App extends Component {
             <Route path="/BackgroundOrigin" component={BackgroundOrigin} />
             <Route path="/OverflowY" component={OverflowY} />
             <Route path="/Display" component={Display} />
+            <Route path="/CaretColor" component={CaretColor} />
           </Switch>
         </BrowserRouter>
       </>
